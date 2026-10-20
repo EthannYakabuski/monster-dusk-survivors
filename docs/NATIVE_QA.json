@@ -1,0 +1,31 @@
+{
+  "schema": "public-local-qa-summary-v1",
+  "scope": "Dated local verification summary, not a machine ledger, original validation receipt or production acceptance.",
+  "package": "com.ethannyakabuski.monsterdusk",
+  "source_apk_sha256": "7267ef893747203ecfc17dbbc61d784089484bdb5bd8d643cd5bbdc747d0e0fb",
+  "apk_bytes": 185317364,
+  "diagnostic_hooks_used": false,
+  "verified_observations": [
+    "Actual earned revive remained behind its earned endcard for112.479seconds, then returned alive at the same17-second/9-kill HUD; ordinary movement/DASH progressed afterward and a second revive was unavailable.",
+    "A separate negative attempt preserved banked progress. Two actual dead-result banks triggered an observed interstitial presentation/dismissal; alive pause-banks were not represented as completed rounds.",
+    "A kills quest paid once with repeat disabled, a priced power upgrade and Android Back/pause/resume were checked. The same-day login gift was already claimed, so no new gift payout is claimed.",
+    "All25 banked groups matched on installation, offline cold launch and restart. Nine unmodified guest frames and ordinary offline play were reviewed. Interrupted capture work completed through a bounded manual continuation, with network/display restoration and safe stop recorded."
+  ],
+  "saved_groups_checked": 25,
+  "reviewed_guest_screenshot_count": 9,
+  "physical_device_test": false,
+  "physical_tablet_test": false,
+  "limits": [
+    "One Android11/API30 x86 emulator with logical phone/tablet display profiles was tested; no physical phone or tablet acceptance.",
+    "Godot4.5.1 Compatibility exports use minAPI24/targetAPI35 under the recorded engine constraint; current Google Play release eligibility remains owner work.",
+    "Emulator audio was disabled. Audible Android sound, interactive Web/audio/WebGL, production services and human acceptance remain unverified.",
+    "Official Google test IDs only. Real backend/service IDs, consent, signing, production checks and Google Play publication remain owner work.",
+    "Short QA does not establish all content/equipment combinations, broad ad-fill reliability, long sessions, midnight rollover, multi-day login or human balance.",
+    "Source publication does not establish a successful hosted CI run or live deployment. Pages deployment remains explicitly disabled pending separate authorization.",
+    "Restricted-host root-certificate-store warnings remain in historical logs; do not describe all stderr as clean. The20 focused fullscreen fixture checks separately completed without matched log errors.",
+    "Earlier desktop smoke used invulnerability and a fixed QA fixture; the final nine Android frames used normally launched gameplay. Desktop service-stub callbacks do not prove native callbacks or human survival balance.",
+    "Whole-second HUD/counter observations bound native freeze evidence; exact subsecond simulation was not instrumented. The first fullscreen presentation was photographed but its log line was not retained; no missing event is inferred.",
+    "The original offline batch was interrupted and a bounded manual continuation completed the remainder. The original status was not rewritten as completed. Alive pause-banks are not counted as completed interstitial rounds.",
+    "Creature Mixer artwork has custom personal/educational/commercial terms excluding NFT/blockchain projects; it is not CC0. Separately credited western/audio assets are CC0."
+  ]
+}

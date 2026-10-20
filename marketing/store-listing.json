@@ -1,0 +1,278 @@
+{
+  "title": "Monster Dusk: Apocalypse",
+  "short_description": "Keep the lantern lit through an endless night of monsters and upgrades.",
+  "long_description": "When the monsters arrive, keep a little light moving.\n\nMonster Dusk: Apocalypse is an endless portrait survival shooter with a lantern, a dash, and a whole bestiary waiting beyond the camp. Steer with a thumb joystick while your lantern fires toward the nearest threat. Stay mobile as short waves grow stronger and elite encounters test your build.\n\nLearn the behavior of six enemy roles, from quick pursuers and sturdy tanks to ranged and magical attackers. Two hundred creature appearances make the night a field guide as well as a fight.\n\nChoose repeater, scatter or piercing lantern builds and shape each run with upgrade choices. Pick up healing, haste, shields and a clearing nova when the horde leaves you room to breathe.\n\nBetween runs, grow your keeper level, buy permanent upgrades, complete three daily quests, and return for a seven-night welcome-gift streak. Local saves keep your camp progress available offline.\n\nThe Android edition supports optional rewarded benefits and ads between completed runs. Google Play Games achievements and leaderboards depend on sign-in and the owner's final configuration. The Web edition keeps the core night playable with graceful fallbacks for Android-only services.",
+  "category": "GAME_ACTION",
+  "suggested_tags": [
+    "Action",
+    "Survival",
+    "Arcade",
+    "Single player",
+    "Offline"
+  ],
+  "orientation": "portrait",
+  "developer": "EthannYakabuski",
+  "target_platforms": [
+    "Android",
+    "Web where feasible"
+  ],
+  "feature_graphic": "feature-graphic-1024x500.png",
+  "app_icon": "app-icon-512.png",
+  "achievement_icons": [
+    {
+      "key": "first_light",
+      "name": "First Light",
+      "description": "Defeat 10 monsters.",
+      "threshold": 10,
+      "metric": "kills",
+      "file": "achievements/first_light.png"
+    },
+    {
+      "key": "trail_keeper",
+      "name": "Trail Keeper",
+      "description": "Defeat 100 monsters.",
+      "threshold": 100,
+      "metric": "kills",
+      "file": "achievements/trail_keeper.png"
+    },
+    {
+      "key": "dusk_defender",
+      "name": "Dusk Defender",
+      "description": "Defeat 500 monsters.",
+      "threshold": 500,
+      "metric": "kills",
+      "file": "achievements/dusk_defender.png"
+    },
+    {
+      "key": "night_legend",
+      "name": "Night Legend",
+      "description": "Defeat 2,000 monsters.",
+      "threshold": 2000,
+      "metric": "kills",
+      "file": "achievements/night_legend.png"
+    },
+    {
+      "key": "endless_lantern",
+      "name": "Endless Lantern",
+      "description": "Defeat 10,000 monsters.",
+      "threshold": 10000,
+      "metric": "kills",
+      "file": "achievements/endless_lantern.png"
+    },
+    {
+      "key": "beyond_gate",
+      "name": "Beyond the Gate",
+      "description": "Reach wave 3.",
+      "threshold": 3,
+      "metric": "best_wave",
+      "file": "achievements/beyond_gate.png"
+    },
+    {
+      "key": "first_elite_wave",
+      "name": "The Fifth Bell",
+      "description": "Reach wave 5.",
+      "threshold": 5,
+      "metric": "best_wave",
+      "file": "achievements/first_elite_wave.png"
+    },
+    {
+      "key": "ten_bells",
+      "name": "Ten Bells",
+      "description": "Reach wave 10.",
+      "threshold": 10,
+      "metric": "best_wave",
+      "file": "achievements/ten_bells.png"
+    },
+    {
+      "key": "twenty_bells",
+      "name": "The Long Watch",
+      "description": "Reach wave 20.",
+      "threshold": 20,
+      "metric": "best_wave",
+      "file": "achievements/twenty_bells.png"
+    },
+    {
+      "key": "two_minute_watch",
+      "name": "Keep the Light",
+      "description": "Survive two minutes in one run.",
+      "threshold": 120,
+      "metric": "best_seconds",
+      "file": "achievements/two_minute_watch.png"
+    },
+    {
+      "key": "five_minute_watch",
+      "name": "Past Midnight",
+      "description": "Survive five minutes in one run.",
+      "threshold": 300,
+      "metric": "best_seconds",
+      "file": "achievements/five_minute_watch.png"
+    },
+    {
+      "key": "ten_minute_watch",
+      "name": "Dawn Seeker",
+      "description": "Survive ten minutes in one run.",
+      "threshold": 600,
+      "metric": "best_seconds",
+      "file": "achievements/ten_minute_watch.png"
+    },
+    {
+      "key": "nimble_keeper",
+      "name": "Nimble Keeper",
+      "description": "Dash 25 times.",
+      "threshold": 25,
+      "metric": "dashes",
+      "file": "achievements/nimble_keeper.png"
+    },
+    {
+      "key": "dust_dancer",
+      "name": "Dust Dancer",
+      "description": "Dash 250 times.",
+      "threshold": 250,
+      "metric": "dashes",
+      "file": "achievements/dust_dancer.png"
+    },
+    {
+      "key": "elite_hunter",
+      "name": "Crown Breaker",
+      "description": "Defeat your first elite monster.",
+      "threshold": 1,
+      "metric": "elites",
+      "file": "achievements/elite_hunter.png"
+    },
+    {
+      "key": "elite_veteran",
+      "name": "No Crown Too Tall",
+      "description": "Defeat 25 elite monsters.",
+      "threshold": 25,
+      "metric": "elites",
+      "file": "achievements/elite_veteran.png"
+    },
+    {
+      "key": "bright_pockets",
+      "name": "Bright Pockets",
+      "description": "Collect 25 combat powerups.",
+      "threshold": 25,
+      "metric": "powerups",
+      "file": "achievements/bright_pockets.png"
+    },
+    {
+      "key": "walking_sunrise",
+      "name": "Walking Sunrise",
+      "description": "Collect 250 combat powerups.",
+      "threshold": 250,
+      "metric": "powerups",
+      "file": "achievements/walking_sunrise.png"
+    },
+    {
+      "key": "keeper_three",
+      "name": "A Steady Hand",
+      "description": "Reach keeper level 3.",
+      "threshold": 3,
+      "metric": "player_level",
+      "file": "achievements/keeper_three.png"
+    },
+    {
+      "key": "keeper_six",
+      "name": "Moonlit Apprentice",
+      "description": "Reach keeper level 6.",
+      "threshold": 6,
+      "metric": "player_level",
+      "file": "achievements/keeper_six.png"
+    },
+    {
+      "key": "keeper_twelve",
+      "name": "Camp Elder",
+      "description": "Reach keeper level 12.",
+      "threshold": 12,
+      "metric": "player_level",
+      "file": "achievements/keeper_twelve.png"
+    },
+    {
+      "key": "naturalist",
+      "name": "Dusk Naturalist",
+      "description": "Sight 50 different creature appearances.",
+      "threshold": 50,
+      "metric": "seen",
+      "file": "achievements/naturalist.png"
+    },
+    {
+      "key": "field_scholar",
+      "name": "The Field Scholar",
+      "description": "Sight 150 different creature appearances.",
+      "threshold": 150,
+      "metric": "seen",
+      "file": "achievements/field_scholar.png"
+    },
+    {
+      "key": "helping_hands",
+      "name": "Helping Hands",
+      "description": "Claim three daily quests.",
+      "threshold": 3,
+      "metric": "quests",
+      "file": "achievements/helping_hands.png"
+    },
+    {
+      "key": "camp_regular",
+      "name": "Camp Regular",
+      "description": "Claim 15 daily quests.",
+      "threshold": 15,
+      "metric": "quests",
+      "file": "achievements/camp_regular.png"
+    },
+    {
+      "key": "seven_lanterns",
+      "name": "Seven Lanterns",
+      "description": "Claim seven consecutive daily welcome gifts.",
+      "threshold": 7,
+      "metric": "login_streak",
+      "file": "achievements/seven_lanterns.png"
+    },
+    {
+      "key": "well_equipped",
+      "name": "Well Equipped",
+      "description": "Purchase ten permanent upgrade levels.",
+      "threshold": 10,
+      "metric": "upgrades",
+      "file": "achievements/well_equipped.png"
+    }
+  ],
+  "leaderboard_icons": [
+    {
+      "key": "best_wave",
+      "name": "Highest Wave",
+      "description": "Your highest wave reached in a banked run. Higher is better.",
+      "metric": "best_wave",
+      "file": "leaderboards/best_wave.png"
+    },
+    {
+      "key": "best_seconds",
+      "name": "Longest Night",
+      "description": "Your longest banked survival time, in seconds. Higher is better.",
+      "metric": "best_seconds",
+      "file": "leaderboards/best_seconds.png"
+    },
+    {
+      "key": "kills",
+      "name": "Monsters Defeated",
+      "description": "Lifetime monsters defeated across banked runs. Higher is better.",
+      "metric": "kills",
+      "file": "leaderboards/kills.png"
+    },
+    {
+      "key": "player_level",
+      "name": "Keeper Level",
+      "description": "Your permanent keeper level. Higher is better.",
+      "metric": "player_level",
+      "file": "leaderboards/player_level.png"
+    },
+    {
+      "key": "seen",
+      "name": "Creatures Sighted",
+      "description": "Unique creature appearances sighted across banked runs, out of 200.",
+      "metric": "seen",
+      "file": "leaderboards/seen.png"
+    }
+  ],
+  "copy_validation": "Draft aligned to the game brief; confirm against actual implemented build before store submission.",
+  "external_services": "Google Play Games IDs/backend and production AdMob account configuration/final tests are supplied by the owner. First-pass ads use test IDs."
+}

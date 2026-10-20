@@ -1,0 +1,26 @@
+Monster Dusk: Apocalypse
+
+SHORT DESCRIPTION (71/80 characters)
+Keep the lantern lit through an endless night of monsters and upgrades.
+
+LONG DESCRIPTION
+When the monsters arrive, keep a little light moving.
+
+Monster Dusk: Apocalypse is an endless portrait survival shooter with a lantern, a dash, and a whole bestiary waiting beyond the camp. Steer with a thumb joystick while your lantern fires toward the nearest threat. Stay mobile as short waves grow stronger and elite encounters test your build.
+
+Learn the behavior of six enemy roles, from quick pursuers and sturdy tanks to ranged and magical attackers. Two hundred creature appearances make the night a field guide as well as a fight.
+
+Choose repeater, scatter or piercing lantern builds and shape each run with upgrade choices. Pick up healing, haste, shields and a clearing nova when the horde leaves you room to breathe.
+
+Between runs, grow your keeper level, buy permanent upgrades, complete three daily quests, and return for a seven-night welcome-gift streak. Local saves keep your camp progress available offline.
+
+The Android edition supports optional rewarded benefits and ads between completed runs. Google Play Games achievements and leaderboards depend on sign-in and the owner's final configuration. The Web edition keeps the core night playable with graceful fallbacks for Android-only services.
+
+CATEGORY
+GAME_ACTION
+
+SUGGESTED TAGS
+Action, Survival, Arcade, Single player, Offline
+
+PUBLICATION NOTE
+This is store copy for the implemented candidate, not a claim of publication or production-service verification. Check feature claims against the final build before uploading. The owner completes backend configuration, final testing, privacy/Data safety declarations, audience/content-rating questionnaires, support/privacy URLs, and Google Play publication.

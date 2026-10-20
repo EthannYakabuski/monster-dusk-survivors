@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "admob": {
+    "test_mode": true,
+    "app_id": "ca-app-pub-3940256099942544~3347511713",
+    "banner_unit_id": "ca-app-pub-3940256099942544/6300978111",
+    "interstitial_unit_id": "ca-app-pub-3940256099942544/1033173712",
+    "rewarded_unit_id": "ca-app-pub-3940256099942544/5224354917",
+    "tag_for_under_age_of_consent": false
+  },
+  "play_games": {
+    "enabled": false,
+    "game_id": "",
+    "achievements": {
+      "first_light": "",
+      "trail_keeper": "",
+      "dusk_defender": "",
+      "night_legend": "",
+      "endless_lantern": "",
+      "beyond_gate": "",
+      "first_elite_wave": "",
+      "ten_bells": "",
+      "twenty_bells": "",
+      "two_minute_watch": "",
+      "five_minute_watch": "",
+      "ten_minute_watch": "",
+      "nimble_keeper": "",
+      "dust_dancer": "",
+      "elite_hunter": "",
+      "elite_veteran": "",
+      "bright_pockets": "",
+      "walking_sunrise": "",
+      "keeper_three": "",
+      "keeper_six": "",
+      "keeper_twelve": "",
+      "naturalist": "",
+      "field_scholar": "",
+      "helping_hands": "",
+      "camp_regular": "",
+      "seven_lanterns": "",
+      "well_equipped": ""
+    },
+    "leaderboards": {
+      "best_wave": "",
+      "best_seconds": "",
+      "kills": "",
+      "player_level": "",
+      "seen": ""
+    }
+  }
+}

@@ -1,0 +1,21 @@
+Monster Dusk: Apocalypse
+
+Creature appearances: supplied Kenney Creature Mixer sheets, 200 selected sheets.
+Each source 768x192 sheet is resampled to 384x96 for four animation frames.
+Creature Mixer artwork is governed by Kenney's custom asset-use terms, NOT CC0.
+Personal, educational and commercial projects are permitted, strictly excluding
+projects relating to or containing NFTs or blockchain. Attribution is appreciated
+but not mandatory. The exact terms and authoritative reference accompany this
+distribution in LICENSES/Assets/CREATURE-MIXER-TERMS.txt.
+Source: https://kenney.itch.io/creature-mixer
+
+Western player and desert scenery: Kenney Desert Shooter Pack 1.0, CC0.
+Sound effects: Kenney Digital Audio and Interface Sounds, CC0.
+These packs' original notices are preserved in assets/licenses and the
+accompanying LICENSES/Assets directory. Creature Mixer is not one of these CC0 packs.
+Source sheet names and SHA256 checksums are in assets/creatures/manifest.json.
+dusk.wav: original synthesized campfire theme created for this game.
+icon.svg: original vector lantern/desert artwork created for this game.
+Original game code and original theme/icon: Apache-2.0, EthannYakabuski.
+Godot Engine, fonts, plugins and bundled components retain their own licenses;
+see the accompanying LICENSES directory for complete distributed notices.

@@ -1,0 +1,20 @@
+Monster Dusk: Apocalypse
+Keep the light. Outlast the night.
+
+Monster Dusk: Apocalypse is an endless portrait survival shooter with a lantern, a dash, and a whole bestiary waiting beyond the camp. Steer with a thumb joystick while your lantern fires toward the nearest threat. Stay mobile as short waves grow stronger and elite encounters test your build.
+
+THREE SELLING CARDS
+A whole bestiary after dusk
+Meet 200 creature appearances and learn six enemy roles as each new wave changes the shape of the fight.
+
+Choose how your lantern fights
+Build around repeater, scatter or piercing fire, take run upgrades, and use a dash to find the gap in the horde.
+
+Bring a little light back to camp
+Grow your keeper level and permanent upgrades between runs, with daily quests and a seven-night welcome-gift streak.
+
+TECHNICAL INFORMATION
+Made with Godot 4.5.1 Compatibility. Portrait Android is primary; a Web build is provided where feasible. Local saves support offline core play. Android services have graceful Web fallbacks. Original code is Apache-2.0; source-asset/plugin notices are preserved. Google Play Games and production ads require the owner's final configuration.
+
+FUTURE CONTENT IDEA (NOT IMPLEMENTED)
+The Mistwood Watch: another camp frontier with new monster roles and lantern upgrade branches.

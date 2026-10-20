@@ -1,0 +1,27 @@
+{
+  "schema": "public-screenshot-summary-v1",
+  "scope": "Public image identity and previously recorded observations; this is not an original capture-validator receipt.",
+  "key": "tablet-7-collection",
+  "file": "tablet-7-collection.png",
+  "sha256": "c8e29db5e83ba88a7e5a46564f7ae511583f37e28af84693cf5e52986b298a1e",
+  "dimensions": [
+    1200,
+    1920
+  ],
+  "raw_file": "raw/tablet-7-collection.png",
+  "raw_sha256": "c8e29db5e83ba88a7e5a46564f7ae511583f37e28af84693cf5e52986b298a1e",
+  "raw_dimensions": [
+    1200,
+    1920
+  ],
+  "package": "com.ethannyakabuski.monsterdusk",
+  "source_apk_sha256": "7267ef893747203ecfc17dbbc61d784089484bdb5bd8d643cd5bbdc747d0e0fb",
+  "source_apk_bytes": 185317364,
+  "capture_method": "adb_shell_screencap_png",
+  "pixel_processing": "Exact copies of the original unmodified guest PNG; no resize/crop/rotation/overlays.",
+  "game_state": "Field journal reached through normal Home navigation, showing six monster-family descriptions, local defeat and seen counts, and milestone progress.",
+  "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+  "original_native_visual_review_recorded": true,
+  "physical_device_test": false,
+  "physical_tablet_test": false
+}

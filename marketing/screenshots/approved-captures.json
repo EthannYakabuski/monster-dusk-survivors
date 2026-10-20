@@ -1,0 +1,134 @@
+{
+  "schema": "public-reviewed-screenshots-summary-v1",
+  "source_apk_sha256": "7267ef893747203ecfc17dbbc61d784089484bdb5bd8d643cd5bbdc747d0e0fb",
+  "scope": "Records the previous visual-review outcome for these exact unchanged PNGs; not the internal capture validator schema or a new approval.",
+  "capture_count": 9,
+  "captures": [
+    {
+      "key": "phone-home",
+      "file": "phone-home.png",
+      "sha256": "b62871d0c072470c04c4ee196d628de0bcbd817da5d4f4f01f274cf3ccc608ba",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "public_metadata_file": "provenance/phone-home.json",
+      "public_metadata_sha256": "53447b411e27d45777ccb751d77182a6f18ff952a4018327eac1ed8e19786fda",
+      "game_state": "Normal camp reached through ordinary navigation with genuine saved survival progress.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "phone-play",
+      "file": "phone-play.png",
+      "sha256": "c49f25f6e5017fbe189bfb01d39e61caa47feb8bfb78c7368b1cd46473f07630",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "public_metadata_file": "provenance/phone-play.json",
+      "public_metadata_sha256": "c8a009131b822cf088532562709e470950068536af97412e2f139b92f8cb056f",
+      "game_state": "Ordinary entered arena with normal movement and automatic fire HUD; no fixture or forced result.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "phone-collection",
+      "file": "phone-collection.png",
+      "sha256": "aed18cf9d1a6dafc6f411086c1f48eccac6151f5b485252aaa51979f5d805a1a",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "public_metadata_file": "provenance/phone-collection.json",
+      "public_metadata_sha256": "682d77542d71808daba6eb7fae59255dad767a5a8caed1a729ddf31b899a4386",
+      "game_state": "Field journal reached through normal Home navigation, showing six monster-family descriptions, local defeat and seen counts, and milestone progress.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "tablet-7-home",
+      "file": "tablet-7-home.png",
+      "sha256": "af4033ec4b778c08b4a4b86f9262e0f39d9a416cff7d8bcdf77d546ce3627871",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "public_metadata_file": "provenance/tablet-7-home.json",
+      "public_metadata_sha256": "59a07e0211589d31194d2378c683c1f46be7e6b35c7e82c474bbb120ca6ffe5f",
+      "game_state": "Normal camp reached through ordinary navigation with genuine saved survival progress.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "tablet-7-play",
+      "file": "tablet-7-play.png",
+      "sha256": "a92a5adfb90c908bfdd6044a99dcad0c53e98554d8dc159de2f4c113cd64cf2d",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "public_metadata_file": "provenance/tablet-7-play.json",
+      "public_metadata_sha256": "63f087eba6c71ab9b063fc08c716ea9871337f03d2d2aa69459a44f84c66e94d",
+      "game_state": "Ordinary entered arena with normal movement and automatic fire HUD; no fixture or forced result.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "tablet-7-collection",
+      "file": "tablet-7-collection.png",
+      "sha256": "c8e29db5e83ba88a7e5a46564f7ae511583f37e28af84693cf5e52986b298a1e",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "public_metadata_file": "provenance/tablet-7-collection.json",
+      "public_metadata_sha256": "68862754b5a9b0c4c1661184eb426f7960a173d392946a6e722b16f2a3dda43c",
+      "game_state": "Field journal reached through normal Home navigation, showing six monster-family descriptions, local defeat and seen counts, and milestone progress.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "tablet-10-home",
+      "file": "tablet-10-home.png",
+      "sha256": "e1c1f175b26c52fd39a54a18b951c1f2ea658ddfdeadadb489a6b055b6dda102",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "public_metadata_file": "provenance/tablet-10-home.json",
+      "public_metadata_sha256": "ec2b27b87b2944e63d8212e1a467c2f37d4f9113c9f7ffb42d8f2ff73abb3ca5",
+      "game_state": "Normal camp reached through ordinary navigation with genuine saved survival progress.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "tablet-10-play",
+      "file": "tablet-10-play.png",
+      "sha256": "ff19dbd077fb8a30e8e8c361aa3e748216ed7ee9090a6aee8be41f588b4bc361",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "public_metadata_file": "provenance/tablet-10-play.json",
+      "public_metadata_sha256": "8760858f07db6d952e5d11a64a5604e72bc5af02ece385a4e53b28083a8e10b4",
+      "game_state": "Ordinary entered arena with normal movement and automatic fire HUD; no fixture or forced result.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    },
+    {
+      "key": "tablet-10-collection",
+      "file": "tablet-10-collection.png",
+      "sha256": "b4d9ec5bb47b5ec9f024fbe9d37bfc70382f9be3da691e6137193389e076906d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "public_metadata_file": "provenance/tablet-10-collection.json",
+      "public_metadata_sha256": "6eb2b85b52ba869652eeba2868e58ca0288414d0d1307be44ba242d6fe1bc93a",
+      "game_state": "Field journal reached through normal Home navigation, showing six monster-family descriptions, local defeat and seen counts, and milestone progress.",
+      "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+      "original_native_visual_review_recorded": true
+    }
+  ]
+}

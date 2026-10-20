@@ -1,0 +1,27 @@
+{
+  "schema": "public-screenshot-summary-v1",
+  "scope": "Public image identity and previously recorded observations; this is not an original capture-validator receipt.",
+  "key": "tablet-7-play",
+  "file": "tablet-7-play.png",
+  "sha256": "a92a5adfb90c908bfdd6044a99dcad0c53e98554d8dc159de2f4c113cd64cf2d",
+  "dimensions": [
+    1200,
+    1920
+  ],
+  "raw_file": "raw/tablet-7-play.png",
+  "raw_sha256": "a92a5adfb90c908bfdd6044a99dcad0c53e98554d8dc159de2f4c113cd64cf2d",
+  "raw_dimensions": [
+    1200,
+    1920
+  ],
+  "package": "com.ethannyakabuski.monsterdusk",
+  "source_apk_sha256": "7267ef893747203ecfc17dbbc61d784089484bdb5bd8d643cd5bbdc747d0e0fb",
+  "source_apk_bytes": 185317364,
+  "capture_method": "adb_shell_screencap_png",
+  "pixel_processing": "Exact copies of the original unmodified guest PNG; no resize/crop/rotation/overlays.",
+  "game_state": "Ordinary entered arena with normal movement and automatic fire HUD; no fixture or forced result.",
+  "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+  "original_native_visual_review_recorded": true,
+  "physical_device_test": false,
+  "physical_tablet_test": false
+}

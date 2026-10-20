@@ -1,0 +1,82 @@
+{
+  "title": "Monster Dusk: Apocalypse",
+  "display": [
+    "MONSTER DUSK",
+    "APOCALYPSE"
+  ],
+  "kind": "dusk",
+  "staging_folder": "monster_dusk_stage",
+  "short": "Keep the lantern lit through an endless night of monsters and upgrades.",
+  "palette": {
+    "ink": "#29394C",
+    "paper": "#FFF2D5",
+    "primary": "#72BBB8",
+    "light": "#A4D2CC",
+    "gold": "#FFC974",
+    "accent": "#F28D79"
+  },
+  "strap": "Keep the light. Outlast the night.",
+  "feature_chips": [
+    "MOVE",
+    "BUILD",
+    "OUTLAST"
+  ],
+  "achievements": [
+    "first_light",
+    "trail_keeper",
+    "dusk_defender",
+    "night_legend",
+    "endless_lantern",
+    "beyond_gate",
+    "first_elite_wave",
+    "ten_bells",
+    "twenty_bells",
+    "two_minute_watch",
+    "five_minute_watch",
+    "ten_minute_watch",
+    "nimble_keeper",
+    "dust_dancer",
+    "elite_hunter",
+    "elite_veteran",
+    "bright_pockets",
+    "walking_sunrise",
+    "keeper_three",
+    "keeper_six",
+    "keeper_twelve",
+    "naturalist",
+    "field_scholar",
+    "helping_hands",
+    "camp_regular",
+    "seven_lanterns",
+    "well_equipped"
+  ],
+  "leaderboards": [
+    "best_wave",
+    "best_seconds",
+    "kills",
+    "player_level",
+    "seen"
+  ],
+  "cards": [
+    [
+      "A whole bestiary after dusk",
+      "Meet 200 creature appearances and learn six enemy roles as each new wave changes the shape of the fight."
+    ],
+    [
+      "Choose how your lantern fights",
+      "Build around repeater, scatter or piercing fire, take run upgrades, and use a dash to find the gap in the horde."
+    ],
+    [
+      "Bring a little light back to camp",
+      "Grow your keeper level and permanent upgrades between runs, with daily quests and a seven-night welcome-gift streak."
+    ]
+  ],
+  "category": "GAME_ACTION",
+  "tags": [
+    "Action",
+    "Survival",
+    "Arcade",
+    "Single player",
+    "Offline"
+  ]
+}

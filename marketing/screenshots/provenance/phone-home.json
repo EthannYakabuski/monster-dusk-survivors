@@ -1,0 +1,27 @@
+{
+  "schema": "public-screenshot-summary-v1",
+  "scope": "Public image identity and previously recorded observations; this is not an original capture-validator receipt.",
+  "key": "phone-home",
+  "file": "phone-home.png",
+  "sha256": "b62871d0c072470c04c4ee196d628de0bcbd817da5d4f4f01f274cf3ccc608ba",
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "raw_file": "raw/phone-home.png",
+  "raw_sha256": "b62871d0c072470c04c4ee196d628de0bcbd817da5d4f4f01f274cf3ccc608ba",
+  "raw_dimensions": [
+    1080,
+    1920
+  ],
+  "package": "com.ethannyakabuski.monsterdusk",
+  "source_apk_sha256": "7267ef893747203ecfc17dbbc61d784089484bdb5bd8d643cd5bbdc747d0e0fb",
+  "source_apk_bytes": 185317364,
+  "capture_method": "adb_shell_screencap_png",
+  "pixel_processing": "Exact copies of the original unmodified guest PNG; no resize/crop/rotation/overlays.",
+  "game_state": "Normal camp reached through ordinary navigation with genuine saved survival progress.",
+  "visual_review": "Native operator inspected this exact normal-play frame: legible game content and reachable controls, without notification, ANR, modal or fullscreen-ad obstruction. Logical tablet view is emulation.",
+  "original_native_visual_review_recorded": true,
+  "physical_device_test": false,
+  "physical_tablet_test": false
+}
