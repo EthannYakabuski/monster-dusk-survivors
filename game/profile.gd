@@ -52,7 +52,7 @@ func upgrade_cost(key: String) -> int:
 	if key not in UPGRADE_KEYS or int(upgrades[key]) >= 10:
 		return -1
 	var value := int(upgrades[key])
-	return 80 + value * 90 + value * value * 18
+	return 180 + value * 200 + value * value * 50
 
 func purchase_upgrade(key: String) -> bool:
 	var cost := upgrade_cost(key)
@@ -105,7 +105,7 @@ func claim_quest(key: String) -> int:
 		return 0
 	daily_claimed[key] = true
 	coins += 160
-	xp += 35
+	xp += 20
 	quests_claimed += 1
 	return 160
 
@@ -116,7 +116,8 @@ func record_run(result: Dictionary) -> Dictionary:
 		return {"coins": 0, "xp": 0, "levels": 0, "recorded": false}
 	var old_level := level()
 	var earned_coins := defeated * 3 + int(duration / 6) + 20
-	var earned_xp := defeated * 4 + int(duration / 3) + 10
+	# Future rewards slow progression; existing XP/levels and purchases are unchanged.
+	var earned_xp := defeated * 2 + int(duration / 7) + 5
 	coins += earned_coins
 	xp += earned_xp
 	kills += defeated

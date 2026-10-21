@@ -28,3 +28,5 @@ CHECKPOINT.txt
 /local-backups/
 **/*-stopped-save.json
 **/runtime-receipt.json
+# Editor sidecars for preserved screenshots are local metadata.
+/marketing/screenshots/**/*.import

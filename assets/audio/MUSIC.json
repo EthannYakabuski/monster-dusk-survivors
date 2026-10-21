@@ -1,0 +1,35 @@
+{
+  "license": "Apache-2.0 original composition",
+  "loop": "Godot WAV forward loop over the complete file; 25ms edge fades",
+  "tracks": [
+    {
+      "file": "camp_watch.wav",
+      "seconds": 40.0,
+      "sample_rate": 22050,
+      "bpm": 96,
+      "bars": 16,
+      "channels": 1,
+      "peak": 0.78,
+      "parts": [
+        "minor-key harmonic bed",
+        "plucked melody",
+        "bass"
+      ]
+    },
+    {
+      "file": "dusk_patrol.wav",
+      "seconds": 40.0,
+      "sample_rate": 22050,
+      "bpm": 96,
+      "bars": 16,
+      "channels": 1,
+      "peak": 0.78,
+      "parts": [
+        "minor-key harmonic bed",
+        "plucked melody",
+        "bass",
+        "soft pulse percussion"
+      ]
+    }
+  ]
+}

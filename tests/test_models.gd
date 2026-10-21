@@ -40,9 +40,9 @@ func _test_progression() -> void:
 	check(p.level() == 1 and p.coins == 180, "A new keeper has a usable starting allowance")
 	check(not p.purchase_upgrade("unknown"), "Unknown purchases are rejected")
 	check(p.purchase_upgrade("power"), "First upgrade can be purchased")
-	check(p.coins == 100 and p.upgrades.power == 1, "Purchase deducts its price once")
+	check(p.coins == 0 and p.upgrades.power == 1, "Purchase deducts its price once")
 	check(p.bullet_damage() > 13.0, "Permanent powder improves actual bullet damage")
-	check(not p.purchase_upgrade("power") and p.coins == 100, "Insufficient funds cannot buy a second level")
+	check(not p.purchase_upgrade("power") and p.coins == 0, "Insufficient funds cannot buy a second level")
 	check(not p.unlock_weapon("scatter"), "Weapon level gates cannot be skipped")
 	p.xp = 320
 	p.coins = 1000
@@ -66,7 +66,7 @@ func _test_progression() -> void:
 	check(empty.best_wave == 6 and empty.best_seconds == 125, "Banking records survival personal bests")
 	check(empty.daily.kills == 42 and empty.daily.survival == 125 and empty.daily.dashes == 9, "Run results advance all three daily quests")
 	check(empty.kind_kills.slow == 30 and empty.kind_kills.fast == 12 and empty.seen.size() == 2, "Run banking retains enemy mastery and unique sightings")
-	check(receipt.coins == 166 + receipt.levels * 70 and receipt.xp == 219, "Coin, XP and level rewards match the published economy")
+	check(receipt.coins == 166 + receipt.levels * 70 and receipt.xp == 106, "Coin, XP and level rewards match the published economy")
 	var records_before := int(empty.best_seconds)
 	empty.record_run({"seconds": 5, "kills": 1, "wave": 1})
 	check(empty.best_seconds == records_before and empty.best_wave == 6, "Short later runs do not lower personal records")

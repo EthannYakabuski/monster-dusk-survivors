@@ -82,6 +82,11 @@ func _run() -> void:
 			break
 	check(gift_found and game.profile.login_streak == 1, "Daily gift control awards the first welcome gift")
 	check(not press(game, "Gift already claimed"), "The claimed daily gift control is disabled")
+	game.profile.daily.kills = 40
+	game._show_daily()
+	var quest_xp: int = game.profile.xp
+	check(press(game, "Claim quest") and game.profile.xp == quest_xp + 20, "Actual daily quest control awards the updated 20 XP once")
+	check(not press(game, "Claim quest"), "Other unfinished or claimed quests cannot be collected")
 	press(game, "Back to camp")
 	check(press(game, "Field journal") and game.screen == "journal", "Bestiary and milestone journal can be opened")
 	await process_frame

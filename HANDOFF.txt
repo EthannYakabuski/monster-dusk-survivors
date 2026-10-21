@@ -1,5 +1,5 @@
 MONSTER DUSK: APOCALYPSE - CONTINUATION HANDOFF
-Updated 2026-10-21. Ready for owner local review; production release remains owner work.
+Updated 2026-10-21. Original package remains available for local review; Round Two source awaits new exports/native verification and updated marketing art. Production release remains owner work.
 
 An endless portrait monster shooter with six enemy behavior families, escalating waves, weapon builds, bestiary and permanent progression.
 
@@ -31,3 +31,10 @@ OWNER CONFIGURATION / NEXT UPDATE
 LIMITATIONS / RELEASE WORK
 Godot4.5.1 Compatibility, Android primary and Web fallback; min API24/target API35 is the recorded engine export constraint, not current Google Play eligibility. One Android11/API30 x86 emulator and logical phone/tablet profiles were used. Physical devices, audible Android output (emulator audio was disabled), interactive Web/audio/WebGL, production services, broad ad-fill reliability, long sessions, multi-day/rollover behavior and human balance/content acceptance remain unverified. Offline saves and local clocks are not anti-cheat secure. Owner supplies real service/backend configuration, consent/privacy/audience declarations, signing and Google Play publication.
 Original work is Apache-2.0; retain LICENSE, NOTICE and complete LICENSES with source and distributions. Creature Mixer art uses custom personal/educational/commercial terms excluding NFT/blockchain projects; it is not CC0.
+
+ROUND TWO SOURCE UPDATE (2026-10-21)
+Adds separate original camp/patrol music, a simulation-timed 120-second dusk/night/dawn/day cycle, slower future account XP and steeper permanent upgrade costs. Existing save schema, banked XP/levels, coins, weapons, upgrades and prior claims are preserved. Daily camp text and actual future award agree at 20 XP. See docs/ROUND_TWO.md for exact formulas and verification scope.
+
+Strict isolated source checks passed: 36 Round Two, 125 model, 35 UI and 20 fullscreen-revive checks, plus service smoke checks and clean import. An isolated Windows Compatibility GPU run rendered five portrait views and checked actual music-player camp/patrol selection, toggle, pause and lifecycle state with its process audio bus muted; this is not an audible or Android test. The preview fixtures are synthetic development views, not store/native gameplay evidence.
+
+The preserved SHA256-named original APK above was not rebuilt by this source update and does not verify these changes. New Android/Web exports, actual affected Android gameplay/ad-return/save/Back/offline/audio checks and final-build captures remain required. Marketing redo is pending separate illustrated assets. Do not replace the original native QA date/hash with a hosted CI artifact.

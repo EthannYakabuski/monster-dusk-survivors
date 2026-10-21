@@ -25,3 +25,7 @@ includes native-plugin notices conservatively because the source shares addons;
 this does not claim native services run in a browser. Production SDK/service
 terms, store setup and channel-specific notice accessibility remain the
 distributor's responsibility. No production approval is implied.
+
+Round Two: camp_watch.wav and dusk_patrol.wav are original Apache-2.0
+compositions/synthesis; reproducible with tools/compose_music.py. Existing
+Kenney SFX and Creature Mixer terms remain unchanged.

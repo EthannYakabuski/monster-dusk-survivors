@@ -6,7 +6,7 @@ A portrait endless monster shooter with six enemy behavior families, escalating 
 
 ## Play
 
-Move through the arena, shape your weapon build with upgrades, survive escalating creatures and spend your rewards between attempts. Daily goals and the bestiary track your discoveries.
+Move through the arena, shape your weapon build with upgrades, survive escalating creatures and spend your rewards between attempts. Daily goals and the bestiary track your discoveries. A repeating dusk/night/dawn/day cycle changes the arena light, while separate original camp and patrol scores follow music and pause settings. Future account XP and permanent upgrades progress more slowly; existing saved XP, levels, purchases and claims are retained.
 
 Touch/mouse portrait play and offline local saves are supported. Android is the primary target; Web retains gameplay and saves when Android services are unavailable. Browser play never grants pretend ad rewards.
 
@@ -28,6 +28,7 @@ Use Godot **4.5.1**, **Compatibility**, matching export templates, Java 17 and t
 
 ```sh
 godot --headless --editor --path . --import
+godot --headless --path . --script tests/test_round_two.gd
 godot --headless --path . --script tests/test_models.gd
 godot --headless --path . --script platform/tests/services_smoke.gd
 godot --headless --path . --export-release Web build/web/index.html
@@ -35,6 +36,8 @@ godot --headless --path . --install-android-build-template --export-debug Androi
 ```
 
 Create build/web and build/android first. Android package: `com.ethannyakabuski.monsterdusk`. Tests are documented under game/ and tests/. No Windows build is supplied.
+
+See [Round Two implementation and verification](docs/ROUND_TWO.md) for the current source changes, balance values and remaining native/art acceptance. The older APK and dated CI result below do not verify this source update.
 
 ## Integration and handoff
 

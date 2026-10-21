@@ -2,6 +2,7 @@ extends Node2D
 
 const Profile = preload("res://game/profile.gd")
 const Survival = preload("res://game/survival.gd")
+const DuskCycle = preload("res://game/dusk_cycle.gd")
 const SaveStore = preload("res://game/save_store.gd")
 const SAVE_PATH := "user://monster_dusk_v1.json"
 const BACKUP_PATH := "user://monster_dusk_backup_v1.json"
@@ -42,6 +43,8 @@ var hud_status: Label
 var hud_wave: Label
 var dash_button: Button
 var music: AudioStreamPlayer
+var music_context := ""
+var music_streams: Dictionary = {}
 var audio: Dictionary = {}
 var capture_screen := ""
 var capture_path := ""
@@ -93,18 +96,36 @@ func _setup_audio() -> void:
 		player.volume_db = -22.0 if key == "shot" else -13.0
 		add_child(player)
 		audio[key] = player
+	music_streams = {"camp": load("res://assets/audio/camp_watch.wav"), "patrol": load("res://assets/audio/dusk_patrol.wav")}
 	music = AudioStreamPlayer.new()
-	music.stream = load("res://assets/audio/dusk.wav")
-	music.volume_db = -25.0
+	music.volume_db = -19.0
 	add_child(music)
-	music.finished.connect(func() -> void:
-		if profile.music_enabled: music.play())
-	if profile.music_enabled: music.play()
+	_sync_music()
+
+func _music_policy() -> Dictionary:
+	var in_run := screen in ["arena", "pause", "cards", "results"]
+	return {"context": "patrol" if in_run else "camp", "enabled": profile.music_enabled,
+		"paused": _gameplay_suspended() or (in_run and (paused or screen != "arena"))}
+
+func _sync_music() -> void:
+	if not is_instance_valid(music): return
+	var policy := _music_policy()
+	if not policy.enabled:
+		music.stop()
+		return
+	var wanted: String = policy.context
+	if wanted != music_context:
+		music.stop()
+		music.stream = music_streams[wanted]
+		music_context = wanted
+	if not music.playing: music.play()
+	music.stream_paused = policy.paused
 
 func _sound(key: String) -> void:
 	if profile.effects_enabled and audio.has(key): audio[key].play()
 
 func _process(delta: float) -> void:
+	_sync_music()
 	clock += delta
 	toast_left = maxf(0.0, toast_left - delta)
 	for index in range(particles.size() - 1, -1, -1):
@@ -358,7 +379,7 @@ func _build_arena_ui() -> void:
 
 func _refresh_hud() -> void:
 	if not is_instance_valid(hud_wave): return
-	hud_wave.text = "WAVE %d" % simulation.wave
+	hud_wave.text = "WAVE %d / %s" % [simulation.wave, DuskCycle.sample(simulation.elapsed).name]
 	hud_status.text = "%02d:%02d  •  %d defeated  •  build rank %d" % [int(simulation.elapsed) / 60, int(simulation.elapsed) % 60, simulation.kills, simulation.rank]
 	hud_hp.value = simulation.hp
 	dash_button.text = "DASH" if simulation.dash_cooldown <= 0 else "%.1fs" % simulation.dash_cooldown
@@ -504,7 +525,7 @@ func _show_daily() -> void:
 		var count := int(profile.daily[key])
 		var target := int(Profile.DAILY_GOALS[key])
 		var claimed := bool(profile.daily_claimed.get(key, false))
-		_card(column, titles[key], "%d / %d  •  Reward: 160 coins + 35 XP" % [mini(count, target), target], "Claimed" if claimed else "Claim quest", func() -> void:
+		_card(column, titles[key], "%d / %d  •  Reward: 160 coins + 20 XP" % [mini(count, target), target], "Claimed" if claimed else "Claim quest", func() -> void:
 			if profile.claim_quest(key) > 0:
 				_check_achievements()
 				_save_profile()
@@ -540,11 +561,9 @@ func _show_records() -> void:
 func _show_settings() -> void:
 	screen = "settings"
 	var column := _page("Make yourself at home", "Sound, privacy, and local progress.")
-	_card(column, "Dusk music", "A quiet original campfire theme.", "Music: ON" if profile.music_enabled else "Music: OFF", func() -> void:
+	_card(column, "Camp & patrol music", "Two original looping scores follow camp and active watches.", "Music: ON" if profile.music_enabled else "Music: OFF", func() -> void:
 		profile.music_enabled = not profile.music_enabled
-		if is_instance_valid(music):
-			if profile.music_enabled: music.play()
-			else: music.stop()
+		_sync_music()
 		_save_profile()
 		_show_settings())
 	_card(column, "Sound effects", "Soft interface sounds and arcade combat feedback.", "Effects: ON" if profile.effects_enabled else "Effects: OFF", func() -> void:
@@ -654,6 +673,7 @@ func _notification(what: int) -> void:
 			_build_arena_ui()
 			_set_menu(false)
 		elif screen not in ["results", "cards"]: _show_home()
+	_sync_music()
 
 func _exit_tree() -> void:
 	for player in audio.values():
@@ -663,6 +683,7 @@ func _exit_tree() -> void:
 	if is_instance_valid(music):
 		music.stop()
 		music.stream = null
+	music_streams.clear()
 
 func _creature(index: int) -> Texture2D:
 	var key := "creature_%03d" % (index % 200)
@@ -675,8 +696,12 @@ func _draw_creature(index: int, position: Vector2, width: float, shade: Color = 
 	draw_texture_rect_region(texture, Rect2(position - Vector2(width, width) * 0.5, Vector2(width, width)), Rect2(frame * 96, 0, 96, 96), shade)
 
 func _draw() -> void:
-	draw_rect(Rect2(0, 0, 540, 960), DUSK)
+	var sky: Color = DuskCycle.sample(simulation.elapsed).sky if screen in ["arena", "pause", "cards", "results"] else DUSK
+	draw_rect(Rect2(0, 0, 540, 960), sky)
 	if screen in ["arena", "pause", "cards", "results"]:
+		# Stable control panels preserve text contrast through bright dawn/day skies.
+		draw_rect(Rect2(0, 0, 540, 142), DUSK)
+		draw_rect(Rect2(0, 790, 540, 170), DUSK)
 		_draw_arena()
 	else:
 		draw_set_transform(_menu_draw_offset())
@@ -711,11 +736,16 @@ func draw_ellipse_shadow(position: Vector2, dimensions: Vector2) -> void:
 	draw_set_transform(offset)
 
 func _draw_arena() -> void:
-	draw_style_box(_style(Color("9b7560"), Color("c59c77")), Survival.ARENA)
+	var light := DuskCycle.sample(simulation.elapsed)
+	var ground: Color = light.ground
+	draw_style_box(_style(ground, ground.lightened(0.22)), Survival.ARENA)
 	for item in terrain:
 		var key := "tile_%d" % int(item.tile)
 		if not textures.has(key): textures[key] = load("res://assets/terrain/" + key + ".png")
-		draw_texture_rect(textures[key], Rect2(item.pos, Vector2(item.size, item.size)), false, Color(1, 1, 1, 0.65))
+		draw_texture_rect(textures[key], Rect2(item.pos, Vector2(item.size, item.size)), false, Color(1, 1, 1, 0.65 - float(light.lantern) * 0.13))
+	# The environment changes, while threats, pickups and the HUD stay readable.
+	for radius in [80.0, 58.0, 36.0]:
+		draw_circle(simulation.player, radius, Color(1.0, 0.78, 0.40, 0.035 * float(light.lantern)))
 	for hazard in simulation.hazards:
 		var pulse := 0.25 + 0.15 * sin(clock * 14.0)
 		draw_circle(hazard.pos, float(hazard.radius), Color(0.75, 0.25, 0.9, pulse))
