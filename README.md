@@ -31,23 +31,23 @@ godot --headless --editor --path . --import
 godot --headless --path . --script tests/test_round_two.gd
 godot --headless --path . --script tests/test_models.gd
 godot --headless --path . --script platform/tests/services_smoke.gd
-godot --headless --path . --export-release Web build/web/index.html
-godot --headless --path . --install-android-build-template --export-debug Android build/android/game-debug.apk
+godot --headless --path . --export-release Web build/next-reviewed-update/web/index.html
+godot --headless --path . --install-android-build-template --export-debug Android build/next-reviewed-update/android/game-debug.apk
 ```
 
-Create build/web and build/android first. Android package: `com.ethannyakabuski.monsterdusk`. Tests are documented under game/ and tests/. No Windows build is supplied.
+Create a new unused build/next-reviewed-update/web and build/next-reviewed-update/android first; choose another unused name for each later build. Preserve all accepted and original artifacts. Android package: `com.ethannyakabuski.monsterdusk`. Tests are documented under game/ and tests/. No Windows build is supplied.
 
-See [Round Two implementation and verification](docs/ROUND_TWO.md) for the current source changes, balance values and remaining native acceptance. The older APK and dated CI result below do not verify this source update.
+See [Round Two implementation and verification](docs/ROUND_TWO.md) for source changes, exact balance formulas and qualified acceptance. Current local Android/Web outputs are under `build/round-two-97c75e32-a1/`; the APK is `D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96`. HANDOFF selects the two new ZIPs. The original APK and dated hosted CI remain separate evidence.
 
 ## Integration and handoff
 
 AdMob uses Google's official test IDs. Menus support a banner, every two completed rounds create an interstitial opportunity, and rewarded benefits require the earned-reward callback. Unavailable ads or consent leave normal play usable. Google Play Games uses symbolic achievement/leaderboard maps with empty production IDs and is disabled until the owner configures them. See platform/config.json and docs/PLATFORM_SETUP.md.
 
 Round Two replaces app/feature art, all 27 achievement icons and all five leaderboard
-icons with distinct generated illustrations. Originals, exact per-badge prompts and
-SHA256 manifests are retained under `marketing/source-art`; packaged 512px badges
+icons with distinct generated illustrations. Original hashes, exact per-badge prompts and
+provenance are recorded under `marketing/source-art`; full generated originals remain privately retained where recorded. Committed packaged 512px badges
 were reviewed at final size and at 64px. These illustrations are not screenshots.
-Marketing text and preserved original-APK screenshot provenance are in marketing/. The current evidence, limitations and exact next owner actions are in HANDOFF.txt. Production backend testing, human playtesting and Google Play publication are human-owned.
+Marketing text, current nine raw screenshots under `marketing/screenshots-round-two/`, and preserved original-APK screenshot provenance are in marketing/. The current evidence, limitations and exact next owner actions are in HANDOFF.txt. Production backend testing, human playtesting and Google Play publication are human-owned.
 
 ## CI and Web
 
@@ -71,6 +71,12 @@ The public repository contains source, assets, notices and sanitized verificatio
 
 Pages remains disabled; no live deployment, Library action or Google Play publication is part of this handoff. Keep the complete third-party notices with redistributed source and builds.
 
+## Current local verification
+
+Both current exports passed exact committed runtime binding and matching notices. Ordinary native play observed all four light phases through Day at92seconds, the revised purchase/reward values, music-preference persistence, normal controls/Back, a96.225second earned endcard with alive unchanged-HUD return and once-only banking, actual offline/cold25-group retention and restored-network cold retention. A genuine historical save was restored after an absent package before the update; this does not establish retention across earlier AVD loss.
+
+The retained captured Godot error scan was empty; no exhaustive full-lifetime SDK-clean claim is made. Native120second repeat, separate unearned/failure callback/current interstitial, same-run fresh post-ad inputs, simultaneous multitouch, audible/physical/interactive-Web/production/human balance remain unverified. See `docs/NATIVE_QA.json` and HANDOFF for exact scope.
+
 ## Screenshot verification
 
-Public screenshot metadata records PNG-relative filenames, SHA256 digests, dimensions and the original visual qualifications. Compare files in `marketing/screenshots/` and its `raw/` directory against `capture-manifest.json` with a SHA256 utility; matching hashes verify unchanged image bytes. These public summaries are not internal capture-validator receipts and do not create new device acceptance.
+`marketing/screenshots-round-two/capture-manifest.json` records nine exact current-APK raw PNGs, relative names, SHA256 digests and logical profile sizes. Operator and coordinator independently reviewed all nine. They were not resized, cropped, overlaid or generated as fixtures. Logical tablet profiles do not prove physical-device acceptance. Original `marketing/screenshots/` files and their manifest remain unchanged and belong to the original APK.

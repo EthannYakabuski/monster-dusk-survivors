@@ -1,0 +1,159 @@
+{
+  "schema": "public-screenshot-manifest-v2",
+  "game": "Monster Dusk: Apocalypse",
+  "package": "com.ethannyakabuski.monsterdusk",
+  "runtime_commit": "97c75e32f423772a5fb13dca26a78468b60f99fd",
+  "source_apk_sha256": "D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96",
+  "source_apk_bytes": 188496197,
+  "capture_count": 9,
+  "capture_method": "Unmodified ordinary Android guest screenshots; no resize, crop, overlay, fixture or injected save state.",
+  "scope": "Camp, live arena and field journal on phone and two logical tablet emulator profiles. Physical devices were not tested.",
+  "captures": [
+    {
+      "file": "phone-01-home.png",
+      "logical_profile": "phone",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density": 420,
+      "mode": "RGBA",
+      "bytes": 87775,
+      "sha256": "81F561DA375EF05640538E9BC2DD2588497728F8311566C4880438B7F2520168",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Ordinary camp, retained legacy Keeper4/1224coins before the one new purchase.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "phone-02-live-arena.png",
+      "logical_profile": "phone",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density": 420,
+      "mode": "RGBA",
+      "bytes": 89997,
+      "sha256": "9037951AF669BED8D8B16B86361A264535489457C2991BBAB509164A3F325C67",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Real manual movement and DASH; Dusk00:19/20kills, readable HUD and controls.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "phone-03-field-journal.png",
+      "logical_profile": "phone",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density": 420,
+      "mode": "RGBA",
+      "bytes": 181273,
+      "sha256": "399B8218D80F8280391E2E94AFEE34A93126435C8AD78EAD70ACE037C889579E",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Real post-bank journal153/200sighted and6/27milestones, scrollable family details.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "seven-01-home.png",
+      "logical_profile": "seven-inch-emulator-profile",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density": 320,
+      "mode": "RGBA",
+      "bytes": 88651,
+      "sha256": "CFD0CA57A838210BD202C24560CB934068A7631A03B4D9951C82633AD3CAE322",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Offline cold camp with all25savegroups byte-identical.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "seven-02-live-day.png",
+      "logical_profile": "seven-inch-emulator-profile",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density": 320,
+      "mode": "RGBA",
+      "bytes": 114854,
+      "sha256": "DFC2A447445121668C4DBC452B40BC22D9F780231727DCCA16EB0C9DE500BCDE",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Ordinary offline play reached Day01:32/Wave5/94kills/buildrank3, alive.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "seven-03-field-journal.png",
+      "logical_profile": "seven-inch-emulator-profile",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density": 320,
+      "mode": "RGBA",
+      "bytes": 154627,
+      "sha256": "36DA0D12416D4D31A62CE0D4CC82F8164EDBB99FB087CAC8E425D950E719A3C3",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Real post-bank171/200sighted and8/27milestones, no fixture.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "ten-01-home.png",
+      "logical_profile": "ten-inch-emulator-profile",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density": 300,
+      "mode": "RGBA",
+      "bytes": 120156,
+      "sha256": "7EAA363EC08506F86C81FF7ECEDA5243B217EE197154E98C8E02C4851988DC53",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Offline cold camp retained all25groups without restore.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "ten-02-live-arena.png",
+      "logical_profile": "ten-inch-emulator-profile",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density": 300,
+      "mode": "RGBA",
+      "bytes": 109038,
+      "sha256": "C6ECE35D7A96BC78EA08EA6B866491E18EFD84055CB215BAF319847A640752DD",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Ordinary movement/DASH, Dusk00:04/5kills and3.0scooldown; Back paused.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    },
+    {
+      "file": "ten-03-field-journal.png",
+      "logical_profile": "ten-inch-emulator-profile",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density": 300,
+      "mode": "RGBA",
+      "bytes": 181574,
+      "sha256": "C58DEDE57C32EE29751A90057AB7F2943A66A233FD67076FBE32C11A9E02A16F",
+      "raw_guest_png_unchanged": true,
+      "ordinary_gameplay": true,
+      "role_note": "Real journal after exactly one short run bank, usable Back to camp.",
+      "visual_review": "Exact current-APK frame independently accepted by native operator and coordinator."
+    }
+  ],
+  "original_capture_manifest": "../screenshots/capture-manifest.json",
+  "original_images_preserved": true
+}

@@ -39,8 +39,8 @@ Install/reuse Godot4.5.1, its matching export templates, Java17 and Android SDK 
 ```sh
 godot --headless --editor --path . --import
 godot --headless --path . --script platform/tests/services_smoke.gd
-godot --headless --path . --install-android-build-template --export-debug Android build/android/game-debug.apk
-godot --headless --path . --export-release Web build/web/index.html
+godot --headless --path . --install-android-build-template --export-debug Android build/next-reviewed-update/android/game-debug.apk
+godot --headless --path . --export-release Web build/next-reviewed-update/web/index.html
 ```
 
 Create output directories first. A debug APK is installable test software; it is not a production-signed release. The preset includes x86 for the existing API30 emulator and ARM64 for current phones. Release/AAB signing is performed only when the owner supplies signing configuration. `android/build` is generated from matching Godot templates and must not be committed with machine-local SDK paths/caches/keys.
@@ -88,3 +88,7 @@ For documentation-only changes, review the diff and links; do not rebuild or ove
 Verified pre-consolidation public baseline: `8938102c7afb8c5f4d22b8c8ca01a9aefb0856ab`.
 [Hosted build/test run](https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39526798397): **PASS** on that exact commit.
 Later documentation commits require their own CI result; this dated result does not verify later binaries.
+
+## Current local artifact scope
+
+Use a new unused output directory for each later export; create the example directories above first. Preserve the original APK/Web and accepted `build/round-two-97c75e32-a1/` outputs. HANDOFF selects the exact current D2FC APK/Web and two new ZIPs. Current scoped native observations and limitations are in NATIVE_QA and LOCAL_TEST_RESULTS; original reports remain under history/first-pass. Captured game-error scanning is bounded retained-log evidence, not exhaustive SDK lifetime acceptance. Public Round Two pushes remain held; no new hosted CI or deployment is implied.

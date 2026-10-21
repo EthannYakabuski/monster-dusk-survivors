@@ -1,0 +1,506 @@
+[
+  {
+    "file": "achievements/beyond_gate.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "8b83cdc5ed87515c00b8990b5dae521857bd2d3ef1880f0c63afe31e38f6e58e"
+  },
+  {
+    "file": "achievements/bright_pockets.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "f21ca10af6bdfc902c6b5d85edc35c111db8960768d10828763a227a26d08f4c"
+  },
+  {
+    "file": "achievements/camp_regular.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "493802204f826716ab7205952981be5fa218e4221cba3a50438f2022e04101e9"
+  },
+  {
+    "file": "achievements/dusk_defender.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "56cc72df371035864d663e41b0d2591b4744e3fdc084192cde801e60f473b0ed"
+  },
+  {
+    "file": "achievements/dust_dancer.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "eb45d63cb5a6380856def4ce2d40a9714a48de80fc5cc68cb44a21e498d21eb4"
+  },
+  {
+    "file": "achievements/elite_hunter.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "95bda4a29383e4fa21e0928d937effca85d5f6f5d5b8caa46ab8e94b70136c1f"
+  },
+  {
+    "file": "achievements/elite_veteran.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "a0e458791d0fa080edd6a68636a39ee18b0bc408ab53864bf31249ccfa2b8218"
+  },
+  {
+    "file": "achievements/endless_lantern.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "7d3f0f53a15e1d7c69ce275c62ad8b50c910f19b9857f63a18a93a461bffab52"
+  },
+  {
+    "file": "achievements/field_scholar.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "bbe3766b13d5713746e9b6d118809d58779fb6115837659f051bfd418f526546"
+  },
+  {
+    "file": "achievements/first_elite_wave.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "dec26f0ef84d29ce348c512afc5744b3f9174e1c5b5f723ed8ce30eddf1daf3e"
+  },
+  {
+    "file": "achievements/first_light.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "c706b6c4c9c22eef2cdd2c50fac56c1b0865b0f2f166f21f99ac75cf2fbc4d7f"
+  },
+  {
+    "file": "achievements/five_minute_watch.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "aa450867440effa6304163f398c562949b19184540530bf81d0abd82b6b27dc8"
+  },
+  {
+    "file": "achievements/helping_hands.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "e1d0eb8a8d51d986944ab495c6252d230363ef06f5fb1eec1449db1f0f5ec006"
+  },
+  {
+    "file": "achievements/keeper_six.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "153aeb92977c36940076d3622c1ed47fc28f0595de3c128111df0b7a0f7c57fa"
+  },
+  {
+    "file": "achievements/keeper_three.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "23aa5f6c352d2d79b43f25371888d978bd0ba23bcbf5bf53c79c20d7ee262039"
+  },
+  {
+    "file": "achievements/keeper_twelve.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "39868d6c34f5141f77b68b1ddcbfad8c5cc14877f706cb185d0ae2c8d7fbf1f6"
+  },
+  {
+    "file": "achievements/naturalist.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "82925636409bac02f4bde07e8b350ac54df07da000cf43b4ee6d8008535dff08"
+  },
+  {
+    "file": "achievements/night_legend.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "6736759b7df35bd29faa771ce508dcc4d4e9dd891369d2974bb058eb74aea57b"
+  },
+  {
+    "file": "achievements/nimble_keeper.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "7312030f09c3eec0e4900750df800f7b1ae31cfcdb239789f3f20c9378c1b724"
+  },
+  {
+    "file": "achievements/seven_lanterns.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "ad1ad3c11bfc88e8fc1c26f8eceafbb526ef9125d9a2f10c984cf2505764c96a"
+  },
+  {
+    "file": "achievements/ten_bells.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "50a145652315e926241af680ecd4818be50386ebd876cc78ac7ca7c4ee0b7faf"
+  },
+  {
+    "file": "achievements/ten_minute_watch.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "200e6ac23218aab82f3a5445f1f63c3965bb63e1d14966cd0f3fba9db9b3713a"
+  },
+  {
+    "file": "achievements/trail_keeper.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "3482166a60787bc3986e0a036c51259cdeb9dc455cff01206a4f12d58b097ab5"
+  },
+  {
+    "file": "achievements/twenty_bells.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "7f0daa1f3aea2b739039e9430b5e52e194c55c60a51a598e54f4e822a214fe4e"
+  },
+  {
+    "file": "achievements/two_minute_watch.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "2bc132cc07185cb5db07430a1d22668513f8c8a9b762e1060c92abda56d8b1d2"
+  },
+  {
+    "file": "achievements/walking_sunrise.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "bcbcf371cfb49b6d50a88761e0edb17eda1f453d9b1060813068ad2377ea9cf2"
+  },
+  {
+    "file": "achievements/well_equipped.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "cabebe86e147c44a245485b4c62d04361ac7e015f3e69aa03cb6549dc1673e24"
+  },
+  {
+    "file": "app-icon-192.png",
+    "dimensions": [
+      192,
+      192
+    ],
+    "mode": "RGB",
+    "sha256": "e245ff9f58118c7102ad131e46bba7700d4fa4c61473ad0336a635e76e97f151"
+  },
+  {
+    "file": "app-icon-512.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "3600617a875a6c9dbf3c69db447788f43ec02d501f28b8a940b770f0c850baea"
+  },
+  {
+    "file": "feature-graphic-1024x500.png",
+    "dimensions": [
+      1024,
+      500
+    ],
+    "mode": "RGB",
+    "sha256": "c6ef16966abdb23b7983acc3a32f5880774758bc12849c7ff9f8f5a5cc41e81d"
+  },
+  {
+    "file": "leaderboards/best_seconds.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "31ea552040f83a967366bcc6b89097a1ec03eadac500bb10c664d05374771b39"
+  },
+  {
+    "file": "leaderboards/best_wave.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "1f4946e627ec818c61b4fb91df4173c8575365181eed1cbb85c60e82053bc8f5"
+  },
+  {
+    "file": "leaderboards/kills.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "e6d106e55b93daabe5a4bb92b7faf74d0f19864d7c211cedd9f99d9fe48bcaaf"
+  },
+  {
+    "file": "leaderboards/player_level.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "18a205c7d74dee15c2173ce769c52a26a1f5287d69f6c4e50f19b73be3dd1916"
+  },
+  {
+    "file": "leaderboards/seen.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "sha256": "1191e9048dd2191ff2a641f96f1012057533f4e06ccc966e7c7b7547519bf44d"
+  },
+  {
+    "file": "screenshots/phone-collection.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "aed18cf9d1a6dafc6f411086c1f48eccac6151f5b485252aaa51979f5d805a1a"
+  },
+  {
+    "file": "screenshots/phone-home.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "b62871d0c072470c04c4ee196d628de0bcbd817da5d4f4f01f274cf3ccc608ba"
+  },
+  {
+    "file": "screenshots/phone-play.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "c49f25f6e5017fbe189bfb01d39e61caa47feb8bfb78c7368b1cd46473f07630"
+  },
+  {
+    "file": "screenshots/raw/phone-collection.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "aed18cf9d1a6dafc6f411086c1f48eccac6151f5b485252aaa51979f5d805a1a"
+  },
+  {
+    "file": "screenshots/raw/phone-home.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "b62871d0c072470c04c4ee196d628de0bcbd817da5d4f4f01f274cf3ccc608ba"
+  },
+  {
+    "file": "screenshots/raw/phone-play.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "c49f25f6e5017fbe189bfb01d39e61caa47feb8bfb78c7368b1cd46473f07630"
+  },
+  {
+    "file": "screenshots/raw/tablet-10-collection.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "b4d9ec5bb47b5ec9f024fbe9d37bfc70382f9be3da691e6137193389e076906d"
+  },
+  {
+    "file": "screenshots/raw/tablet-10-home.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "e1c1f175b26c52fd39a54a18b951c1f2ea658ddfdeadadb489a6b055b6dda102"
+  },
+  {
+    "file": "screenshots/raw/tablet-10-play.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "ff19dbd077fb8a30e8e8c361aa3e748216ed7ee9090a6aee8be41f588b4bc361"
+  },
+  {
+    "file": "screenshots/raw/tablet-7-collection.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "c8e29db5e83ba88a7e5a46564f7ae511583f37e28af84693cf5e52986b298a1e"
+  },
+  {
+    "file": "screenshots/raw/tablet-7-home.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "af4033ec4b778c08b4a4b86f9262e0f39d9a416cff7d8bcdf77d546ce3627871"
+  },
+  {
+    "file": "screenshots/raw/tablet-7-play.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "a92a5adfb90c908bfdd6044a99dcad0c53e98554d8dc159de2f4c113cd64cf2d"
+  },
+  {
+    "file": "screenshots/tablet-10-collection.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "b4d9ec5bb47b5ec9f024fbe9d37bfc70382f9be3da691e6137193389e076906d"
+  },
+  {
+    "file": "screenshots/tablet-10-home.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "e1c1f175b26c52fd39a54a18b951c1f2ea658ddfdeadadb489a6b055b6dda102"
+  },
+  {
+    "file": "screenshots/tablet-10-play.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "ff19dbd077fb8a30e8e8c361aa3e748216ed7ee9090a6aee8be41f588b4bc361"
+  },
+  {
+    "file": "screenshots/tablet-7-collection.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "c8e29db5e83ba88a7e5a46564f7ae511583f37e28af84693cf5e52986b298a1e"
+  },
+  {
+    "file": "screenshots/tablet-7-home.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "af4033ec4b778c08b4a4b86f9262e0f39d9a416cff7d8bcdf77d546ce3627871"
+  },
+  {
+    "file": "screenshots/tablet-7-play.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "a92a5adfb90c908bfdd6044a99dcad0c53e98554d8dc159de2f4c113cd64cf2d"
+  },
+  {
+    "file": "source_art/monster_1.png",
+    "dimensions": [
+      96,
+      91
+    ],
+    "mode": "RGBA",
+    "sha256": "3e16e60abeba250a7340514c19cc8247311513b1ddd3698b12e060227813c196"
+  },
+  {
+    "file": "source_art/monster_2.png",
+    "dimensions": [
+      96,
+      91
+    ],
+    "mode": "RGBA",
+    "sha256": "8edd40d07d151cce7f29261eea96bed5375f0e8b311411d38db57558b34ee636"
+  },
+  {
+    "file": "source_art/player.png",
+    "dimensions": [
+      21,
+      18
+    ],
+    "mode": "RGBA",
+    "sha256": "ada021abe9fc0a20b73aa983ad0014f4232819940925d3cb4b3abb926da9326b"
+  }
+]

@@ -315,6 +315,87 @@
     "sha256": "1191e9048dd2191ff2a641f96f1012057533f4e06ccc966e7c7b7547519bf44d"
   },
   {
+    "file": "screenshots-round-two/phone-01-home.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "81f561da375ef05640538e9bc2dd2588497728f8311566c4880438b7f2520168"
+  },
+  {
+    "file": "screenshots-round-two/phone-02-live-arena.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "9037951af669bed8d8b16b86361a264535489457c2991bbab509164a3f325c67"
+  },
+  {
+    "file": "screenshots-round-two/phone-03-field-journal.png",
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "399b8218d80f8280391e2e94afee34a93126435c8ad78ead70ace037c889579e"
+  },
+  {
+    "file": "screenshots-round-two/seven-01-home.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "cfd0ca57a838210bd202c24560cb934068a7631a03b4d9951c82633ad3cae322"
+  },
+  {
+    "file": "screenshots-round-two/seven-02-live-day.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "dfc2a447445121668c4dbc452b40bc22d9f780231727dcca16eb0c9de500bcde"
+  },
+  {
+    "file": "screenshots-round-two/seven-03-field-journal.png",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "mode": "RGBA",
+    "sha256": "36da0d12416d4d31a62ce0d4cc82f8164edbb99fb087cac8e425d950e719a3c3"
+  },
+  {
+    "file": "screenshots-round-two/ten-01-home.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "7eaa363ec08506f86c81ff7eceda5243b217ee197154e98c8e02c4851988dc53"
+  },
+  {
+    "file": "screenshots-round-two/ten-02-live-arena.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "c6ece35d7a96bc78ea08ea6b866491e18efd84055cb215baf319847a640752dd"
+  },
+  {
+    "file": "screenshots-round-two/ten-03-field-journal.png",
+    "dimensions": [
+      1600,
+      2560
+    ],
+    "mode": "RGBA",
+    "sha256": "c58dede57c32ee29751a90057ab7f2943a66a233fd67076fbe32c11a9e02a16f"
+  },
+  {
     "file": "screenshots/phone-collection.png",
     "dimensions": [
       1080,

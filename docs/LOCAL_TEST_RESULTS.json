@@ -1,63 +1,57 @@
 {
-  "schema": "public-local-test-summary-v1",
-  "status": "Dated local package ready for owner local-test review; no production acceptance.",
-  "engine": "Godot4.5.1 Compatibility",
+  "schema": "public-local-test-summary-v2",
+  "game": "Monster Dusk: Apocalypse",
+  "runtime_commit": "97c75e32f423772a5fb13dca26a78468b60f99fd",
+  "status": "Qualified local-test handoff ready for owner review.",
   "android": {
-    "sha256": "7267ef893747203ecfc17dbbc61d784089484bdb5bd8d643cd5bbdc747d0e0fb",
-    "bytes": 185317364,
+    "file": "build/round-two-97c75e32-a1/android/monster-dusk-survivors-debug.apk",
+    "sha256": "D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96",
+    "bytes": 188496197,
     "debug": true
   },
   "web": {
-    "html_sha256": "9dd78796e0cb5c0885e224bac3a1ebea0c229981f30836619b38dc0e99137709",
-    "html_bytes": 5498,
-    "pck_sha256": "1a361f4c20d046d7fe38897bbcd8a5e10819de7b48aefa34255c68d4c16db4c5",
-    "pck_bytes": 4659764,
-    "runtime_files": 9,
-    "packed_entries": 786,
-    "interactive_browser_verified": false,
-    "source_freeze_verified_as_recorded": true
+    "directory": "build/round-two-97c75e32-a1/web",
+    "html_sha256": "312EFE9CAEA92A01E84EE6523D18817D251EA9D503490E853B6B415CD41F70C2",
+    "pck_sha256": "BC5D13EEA4ED8A1D8D118CE16610E8EFE0387527FEF764AB294CBA24F578576B",
+    "interactive_browser_verified": false
   },
-  "source_hashes": {
-    "export_presets.cfg": "d60c0a6afdcdb8220763899d1d8d7be91fb3ea93ca4b41eaa2f090ba87eae60b",
-    "game/catalog.json": "ed372a0b443ae83811a6354dd2e1d8e71f678c20d139db116643b869759e7713",
-    "game/main.gd": "e2828d4ef5b2696d0bdac80e756f14fb9f1bbe92df35a4c058027bd284e94520",
-    "game/profile.gd": "2fa4cfc6c1908ab3418f91c0cb77ebb4c1f37f15ad77879a1a56ed6678bffbdf",
-    "game/save_store.gd": "e53fa8a8f5e814817453de848b1e33b1ddae6159c63cc71921149e2e831eee7c",
-    "game/survival.gd": "52bf614a086614b22d8ba4f0a5a5f127da1b7a2daf4cb5b068c4109ad2bfb77b",
-    "platform/config.json": "0a254fec6167e6583411a0452705675ffeb59996f43171a5c6e24859847a7ba6",
-    "platform/services.gd": "a409fdc113c7bc237e3b4150b049238f4ba3aa76ae44c0355b04be68e0a9476c",
-    "project.godot": "874eb7889dc8d8d6cc870a44be558be29d4a51ef0e12de55e055a48c002daac2"
+  "exports": {
+    "android_web_exit": 0,
+    "exact_committed_runtime_binding_before_after": true,
+    "runtime_inputs_stable": true,
+    "strict_error_lists_empty": true,
+    "complete_matching_notices": true,
+    "original_apk_preserved": true
   },
-  "source_coverage": "Recorded Android/Web strict export and static PCK/9-sidecar validation passed. Nine scoped runtime inputs were byte-identical before/after both exports.",
-  "core_test_summary": "125 model assertions and 33 UI assertions passed. The actual-scene fixed-seed smoke completed 14 simulated seconds and 15 eliminations. Four desktop OpenGL development viewports were reviewed. The fullscreen lifecycle revision passed 20 focused checks. The focused test completed with no matched log errors, using an isolated fixture.",
-  "test_scope": "Deterministic models, actual desktop scenes and explicit service/capture fixtures have their recorded scope; actual Android observations are summarized separately.",
-  "native_report": {
-    "file": "docs/NATIVE_QA.json",
-    "sha256": "79a5a360b1aa20a38d4f8df56132b5d03872b350ad57c1d8b9daf21e02187353"
+  "source_tests": {
+    "round_two": 36,
+    "models": 125,
+    "ui": 35,
+    "fullscreen_revive": 20,
+    "services_smoke_and_import": "Passed strict isolated checks.",
+    "actual_windows_compatibility_gpu": "Five synthetic views and17 music/player-policy checks; muted process. Not audible/native proof."
   },
+  "native_summary": "NATIVE_QA.json",
   "captures": {
-    "manifest": "marketing/screenshots/capture-manifest.json",
     "count": 9,
-    "raw_guest_pngs_unchanged": true,
-    "physical_device_test": false,
-    "physical_tablet_test": false
+    "manifest": "marketing/screenshots-round-two/capture-manifest.json",
+    "current_raw_bytes_unchanged": true
   },
   "licenses": {
-    "source_index": "LICENSES/INDEX.txt",
-    "recorded_packaged_notice_count": 19,
-    "third_party_terms_retained": true
+    "index": "LICENSES/INDEX.txt",
+    "packaged_notice_count": 19,
+    "creature_mixer": "Custom personal/educational/commercial terms excluding NFT/blockchain; not CC0."
   },
   "limits": [
-    "One Android11/API30 x86 emulator with logical phone/tablet display profiles was tested; no physical phone or tablet acceptance.",
-    "Godot4.5.1 Compatibility exports use minAPI24/targetAPI35 under the recorded engine constraint; current Google Play release eligibility remains owner work.",
-    "Emulator audio was disabled. Audible Android sound, interactive Web/audio/WebGL, production services and human acceptance remain unverified.",
-    "Official Google test IDs only. Real backend/service IDs, consent, signing, production checks and Google Play publication remain owner work.",
-    "Short QA does not establish all content/equipment combinations, broad ad-fill reliability, long sessions, midnight rollover, multi-day login or human balance.",
-    "Source publication does not establish a successful hosted CI run or live deployment. Pages deployment remains explicitly disabled pending separate authorization.",
-    "Restricted-host root-certificate-store warnings remain in historical logs; do not describe all stderr as clean. The20 focused fullscreen fixture checks separately completed without matched log errors.",
-    "Earlier desktop smoke used invulnerability and a fixed QA fixture; the final nine Android frames used normally launched gameplay. Desktop service-stub callbacks do not prove native callbacks or human survival balance.",
-    "Whole-second HUD/counter observations bound native freeze evidence; exact subsecond simulation was not instrumented. The first fullscreen presentation was photographed but its log line was not retained; no missing event is inferred.",
-    "The original offline batch was interrupted and a bounded manual continuation completed the remainder. The original status was not rewritten as completed. Alive pause-banks are not counted as completed interstitial rounds.",
-    "Creature Mixer artwork has custom personal/educational/commercial terms excluding NFT/blockchain projects; it is not CC0. Separately credited western/audio assets are CC0."
-  ]
+    "The retained captured Godot game-error scan was empty. Android log ring-buffer/chatty expiry applies; no exhaustive full-lifetime SDK-clean or every-frame claim is made.",
+    "Audio output was disabled. Native music toggles and saved preferences were checked; source/GPU fixtures checked playback selection and pause policy. Audible quality remains unverified.",
+    "All four phases were seen in ordinary play, including Day at92seconds. A native120second cycle repeat was not observed.",
+    "Separate current-build unearned dismissal, failed reward callback and real interstitial presentation were not verified. Offline gameplay/cold retention were tested; offline revive state was not separately forced.",
+    "The first post-earned return was alive with unchanged75second/70killHUD. Natural second defeat preceded the next observed frame, so same-run post-ad fresh movement/DASH is not accepted.",
+    "Native simultaneous multitouch, physical devices/tablets, interactive Web/WebGL/audio, production services, broad ad-fill reliability, long sessions, multi-day rollover and human balance remain unverified.",
+    "A genuine historical backup was restored after the installed package was absent. This is restoration, not retention across the earlier AVD session loss. Subsequent current-APK offline/online cold25-group comparisons required no restore.",
+    "Godot4.5.1 Compatibility minAPI24/targetAPI35 is the tested engine constraint, not current Play release eligibility. Production IDs/backend/consent/signing and Google Play publication remain owner work.",
+    "Offline saves/local clocks are not anti-cheat secure. Public Round Two pushes remain held after approval denial; no new hosted CI, Pages or Library result is claimed."
+  ],
+  "historical_original_summary": "history/first-pass/LOCAL_TEST_RESULTS.json"
 }

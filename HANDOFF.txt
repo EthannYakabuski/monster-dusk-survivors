@@ -1,51 +1,44 @@
-MONSTER DUSK: APOCALYPSE - CONTINUATION HANDOFF
-Updated 2026-10-21. Original package remains available for local review; Round Two source and illustrated marketing are complete locally; new exports/native verification and final-build captures remain required. Production release remains owner work.
+MONSTER DUSK: APOCALYPSE - ROUND TWO QUALIFIED LOCAL TEST HANDOFF
+Updated2026-10-21. The scoped local Android functional/capture package is ready for owner testing. Production release and remaining acceptance below are owner work.
 
-An endless portrait monster shooter with six enemy behavior families, escalating waves, weapon builds, bestiary and permanent progression.
+EXACT CURRENT ARTIFACTS
+Runtime commit: 97c75e32f423772a5fb13dca26a78468b60f99fd
+Android: build/round-two-97c75e32-a1/android/monster-dusk-survivors-debug.apk
+SHA256 D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96
+188496197bytes; debug/test IDs; minAPI24/targetAPI35.
+Web: build/round-two-97c75e32-a1/web/index.html
+HTML SHA256 312EFE9CAEA92A01E84EE6523D18817D251EA9D503490E853B6B415CD41F70C2
+PCK SHA256 BC5D13EEA4ED8A1D8D118CE16610E8EFE0387527FEF764AB294CBA24F578576B
+Both exports exited0 with exact before/after committed runtime binding, stable inputs, empty strict error lists and complete matching LICENSE/NOTICE/LICENSES. Keep every Web sidecar. Interactive browser play is not verified.
 
-WHERE TO CONTINUE
-Use this game folder as the single canonical Git working copy. Start a focused task here; read AGENTS.md, README.md and docs/PLATFORM_SETUP.md. New tasks must read these files and the requested change rather than assume earlier conversation context. Original folders and private QA records are retained separately by the local consolidation receipt, not inside public Git history.
+NEW DISTRIBUTIONS
+build/round-two-97c75e32-a1/packages/monster-dusk-survivors-android-test-d2fc0ada.zip
+build/round-two-97c75e32-a1/packages/monster-dusk-survivors-round-two-complete-d2fc0ada.zip
+The test ZIP contains the exact APK and matching notices. The complete ZIP includes Android, Web, this handoff and the exact final committed project/marketing/docs tree. Raw Git blobs and object IDs are checked so Windows line-ending filters do not change committed bytes. Internal PACKAGE-MANIFEST.json distinguishes runtime and documentation commits; sibling PACKAGE-RECEIPT.json records final ZIP hashes/bytes. Private generated originals are retained separately as recorded by provenance; only committed scaled outputs and provenance are promised in the source bundle.
 
-PUBLIC SOURCE / DATED HOSTED CI
-Repository: https://github.com/EthannYakabuski/monster-dusk-survivors
-Verified pre-consolidation source baseline: 8938102c7afb8c5f4d22b8c8ca01a9aefb0856ab
-PASS: https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39526798397
-This run verifies that exact baseline. Later documentation or code commits require their own CI result. Pages deployment remains disabled; no live Pages/Library/Google Play publication is claimed.
+PLAY / ROUND TWO
+Move with the portrait joystick; weapons fire automatically. Use DASH, choose in-run upgrade cards and spend earned coins between attempts. Back pauses and observed Resume continues. One optional earned continue is available per run when a real test ad loads; ordinary defeat and replay remain usable.
+Two original40second looping scores follow camp/patrol state and the music preference. The120second simulation cycle is Dusk0/Night30/Dawn60/Day90/repeat120; pause and fullscreen suspension freeze simulation. Future permanent upgrades cost180+200*r+50*r*r at current rankr; future run account XP is2*kills+int(duration/7)+5. Future daily claim gives20XP. Existing save schema, XP thresholds, banked XP/levels, coins, weapons, ranks and claims are retained. Separate in-run card progression is unchanged.
+The endless arena retains200 appearances, six enemy behavior families, three weapon paths,22second waves/five-wave elites, DASH, four powerups, four permanent upgrade paths, keeperXP, three daily quests and a seven-night gift streak. These definitions do not imply newly completed native coverage of every combination.
 
-PRESERVED ORIGINAL LOCAL QA APK
-Local artifact, when restored: build/android/game-debug.apk
-SHA256: 7267EF893747203ECFC17DBBC61D784089484BDB5BD8D643CD5BBDC747D0E0FB
-Compare this hash before calling a local binary the native-tested original. Keep matching notices with redistributed builds. No prebuilt APK is tracked publicly. Hosted CI artifacts are separately built binaries and do not inherit this native QA. Documentation-only consolidation needs no rebuild.
+SOURCE / ART CHECKS
+Strict isolated checks passed:36RoundTwo,125model,35UI,20fullscreen-revive, service smoke and import. Windows Compatibility GPU rendered five synthetic camp/phase views and17music/player-policy checks with its process bus muted. These are source fixtures, not audible or native gameplay evidence; no gate was weakened.
+Illustrated app/feature plus27achievement/fiveleaderboard badges are implemented. Each badge was individually generated for its catalog key, packaged512px and inspected at512/64. Prompts/original hashes are recorded under marketing/source-art; full generated originals remain privately retained where recorded. Illustrations are not screenshots. Legacy marketing/generate_assets.py cannot reproduce this new set: do not run it over current art.
 
-DATED NATIVE VERIFICATION
-Actual earned revive remained behind its endcard for 112.479 seconds and returned alive at the same 17-second/9-kill HUD. Movement/DASH, no second revive, separate unearned dismissal, natural-result interstitials, quest/upgrade and Back flows were observed. All 25 banked save groups matched through offline cold launch/restart; nine unchanged emulator captures were reviewed. Whole-second HUD observations do not establish subsecond simulation state. A bounded manual continuation completed interrupted capture work without replaying rewards.
-See docs/NATIVE_QA.json and docs/LOCAL_TEST_RESULTS.json for public dated details; their original publication-status wording is historical and superseded by the dated source/CI section above. Nine selected emulator screenshots remain under marketing/screenshots with relative hashes.
+ACTUAL CURRENT D2FC NATIVE SCOPE
+A genuine prior backup was restored after the installed package was absent. This is restoration, not retention across earlier AVD session loss. The current regular update retained all25 genuine banked groups before launch; subsequent current-APK cold checks required no restore.
+One Power1to2 purchase cost430coins and next cost780. Daily20XP wording was read without claiming a gift/quest. Music OFF persisted and ON was restored, with only that preference changing; no audible claim. Normal movement/auto-fire/DASH and AndroidBack pause/Resume were observed on checked profiles.
+Ordinary phone play showed Dusk/Night/Dawn; ordinary offline seven-inch-profile play reached Day at92seconds alive. A native120second repeat remains unobserved. Natural defeat75seconds/70kills led to a real earned test-ad continue:96.225seconds earned-endcard dwell returned alive with the same75second/70kill HUD, Dawn/Wave4/about65%health, and no bank. Natural second defeat at81seconds/73kills preceded the next observed frame; same-run fresh post-ad movement/DASH is NOT accepted. Second revive was disabled and252coins/162XP banked exactly once. Journal navigation did not double-bank.
+Separate ordinary offline92second/95kill and short5second/6kill runs banked320coins/208XP and38coins/17XP once, matching the revised futureXP formula. Actual default-network-none, offline play and offline cold25-group retention were observed; final restored-network cold25-group retention also matched. Original display/radios and actual connectivity were restored. Final safe stop and full private backup completed.
+Nine raw currentAPK camp/arena/journal screenshots were independently accepted for phone1080x1920, logical7inch1200x1920 and logical10inch1600x2560. Files/hashes are in marketing/screenshots-round-two/capture-manifest.json. No resize/crop/overlay, fixture or old image relabeling. Logical profiles are emulator overrides, not physical tablets.
 
-OWNER CONFIGURATION / NEXT UPDATE
-- Map 27 achievement and 5 leaderboard keys from game/catalog.json in platform/config.json.
-- Supply the same numeric Play Games game ID in JSON and the Android preset export_presets.cfg; configure OAuth/package/signing fingerprints and testers before enabling play_games.
-- AdMob unit IDs are in platform/config.json. Set the manifest App ID separately through Godot Project Settings admob/general/android/app_id in project.godot; JSON app_id alone is insufficient.
-- test_mode changes wording only. Keep Google sample IDs for development; production unit IDs require separately configured test devices and appropriate owner consent/audience settings.
-- Preserve original local builds and real saves, isolate tests, implement the requested change, run affected strict tests and update this handoff with the actual result.
+DIAGNOSTICS / LIMITS
+Retained captured Godot game-error scan was empty. Ring-buffer/chatty expiry applies: this is not an exhaustive full-lifetime SDK-clean or every-frame claim. No suppression or broad clean-log acceptance is invented. See docs/NATIVE_QA.json and docs/LOCAL_TEST_RESULTS.json.
+Native120second repeat, separate unearned-close/failure callback, current real interstitial, same-run fresh post-ad inputs and simultaneous native multitouch are unverified. Audible Android output was disabled; physical devices/tablets, interactive Web/WebGL/audio, production services/ad-fill, long sessions, multi-day rollover and human balance remain unverified. Local clocks/saves are not anti-cheat secure.
 
-LIMITATIONS / RELEASE WORK
-Godot4.5.1 Compatibility, Android primary and Web fallback; min API24/target API35 is the recorded engine export constraint, not current Google Play eligibility. One Android11/API30 x86 emulator and logical phone/tablet profiles were used. Physical devices, audible Android output (emulator audio was disabled), interactive Web/audio/WebGL, production services, broad ad-fill reliability, long sessions, multi-day/rollover behavior and human balance/content acceptance remain unverified. Offline saves and local clocks are not anti-cheat secure. Owner supplies real service/backend configuration, consent/privacy/audience declarations, signing and Google Play publication.
-Original work is Apache-2.0; retain LICENSE, NOTICE and complete LICENSES with source and distributions. Creature Mixer art uses custom personal/educational/commercial terms excluding NFT/blockchain projects; it is not CC0.
-
-ROUND TWO SOURCE UPDATE (2026-10-21)
-Adds separate original camp/patrol music, a simulation-timed 120-second dusk/night/dawn/day cycle, slower future account XP and steeper permanent upgrade costs. Existing save schema, banked XP/levels, coins, weapons, upgrades and prior claims are preserved. Daily camp text and actual future award agree at 20 XP. See docs/ROUND_TWO.md for exact formulas and verification scope.
-
-Strict isolated source checks passed: 36 Round Two, 125 model, 35 UI and 20 fullscreen-revive checks, plus service smoke checks and clean import. An isolated Windows Compatibility GPU run rendered five portrait views and checked actual music-player camp/patrol selection, toggle, pause and lifecycle state with its process audio bus muted; this is not an audible or Android test. The preview fixtures are synthetic development views, not store/native gameplay evidence.
-
-The preserved SHA256-named original APK above was not rebuilt by this source update and does not verify these changes. New Android/Web exports, actual affected Android gameplay/ad-return/save/Back/offline/audio checks and final-build captures remain required. The illustrated app/feature art, all27achievement and five leaderboard icons are complete, with retained originals/prompts/hashes and final512/64px visual review. Do not replace the original native QA date/hash with a hosted CI artifact.
-
-ROUND TWO MARKETING (2026-10-21)
-Each of the 32 badges has a distinct generated illustration tied to its catalog key.
-Source originals and prompts remain under marketing/source-art; standard resizing
-produces the final512px files. The feature uses the actual Monster Dusk: Apocalypse
-title. Legacy generate_assets.py does not reproduce this illustrated set; do not
-run it over the current art. The existing nine native screenshots still document
-the preserved original APK until replaced by accepted final-build captures.
-Local Round Two changes have not reached public main after an approval-system
-denial; no later hosted CI result is claimed. Keep current local source and dated
-public baseline/CI results distinct.
+PRESERVED HISTORY / CONTINUATION
+Original build/android/game-debug.apk remains7267EF893747203ECFC17DBBC61D784089484BDB5BD8D643CD5BBDC747D0E0FB /185317364bytes. Old test ZIPs, Web outputs, screenshots, real saves/backups and evidence remain preserved. The original112.479second earned-endcard and separate unearned/interstitial observations belong only to that older APK. Prior public summaries and marketing metadata are preserved under docs/history/first-pass/ and marketing/history/before-round-two-final/. Original screenshots/manifest remain in marketing/screenshots/.
+This is the canonical Git working copy; read AGENTS.md, README.md, docs/ROUND_TWO.md and PLATFORM_SETUP.md. Preserve edits/artifacts, isolate all test user data and keep strict checks. Source is Apache2.0; retain complete notices. Creature Mixer uses custom personal/educational/commercial terms excluding NFT/blockchain, not CC0.
+Map27achievement/fiveleaderboard keys from game/catalog.json in platform/config.json. Match the numeric PGS game ID in export_presets.cfg and configure OAuth/package/signing/testers before enabling. AdMob unit IDs are in JSON; set the manifest App ID separately at admob/general/android/app_id in project.godot. test_mode changes wording, not requests. Keep official test IDs until deliberately configured. Owner supplies production backend/consent/audience/privacy/support/signing and Google Play publication. API24/35 is a tested engine constraint, not release eligibility.
+Public repository: https://github.com/EthannYakabuski/monster-dusk-survivors
+Dated hosted baseline8938102c7afb8c5f4d22b8c8ca01a9aefb0856ab passed https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39526798397 . It does not verify later local Round Two commits or these binaries. Public Round Two pushes remain held after review denial. No retry, Pages, Library, Windows distribution or Play publication is claimed.
