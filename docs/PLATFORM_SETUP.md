@@ -7,7 +7,7 @@ This project targets Godot **4.5.1 Compatibility**, Android (API35 target, min24
 `Services` is the game-facing adapter. Its Android implementation calls the supplied Poing AdMob **5.1.0** and Godot Play Games Services **3.4.0** packages. The Web/editor implementation never simulates a successful rewarded ad. Gameplay, saves, achievements and best scores continue locally.
 
 - Menu banner: native 320x50dp banner anchored at the screen bottom. Menu UI consumes `Services.menu_bottom_reserve(reference)` and listens to `menu_bottom_reserve_changed`; gameplay calls `set_menu_visible(false)`.
-- Interstitials: every second completed round/outage/job, when an ad is loaded; no added fixed-time throttle. Failed/unavailable ads do not prevent play.
+- Interstitials: every second naturally completed round, when an ad is loaded; no added fixed-time throttle. Failed/unavailable ads do not prevent play.
 - Rewarded: opt-in, available only after a real native rewarded ad loads; benefits granted only on the earned-reward callback, once per request. Dismissal/failure grants nothing.
 - Consent: refresh UMP consent at Android launch, show a required form, and initialize advertising only after `OBTAINED` or `NOT_REQUIRED`. A privacy-options action is exposed. Without configured/available consent information, requests pause and gameplay continues. Google's sample AdMob app does not prove the publisher's eventual privacy-message configuration; this requires human final configuration/testing.
 - Play Games: disabled until real app configuration is provided. Local unlocks and best scores are retained in `user://platform_pending_v1.json` and resubmitted idempotently after sign-in. Only the configured symbolic keys map to remote IDs.
@@ -34,7 +34,7 @@ Android debug builds log `NATIVE_AD_EVENT` only from actual SDK presentation, di
 
 ## Build
 
-Install/reuse Godot4.5.1, its matching export templates, Java17 and Android SDK platform35/build tools35, NDK28.1.13356709. The existing PC already supplies these tools; the hosted workflow provisions its own isolated runner dependencies.
+Install/reuse Godot4.5.1, its matching export templates, Java17 and Android SDK platform35/build tools35, NDK28.1.13356709. Use installed compatible tools or provision them explicitly; the hosted workflow provisions its own isolated runner dependencies. Do not assume a fresh machine has them.
 
 ```sh
 godot --headless --editor --path . --import
@@ -45,11 +45,11 @@ godot --headless --path . --export-release Web build/web/index.html
 
 Create output directories first. A debug APK is installable test software; it is not a production-signed release. The preset includes x86 for the existing API30 emulator and ARM64 for current phones. Release/AAB signing is performed only when the owner supplies signing configuration. `android/build` is generated from matching Godot templates and must not be committed with machine-local SDK paths/caches/keys.
 
-The Android preset intentionally uses `runnable=false`. CLI exports still work; this prevents Godot's editor shutdown path from stopping the shared ADB server during a Web export. No global editor setting is changed. The API30 emulator also needs `rendering/shader_compiler/shader_cache/enabled.android=false` for its observed GL program-binary failure; retain the coordinator's project setting.
+The Android preset intentionally uses `runnable=false`. CLI exports still work; this prevents Godot's editor shutdown path from stopping the shared ADB server during a Web export. No global editor setting is changed. The API30 emulator also needs `rendering/shader_compiler/shader_cache/enabled.android=false` for its observed GL program-binary failure; retain the existing project setting unless a separately tested change justifies replacing it.
 
 Enable `rendering/textures/vram_compression/import_etc2_astc=true` in project settings before importing assets for Android. Keep desktop texture import enabled for Web. Tests, test-only platform scripts, captures, marketing packages, helper scripts, logs and documentation are excluded from shipping resource packs. Copy the app icon to `platform/app-icon-512.png` and point the project icon setting there so excluding `marketing/` does not remove its runtime resource. Game catalogs and runtime art/audio remain included.
 
-Hosted Actions verifies pinned Godot download digests, builds the native Android APK, validates Web/editor service fallback behavior, discovers and runs `tests/test_*.gd`, `tests/*_test.gd`, and `tests/smoke.gd` (requiring at least one), exports Web, retains Android artifacts seven days, and deploys Pages. Test processes have bounded timeouts; logs containing script/parse/assertion errors fail even if Godot exits0. CI does not substitute for human playtesting or verify unpublished Google service IDs. The repository's Pages source must be GitHub Actions.
+Hosted Actions verifies pinned Godot download digests, builds the native Android APK, validates Web/editor service fallback behavior, discovers and runs `tests/test_*.gd`, `tests/*_test.gd`, and `tests/smoke.gd` (requiring at least one), exports Web, retains Android artifacts seven days, and leaves Pages deployment explicitly disabled. Test processes have bounded timeouts; logs containing script/parse/assertion errors fail even if Godot exits0. CI does not substitute for human playtesting or verify unpublished Google service IDs. Do not enable Pages or change deployment settings as part of an ordinary code or ID update.
 
 ## Vendored dependencies and notices
 
@@ -60,3 +60,31 @@ Hosted Actions verifies pinned Godot download digests, builds the native Android
 - Original project code uses Apache2.0; third-party components retain their own licenses. Preserve notices in the repository and distributed game's credits/licenses screen.
 
 Public upstream references: https://github.com/poingstudios/godot-admob-plugin and https://github.com/godot-sdk-integrations/godot-play-game-services .
+
+## Project-specific continuation
+
+Android package: `com.ethannyakabuski.monsterdusk`. `game/catalog.json` contains 27 achievement and 5 leaderboard definitions. Preserve their symbolic identifiers when entering console IDs in `platform/config.json`; renaming keys changes the service contract.
+
+Achievement keys: `first_light`, `trail_keeper`, `dusk_defender`, `night_legend`, `endless_lantern`, `beyond_gate`, `first_elite_wave`, `ten_bells`, `twenty_bells`, `two_minute_watch`, `five_minute_watch`, `ten_minute_watch`, `nimble_keeper`, `dust_dancer`, `elite_hunter`, `elite_veteran`, `bright_pockets`, `walking_sunrise`, `keeper_three`, `keeper_six`, `keeper_twelve`, `naturalist`, `field_scholar`, `helping_hands`, `camp_regular`, `seven_lanterns`, `well_equipped`.
+
+Leaderboard keys: `best_wave`, `best_seconds`, `kills`, `player_level`, `seen`.
+
+`play_games.enabled` is currently false and all production mappings are empty. Supply `play_games.game_id`, achievement and leaderboard IDs in JSON and the matching `godot_play_game_services/game_id` in the Android section of `export_presets.cfg`. The current `0` preset value is inactive. Configure matching package, OAuth/signing fingerprints and authorized testers in the owner consoles before enabling Play Games.
+
+For AdMob, `banner_unit_id`, `interstitial_unit_id` and `rewarded_unit_id` are the actual requested unit IDs. Set the manifest App ID in Godot Project Settings `admob/general/android/app_id` (the `[admob]` section of `project.godot`), and keep JSON `admob.app_id` consistent as a reference. No platform/game code reads JSON `app_id` to set the manifest. An absent `[admob]` override uses the plugin sample default. `test_mode` only changes status wording; it does not configure test devices or override production unit IDs. Retain Google sample IDs during ordinary development.
+
+Run test scripts and capture fixtures with process-scoped temporary user data: isolate both `APPDATA` and `LOCALAPPDATA` on Windows, or `XDG_DATA_HOME` on Linux. Do not modify global environment settings or run fixtures against genuine player saves. The service adapter also writes pending progress, so a test-only gameplay filename alone does not isolate the entire process.
+
+Actual game test entrypoints:
+
+```sh
+godot --headless --path . --script tests/test_fullscreen_revive.gd
+godot --headless --path . --script tests/test_models.gd
+godot --headless --path . --script tests/test_ui.gd
+```
+
+For documentation-only changes, review the diff and links; do not rebuild or overwrite the preserved original QA APK. For runtime/service changes, keep the strict existing CI error gates, run the affected tests and review the changed behavior. Model/stub tests do not replace native test-ad, Back/save/offline and physical-device verification.
+
+Verified pre-consolidation public baseline: `8938102c7afb8c5f4d22b8c8ca01a9aefb0856ab`.
+[Hosted build/test run](https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39526798397): **PASS** on that exact commit.
+Later documentation commits require their own CI result; this dated result does not verify later binaries.

@@ -1,42 +1,33 @@
-MONSTER DUSK: APOCALYPSE - LOCAL TEST HANDOFF
-Status: READY FOR OWNER LOCAL TEST REVIEW (2026-10-20T13:23:40.298442+00:00).
+MONSTER DUSK: APOCALYPSE - CONTINUATION HANDOFF
+Updated 2026-10-21. Ready for owner local review; production release remains owner work.
 
-APK: build/android/game-debug.apk (185,317,364 bytes)
-SHA256: 7267ef893747203ecfc17dbbc61d784089484bdb5bd8d643cd5bbdc747d0e0fb
-APK plus matching LICENSES: build/android/monster-dusk-survivors-test-package.zip
-ZIP SHA256: b7b574874e5c32b0941c6ff86e4c25471fc324968ce7814942adcaec06ad21e3
-Keep accompanying notices with redistributed binaries. README contains build/run
-instructions; docs/LOCAL_TEST_RESULTS.json records exact hashes and limitations.
+An endless portrait monster shooter with six enemy behavior families, escalating waves, weapon builds, bestiary and permanent progression.
 
-WHAT IS READY
-A portrait endless monster shooter with six enemy behavior families, escalating waves, a large creature bestiary, weapon builds and permanent progression. Move around the arena, choose run upgrades, survive enemy combinations and spend earned rewards between attempts. Daily goals and the bestiary track progress, with local offline saves and optional native services. Catalog: 27 achievement and 5 leaderboard definitions. Official Google test ads are integrated; production Play Games IDs remain disabled pending owner configuration.
-Store art/copy, nine actual normal-play emulator captures and local Web export
-are included. See marketing/screenshots/capture-manifest.json for provenance.
+WHERE TO CONTINUE
+Use this game folder as the single canonical Git working copy. Start a focused task here; read AGENTS.md, README.md and docs/PLATFORM_SETUP.md. New tasks must read these files and the requested change rather than assume earlier conversation context. Original folders and private QA records are retained separately by the local consolidation receipt, not inside public Git history.
 
-VERIFICATION
-125 model assertions and 33 UI assertions passed. The actual-scene fixed-seed smoke completed 14 simulated seconds and 15 eliminations. Four desktop OpenGL development viewports were reviewed. The fullscreen lifecycle revision passed 20 focused checks. The focused test completed with no matched log errors, using an isolated fixture.
-Actual native Google test-ad earned callback followed by112.479seconds of undismissed endcard left the HUD at17seconds/9kills; return was alive with restored health/protection and usable movement/DASH. Exact subsecond state was not instrumented. Second death disabled another revive; a separate unearned dismissal paid nothing and preserved Results. Two naturally defeated, banked runs triggered a real presented/dismissed interstitial in one process. Current login gift remained already claimed; an eligible kill quest paid160coins/35XP once, and power0->1 cost80coins with no XP. Home banner and all six controls were unobstructed; Android Back Pause/resume and ordinary navigation passed.
+PUBLIC SOURCE / DATED HOSTED CI
+Repository: https://github.com/EthannYakabuski/monster-dusk-survivors
+Verified pre-consolidation source baseline: 8938102c7afb8c5f4d22b8c8ca01a9aefb0856ab
+PASS: https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39526798397
+This run verifies that exact baseline. Later documentation or code commits require their own CI result. Pages deployment remains disabled; no live Pages/Library/Google Play publication is claimed.
 
-Fresh actual-disconnected play banked three ordinary runs across the phone and logical7/10 profiles:45kills,39seconds,222XP and271coins including one70coin level bonus. Alive exits are not counted toward interstitial cadence. All25 typed saved groups matched across disconnected cold launch/restart. The original batch was interrupted after the three banks and nine frames; a separately recorded bounded manual remainder completed cold/restart and exact network/display restoration. No original uninterrupted completion or replayed reward is claimed. Nine clean current-APK guest PNGs were validated without pixel changes; operator reviewed all9 and root reviewed phone play, logical7 Home and logical10 journal. One API30 emulator, test IDs and emulated tablets only; physical-device, audible sound, interactive Web, production and human acceptance remain unverified.
+PRESERVED ORIGINAL LOCAL QA APK
+Local artifact, when restored: build/android/game-debug.apk
+SHA256: 7267EF893747203ECFC17DBBC61D784089484BDB5BD8D643CD5BBDC747D0E0FB
+Compare this hash before calling a local binary the native-tested original. Keep matching notices with redistributed builds. No prebuilt APK is tracked publicly. Hosted CI artifacts are separately built binaries and do not inherit this native QA. Documentation-only consolidation needs no rebuild.
 
-SOURCE / WEB EVIDENCE
-PASS local fullscreen-pause export/static PCK+9-sidecar validation. All9 scoped runtime inputs have byte-identical Android/Web before/after snapshots and match current source. Evidence: build/qa/android-fullscreen-pause-input-snapshots.json and web-fullscreen-pause-input-snapshots.json. Interactive browser unverified; hosted CI/Pages not run.
+DATED NATIVE VERIFICATION
+Actual earned revive remained behind its endcard for 112.479 seconds and returned alive at the same 17-second/9-kill HUD. Movement/DASH, no second revive, separate unearned dismissal, natural-result interstitials, quest/upgrade and Back flows were observed. All 25 banked save groups matched through offline cold launch/restart; nine unchanged emulator captures were reviewed. Whole-second HUD observations do not establish subsecond simulation state. A bounded manual continuation completed interrupted capture work without replaying rewards.
+See docs/NATIVE_QA.json and docs/LOCAL_TEST_RESULTS.json for public dated details; their original publication-status wording is historical and superseded by the dated source/CI section above. Nine selected emulator screenshots remain under marketing/screenshots with relative hashes.
 
-LIMITS / OWNER WORK
-- One API30 Android11 x86 host-GPU emulator; guest PNG dimensions follow confirmed effective wm profile. No physical-device/tablet acceptance.
-- Official Google test IDs only; production IDs/backend/consent/signing/store setup remain owner work.
-- Emulator audio disabled; audible Android sound unverified.
-- Short native QA does not establish every weapon, monster/wave, long-session economy, midnight rollover, multi-day login or broad ad-fill reliability.
-- Interactive browser/audio/WebGL and hosted CI/Pages remain unverified; public publishing paused.
-- Earlier desktop smoke used invulnerability and a documented QA fixture; the final nine selected Android frames use normally launched gameplay without diagnostic hooks. These checks do not establish human survival balance.
-- UI assertions, including Back/resume and reward guards, use a desktop service stub and are not actual Android/native callback proof. Core reports do not establish production ads, Play Games configuration, Android performance or player enjoyment.
-- Restricted-host certificate-store warnings are retained in the existing logs; do not describe all stderr as clean.
-- Creature Mixer artwork is governed by custom terms permitting personal/educational/commercial use while excluding NFT/blockchain projects. It is not CC0; the separately credited western/audio packs are CC0.
-- Hosted CI, interactive browser behavior and public deployment remain unverified or paused. Actual native observations and final native/capture acceptance use their own records; this static source and packaging content does not assign final acceptance.
-- Fullscreen lifecycle fixture results are separate from the observed actual Android earned-ad regression. The native progress record reports 112.479 seconds from earned to dismissal, followed by the original integer HUD values and an alive, usable return. Exact subsecond simulation state was not instrumented. Current native QA and nine-image approval are documented in docs/NATIVE_QA.json and its bound frozen receipt; long-session, multi-day, physical-device and human acceptance remain separate.
-- One API30 Android11 x86 host-GPU emulator; authenticated guest PNGs use confirmed effective wm dimensions: phone1080x1920, logical7 1200x1920, logical10 1600x2560. No physical phone/tablet acceptance.
-- Emulator audio is disabled (-no-audio); audible Android sound is unverified.
-- Interactive browser/audio/WebGL, hosted CI/Pages and production services remain unverified; public publishing remains paused.
-- Configure real AdMob and Play Games IDs/backend/account settings and perform final consent and real-service testing.
-- Finalize release package/version/signing, support/privacy URLs, audience/content rating, ads/Data safety and SDK disclosures, and current Play eligibility.
-- Complete human balance and physical-device review, then owner Google Play submission/publication. Retain the complete accompanying notices, including the custom Creature Mixer terms.
+OWNER CONFIGURATION / NEXT UPDATE
+- Map 27 achievement and 5 leaderboard keys from game/catalog.json in platform/config.json.
+- Supply the same numeric Play Games game ID in JSON and the Android preset export_presets.cfg; configure OAuth/package/signing fingerprints and testers before enabling play_games.
+- AdMob unit IDs are in platform/config.json. Set the manifest App ID separately through Godot Project Settings admob/general/android/app_id in project.godot; JSON app_id alone is insufficient.
+- test_mode changes wording only. Keep Google sample IDs for development; production unit IDs require separately configured test devices and appropriate owner consent/audience settings.
+- Preserve original local builds and real saves, isolate tests, implement the requested change, run affected strict tests and update this handoff with the actual result.
+
+LIMITATIONS / RELEASE WORK
+Godot4.5.1 Compatibility, Android primary and Web fallback; min API24/target API35 is the recorded engine export constraint, not current Google Play eligibility. One Android11/API30 x86 emulator and logical phone/tablet profiles were used. Physical devices, audible Android output (emulator audio was disabled), interactive Web/audio/WebGL, production services, broad ad-fill reliability, long sessions, multi-day/rollover behavior and human balance/content acceptance remain unverified. Offline saves and local clocks are not anti-cheat secure. Owner supplies real service/backend configuration, consent/privacy/audience declarations, signing and Google Play publication.
+Original work is Apache-2.0; retain LICENSE, NOTICE and complete LICENSES with source and distributions. Creature Mixer art uses custom personal/educational/commercial terms excluding NFT/blockchain projects; it is not CC0.
