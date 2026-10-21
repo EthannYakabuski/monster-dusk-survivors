@@ -6,7 +6,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "04bff1e1593b1e3d817c4bb6ca597a11c2a475d310b6e30e37e4d5fb84e10b19"
+    "sha256": "8b83cdc5ed87515c00b8990b5dae521857bd2d3ef1880f0c63afe31e38f6e58e"
   },
   {
     "file": "achievements/bright_pockets.png",
@@ -15,7 +15,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "e6a90a41c015a40b2bd87d9bda5af031b0c20f6c317931bf2a5d97cea7d39ef9"
+    "sha256": "f21ca10af6bdfc902c6b5d85edc35c111db8960768d10828763a227a26d08f4c"
   },
   {
     "file": "achievements/camp_regular.png",
@@ -24,7 +24,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "6b1197a40ba4bb3ede7536e9bc1972c42abf20f798be02895358c6ab34dc2470"
+    "sha256": "493802204f826716ab7205952981be5fa218e4221cba3a50438f2022e04101e9"
   },
   {
     "file": "achievements/dusk_defender.png",
@@ -33,7 +33,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "7e2dc828aa4c5a499c746eee47e04c5d7f8a8e3fca08887a355b4590580c823d"
+    "sha256": "56cc72df371035864d663e41b0d2591b4744e3fdc084192cde801e60f473b0ed"
   },
   {
     "file": "achievements/dust_dancer.png",
@@ -42,7 +42,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "9e8c7f8ecd36ac69da265869e3ab87cd3de4c305862df125abe9fee726acffd9"
+    "sha256": "eb45d63cb5a6380856def4ce2d40a9714a48de80fc5cc68cb44a21e498d21eb4"
   },
   {
     "file": "achievements/elite_hunter.png",
@@ -51,7 +51,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "920dbcdbb5692fcf26928daf1efef107f189fa96cc78f00559adcf4a2d7ce1c8"
+    "sha256": "95bda4a29383e4fa21e0928d937effca85d5f6f5d5b8caa46ab8e94b70136c1f"
   },
   {
     "file": "achievements/elite_veteran.png",
@@ -60,7 +60,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "d0a13873c840ead56102885fad224f749a16c53680350af7ad92e922e2d31f04"
+    "sha256": "a0e458791d0fa080edd6a68636a39ee18b0bc408ab53864bf31249ccfa2b8218"
   },
   {
     "file": "achievements/endless_lantern.png",
@@ -69,7 +69,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "f5505b6ea99941e9779dacaba0bc68862b5d8c177f6233c6dab4f9655cac967e"
+    "sha256": "7d3f0f53a15e1d7c69ce275c62ad8b50c910f19b9857f63a18a93a461bffab52"
   },
   {
     "file": "achievements/field_scholar.png",
@@ -78,7 +78,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "c7ddb8b2385f54f1f486e20848bbb7293f0cbd62ff5c028f78486c55cbf9a5b6"
+    "sha256": "bbe3766b13d5713746e9b6d118809d58779fb6115837659f051bfd418f526546"
   },
   {
     "file": "achievements/first_elite_wave.png",
@@ -87,7 +87,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "e0cad5bf7c4c109a04d21a220a7d7bb201345d448ea3c474c09510631a8e91d1"
+    "sha256": "dec26f0ef84d29ce348c512afc5744b3f9174e1c5b5f723ed8ce30eddf1daf3e"
   },
   {
     "file": "achievements/first_light.png",
@@ -96,7 +96,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "7f73135615f18a8887462724398e657c20a1499376b83d51b37436418c861079"
+    "sha256": "c706b6c4c9c22eef2cdd2c50fac56c1b0865b0f2f166f21f99ac75cf2fbc4d7f"
   },
   {
     "file": "achievements/five_minute_watch.png",
@@ -105,7 +105,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "29d7b6a81e1bd90f7ff8d85b256db656292bc529cd08c873277de5becba2bcb1"
+    "sha256": "aa450867440effa6304163f398c562949b19184540530bf81d0abd82b6b27dc8"
   },
   {
     "file": "achievements/helping_hands.png",
@@ -114,7 +114,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "d08a74453a869c8aec6b948c8b89f05f5d53f66beabf35b0a5ed498a535feff3"
+    "sha256": "e1d0eb8a8d51d986944ab495c6252d230363ef06f5fb1eec1449db1f0f5ec006"
   },
   {
     "file": "achievements/keeper_six.png",
@@ -123,7 +123,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "e0bd9906cc03f22f6c5f5945a1f799a8723ab1bddb543fef33d0ac6060a04fb4"
+    "sha256": "153aeb92977c36940076d3622c1ed47fc28f0595de3c128111df0b7a0f7c57fa"
   },
   {
     "file": "achievements/keeper_three.png",
@@ -132,7 +132,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "9612ea60ee2fe48a86a461ae3b2657269500319ba469f646f2c9111af58cd919"
+    "sha256": "23aa5f6c352d2d79b43f25371888d978bd0ba23bcbf5bf53c79c20d7ee262039"
   },
   {
     "file": "achievements/keeper_twelve.png",
@@ -141,7 +141,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "4c8cf1a2d904b81dc04067db7efdffab162a19d30d95e295ed00b13472cdf7cd"
+    "sha256": "39868d6c34f5141f77b68b1ddcbfad8c5cc14877f706cb185d0ae2c8d7fbf1f6"
   },
   {
     "file": "achievements/naturalist.png",
@@ -150,7 +150,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "ea87bce35376cd2b9e86aee01decef675aad43f70c3ada4945e9be2cc5fa43b2"
+    "sha256": "82925636409bac02f4bde07e8b350ac54df07da000cf43b4ee6d8008535dff08"
   },
   {
     "file": "achievements/night_legend.png",
@@ -159,7 +159,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "98803c106d75033d9ec93351c85729ba7f580f3644cbbc9164596acba0cf1dc5"
+    "sha256": "6736759b7df35bd29faa771ce508dcc4d4e9dd891369d2974bb058eb74aea57b"
   },
   {
     "file": "achievements/nimble_keeper.png",
@@ -168,7 +168,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "04bce2e1ceea06f828b8b6713df51b88d4b021fc17c1b5eb95ee06f33cd05e72"
+    "sha256": "7312030f09c3eec0e4900750df800f7b1ae31cfcdb239789f3f20c9378c1b724"
   },
   {
     "file": "achievements/seven_lanterns.png",
@@ -177,7 +177,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "bff6561557c5b53ca8ca5157a7994c29614ca05c6b785ff4e94bd460b70ecc7a"
+    "sha256": "ad1ad3c11bfc88e8fc1c26f8eceafbb526ef9125d9a2f10c984cf2505764c96a"
   },
   {
     "file": "achievements/ten_bells.png",
@@ -186,7 +186,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "6a79c92766d537a30ce294c31c34dc4c6cb5fa0d968cb721c4784f681c17a4ee"
+    "sha256": "50a145652315e926241af680ecd4818be50386ebd876cc78ac7ca7c4ee0b7faf"
   },
   {
     "file": "achievements/ten_minute_watch.png",
@@ -195,7 +195,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "bce37159b3b5d048efe7bbf11bbccaab628b6fa2351113e4209db9a8949b6d04"
+    "sha256": "200e6ac23218aab82f3a5445f1f63c3965bb63e1d14966cd0f3fba9db9b3713a"
   },
   {
     "file": "achievements/trail_keeper.png",
@@ -204,7 +204,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "c5f1047f2eb5a89132fec942acae3653b2e67ab68202ec204daa5a50e8efbc84"
+    "sha256": "3482166a60787bc3986e0a036c51259cdeb9dc455cff01206a4f12d58b097ab5"
   },
   {
     "file": "achievements/twenty_bells.png",
@@ -213,7 +213,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "02ee554ef5e1a323b58bddf43601858c959ef4ba32a14378067fc236c9befe0a"
+    "sha256": "7f0daa1f3aea2b739039e9430b5e52e194c55c60a51a598e54f4e822a214fe4e"
   },
   {
     "file": "achievements/two_minute_watch.png",
@@ -222,7 +222,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "5debb22f84b368e4e83dda282889b6445d7880ecb546af5f057b1ab73085c454"
+    "sha256": "2bc132cc07185cb5db07430a1d22668513f8c8a9b762e1060c92abda56d8b1d2"
   },
   {
     "file": "achievements/walking_sunrise.png",
@@ -231,7 +231,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "10a9c01b31610b07da449e4308bd462c41381a9b246964dd817e91d34000e4a5"
+    "sha256": "bcbcf371cfb49b6d50a88761e0edb17eda1f453d9b1060813068ad2377ea9cf2"
   },
   {
     "file": "achievements/well_equipped.png",
@@ -240,7 +240,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "dd9a526a428032671d4dd11e82da7846c6d834689d534dd05a28ae4965cee7f8"
+    "sha256": "cabebe86e147c44a245485b4c62d04361ac7e015f3e69aa03cb6549dc1673e24"
   },
   {
     "file": "app-icon-192.png",
@@ -276,7 +276,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "3223c7da794bcabf63b6bc3a394df5b87ac4f0606098b3f95dfb2be7532ba6dc"
+    "sha256": "31ea552040f83a967366bcc6b89097a1ec03eadac500bb10c664d05374771b39"
   },
   {
     "file": "leaderboards/best_wave.png",
@@ -285,7 +285,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "c954ea05db0f742ff7255e4260235f97760d252bfbacc3296cb531365919fb47"
+    "sha256": "1f4946e627ec818c61b4fb91df4173c8575365181eed1cbb85c60e82053bc8f5"
   },
   {
     "file": "leaderboards/kills.png",
@@ -294,7 +294,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "259e25cc8a736a83452675d3ba5040a8085e5bec75be06217e286bb1bd537d8a"
+    "sha256": "e6d106e55b93daabe5a4bb92b7faf74d0f19864d7c211cedd9f99d9fe48bcaaf"
   },
   {
     "file": "leaderboards/player_level.png",
@@ -303,7 +303,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "e7143bbf0ca47b1f438631b45aa84fad9adb112eeb335a95ca5468a9e8b8a16a"
+    "sha256": "18a205c7d74dee15c2173ce769c52a26a1f5287d69f6c4e50f19b73be3dd1916"
   },
   {
     "file": "leaderboards/seen.png",
@@ -312,7 +312,7 @@
       512
     ],
     "mode": "RGB",
-    "sha256": "f102385641aae0edcf38c0bad0f2f1c61a00cdb6327e96771f7b6f38901d5c22"
+    "sha256": "1191e9048dd2191ff2a641f96f1012057533f4e06ccc966e7c7b7547519bf44d"
   },
   {
     "file": "screenshots/phone-collection.png",

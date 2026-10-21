@@ -29,3 +29,6 @@ distributor's responsibility. No production approval is implied.
 Round Two: camp_watch.wav and dusk_patrol.wav are original Apache-2.0
 compositions/synthesis; reproducible with tools/compose_music.py. Existing
 Kenney SFX and Creature Mixer terms remain unchanged.
+
+Round Two app/feature and 32 promotional badge illustrations: original Apache-2.0
+project work; provenance under marketing/source-art. See Assets/ROUND-TWO-ART.txt.

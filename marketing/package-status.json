@@ -13,7 +13,7 @@
   "gameplay_claims": "confirmed_with_core_owner; final_owner_store_and_device_review_pending",
   "catalog_reconciled_utc": "2026-10-20T06:37:49.008134+00:00",
   "core_feature_confirmation": "Core owner confirmed 200 appearances, six roles, three weapon paths, 22-second waves/five-wave elites, dash, four powerups, four permanent upgrade paths, keeper XP, three daily quests and seven-night gift streak; actual staged desktop-engine captures reviewed. Android/device and real-service verification remains separate.",
-  "artwork_qa": "19_checks_passed; isolated_portable_rebuild_byte_identical",
+  "artwork_qa": "Round Two illustrated package:32 distinct catalog badges; final512/64 visual review and hash/dimension checks. Historical procedural byte-identical rebuild does not apply.",
   "qa_report": "QA-RESULTS.json",
   "capture_manifest": "screenshots/capture-manifest.json",
   "capture_count": 9,
@@ -24,5 +24,18 @@
   "physical_device_test": false,
   "physical_tablet_test": false,
   "separate_runtime_receipt": "root_responsibility; not inferred from frame provenance",
-  "publication": "paused; no external publication performed by capture packaging"
+  "publication": "Public repository exists; newer Round Two changes remain local after push denial. No Pages/Library/Play action.",
+  "round_two_art": {
+    "app": true,
+    "feature": true,
+    "achievement_icons": 27,
+    "leaderboard_icons": 5,
+    "badge_pixels": [
+      512,
+      512
+    ],
+    "review": "All32 final512 images and64px thumbnails inspected; promotional art, not gameplay evidence.",
+    "source": "source-art/ART-MANIFEST.json"
+  },
+  "scope": "Current illustrations complete. capture_* fields and existing screenshot roles describe the preserved original7267EF89 APK, not this Round Two source. New exports/native checks/final-build captures required."
 }

@@ -1,0 +1,276 @@
+{
+  "generator": "built-in image_gen; one distinct call per badge",
+  "kind": "Original illustrated achievements artwork",
+  "files": [
+    {
+      "file": "beyond_gate-v2-original.png",
+      "bytes": 2851436,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "c371df5d061852c624d5dcba1a30ad57fec8031b69ada6356bd9cdf9825225fe",
+      "prompt": "beyond_gate-v2-original.prompt.txt"
+    },
+    {
+      "file": "bright_pockets-v2-original.png",
+      "bytes": 2774136,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "9b588245c92c9cccd022ee6ac8d225921995c236afd7bbf898ffa4e9f8d7edbd",
+      "prompt": "bright_pockets-v2-original.prompt.txt"
+    },
+    {
+      "file": "camp_regular-v2-original.png",
+      "bytes": 2904149,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "db8df010bb7b7828ab654bf34ad395b80190260e0a60a13972c3fb4050108f9b",
+      "prompt": "camp_regular-v2-original.prompt.txt"
+    },
+    {
+      "file": "dusk_defender-v2-original.png",
+      "bytes": 2757631,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "2b23ae6d151da70f9994bbef158766e0ce10f45483f3fbf43eb323cf14a48619",
+      "prompt": "dusk_defender-v2-original.prompt.txt"
+    },
+    {
+      "file": "dust_dancer-v2-original.png",
+      "bytes": 2982068,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "481283a8cc382f51c7a38fb65c430e7c877f560c3784f68ae8a061620ba26153",
+      "prompt": "dust_dancer-v2-original.prompt.txt"
+    },
+    {
+      "file": "elite_hunter-v2-original.png",
+      "bytes": 3123644,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "8e6111202034625178ee6da718d0047ecd9de1122eaf40de5edb0a6b3e3b49eb",
+      "prompt": "elite_hunter-v2-original.prompt.txt"
+    },
+    {
+      "file": "elite_veteran-v2-original.png",
+      "bytes": 3184311,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "b874bacc17c864e00dc721b4816e466928e434d603347431e122aff052817dc4",
+      "prompt": "elite_veteran-v2-original.prompt.txt"
+    },
+    {
+      "file": "endless_lantern-v2-original.png",
+      "bytes": 3006518,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "0e707a6512bf68e4485911afd57cfddaf6eb05a795ca3e906f4516af6d114b6e",
+      "prompt": "endless_lantern-v2-original.prompt.txt"
+    },
+    {
+      "file": "field_scholar-v2-original.png",
+      "bytes": 3117805,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "8ffa9329b7f732f648a87eb25a7bf5c6328fbc58703c605f51affb33557afa72",
+      "prompt": "field_scholar-v2-original.prompt.txt"
+    },
+    {
+      "file": "first_elite_wave-v2-original.png",
+      "bytes": 2907479,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "2df7702843e444d421259be9eb0bedee5a6a111af1281381f0b17459f5ae5625",
+      "prompt": "first_elite_wave-v2-original.prompt.txt"
+    },
+    {
+      "file": "first_light-v2-original.png",
+      "bytes": 2604279,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "dcc520389e5b4af6c7818b85f85cfd7397d9ca3fa87d87219d210d2dbad2aade",
+      "prompt": "first_light-v2-original.prompt.txt"
+    },
+    {
+      "file": "five_minute_watch-v2-original.png",
+      "bytes": 2719335,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "f41c95b769f921f76a715c0f3841fcceb8466b338aa14e106e20dc7e3d4310f8",
+      "prompt": "five_minute_watch-v2-original.prompt.txt"
+    },
+    {
+      "file": "helping_hands-v2-original.png",
+      "bytes": 2780992,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "1a1851ad90a21b090acdc824b40a531edd3aeabc1a42c22a9091d61585eb15ea",
+      "prompt": "helping_hands-v2-original.prompt.txt"
+    },
+    {
+      "file": "keeper_six-v2-original.png",
+      "bytes": 2704938,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "3a4db907d002515fe5f0c4b6c228fb53ef89f31329dd8e92605bdb036678a6ef",
+      "prompt": "keeper_six-v2-original.prompt.txt"
+    },
+    {
+      "file": "keeper_three-v2-original.png",
+      "bytes": 2739559,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "fbbd080122972ac9207a47aaaa1e15efe71696708444bc3ee8f183518ae5a943",
+      "prompt": "keeper_three-v2-original.prompt.txt"
+    },
+    {
+      "file": "keeper_twelve-v2-original.png",
+      "bytes": 2894497,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "c8b757fd3089e4f2c3de30dce791a4951c21eadde4d58aaa3818c99681b75cfb",
+      "prompt": "keeper_twelve-v2-original.prompt.txt"
+    },
+    {
+      "file": "naturalist-v2-original.png",
+      "bytes": 2958490,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "29ac0cfe358f168087e7b87ee68d39d268c7f178316496b36ab3d506bff3eec5",
+      "prompt": "naturalist-v2-original.prompt.txt"
+    },
+    {
+      "file": "night_legend-v2-original.png",
+      "bytes": 2941600,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "2711959003e2bc4a6a0ac25f2521b43aabb045f09d6280b1e6ea3c7db8c74191",
+      "prompt": "night_legend-v2-original.prompt.txt"
+    },
+    {
+      "file": "nimble_keeper-v2-original.png",
+      "bytes": 2635117,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "651752dfb16aa9e77cfd9cfb18add2a909518094b9ff26bd0db4a2273ecec6dd",
+      "prompt": "nimble_keeper-v2-original.prompt.txt"
+    },
+    {
+      "file": "seven_lanterns-v2-original.png",
+      "bytes": 2814493,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "51548f4f1acd187e3cfa8cb5799fc085a7766d707fb76de3d3cb8cf07d2a6056",
+      "prompt": "seven_lanterns-v2-original.prompt.txt"
+    },
+    {
+      "file": "ten_bells-v2-original.png",
+      "bytes": 2833531,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "0a2242c58cafb1dc75dcef1f58045edbbad7844e2db0e7db241114cdbb554be8",
+      "prompt": "ten_bells-v2-original.prompt.txt"
+    },
+    {
+      "file": "ten_minute_watch-v2-original.png",
+      "bytes": 2848265,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "1e46cd8c1836b95563ae2f8b9737221c961adca7653535f084f0bacea83f47f1",
+      "prompt": "ten_minute_watch-v2-original.prompt.txt"
+    },
+    {
+      "file": "trail_keeper-v2-original.png",
+      "bytes": 2939280,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "67b6cc5c1da25a6a9a81b1c1d6259a301cb2cbd97607f304206d92f26da5d4d3",
+      "prompt": "trail_keeper-v2-original.prompt.txt"
+    },
+    {
+      "file": "twenty_bells-v2-original.png",
+      "bytes": 3104745,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "92fea54ac1274574cb309a610d6053b3dc93ca1ed348284bc9111ac0c47dc726",
+      "prompt": "twenty_bells-v2-original.prompt.txt"
+    },
+    {
+      "file": "two_minute_watch-v2-original.png",
+      "bytes": 2524937,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "ff656862f26c6fcbc9bb233a7471d08812162ab11a68873017d7d0f4f3b40630",
+      "prompt": "two_minute_watch-v2-original.prompt.txt"
+    },
+    {
+      "file": "walking_sunrise-v2-original.png",
+      "bytes": 2997328,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "b55c49cdb7762a1f31d2a7d40517795639f91fe40f0206f9e170bfb5edd0951e",
+      "prompt": "walking_sunrise-v2-original.prompt.txt"
+    },
+    {
+      "file": "well_equipped-v2-original.png",
+      "bytes": 2856123,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "40a9aa6792ce2d1bb569dcf1317029be680dc1b048df8686438bc6fdae4c86b2",
+      "prompt": "well_equipped-v2-original.prompt.txt"
+    }
+  ]
+}

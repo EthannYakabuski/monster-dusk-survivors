@@ -1,0 +1,8 @@
+Monster Dusk: Apocalypse Round Two app/feature,27achievement and5leaderboard
+illustrations are complete. Each badge has its own generated image and semantic
+prompt. Retained originals and hash manifests live in marketing/source-art.
+Standard512 badge packaging and64px thumbnail review are complete. Illustrations
+are promotional art, not gameplay evidence. The existing nine screenshots remain
+historical original-APK evidence; new native final-build capture acceptance is
+separate. Physical-device, audible Android and production-service tests remain
+owner/coordinator work. Legacy procedural art regeneration is not this workflow.

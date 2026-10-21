@@ -1,0 +1,223 @@
+{
+  "game": "Monster Dusk: Apocalypse",
+  "scope": "five leaderboard illustrations only",
+  "created_utc": "2026-10-21T18:30:54.649607+00:00",
+  "processing": "Only RGB conversion and Lanczos downscaling; no creative image editing.",
+  "visual_review": {
+    "status": "accepted",
+    "actual_sizes_reviewed": [
+      512,
+      64
+    ],
+    "method": "Each of five actual 512 PNGs viewed individually; actual 64px copies viewed together without upscaling in review64-contact-sheet.png.",
+    "findings": "Five distinct semantic motifs, shared bronze thorn/leaf rim and amber/teal/violet palette; no text, watermark, UI or gore. Highest Wave uses raised terraces and amber magic, Longest Night an hourglass, Monsters Defeated a lantern sweep, Keeper Level a seasoned keeper beneath stars, Creatures Sighted an open illustrated bestiary. All fit square frames with unclipped central subjects.",
+    "limitations": "Marketing badge review only; no gameplay, runtime integration or native verification performed."
+  },
+  "assets": [
+    {
+      "id": "best_wave",
+      "kind": "leaderboard",
+      "generator": "built-in image_gen",
+      "individual_generation": true,
+      "original": {
+        "file": "best_wave-v2-original.png",
+        "bytes": 2860379,
+        "sha256": "EDD8DCC3DEB249AAB2421DE54943ADFD35A18E0C14833C09973A08341A52E207",
+        "size": [
+          1254,
+          1254
+        ],
+        "mode": "RGB"
+      },
+      "prompt": {
+        "file": "best_wave-v2-original.prompt.txt",
+        "bytes": 1065,
+        "sha256": "B3D48E76076C2AD86D3B6BF45A2968364F1D90ECD08258EEF9198CC0007251E4"
+      },
+      "packaged512": {
+        "file": "packaged512/best_wave.png",
+        "bytes": 532470,
+        "sha256": "1F4946E627EC818C61B4FB91DF4173C8575365181EED1CBB85C60E82053BC8F5",
+        "size": [
+          512,
+          512
+        ],
+        "mode": "RGB"
+      },
+      "review64": {
+        "file": "review64/best_wave.png",
+        "bytes": 9619,
+        "sha256": "E1B12C0AD25504431D918E107998394754B353C5AAE63053753FB304AF34BE56",
+        "size": [
+          64,
+          64
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "best_seconds",
+      "kind": "leaderboard",
+      "generator": "built-in image_gen",
+      "individual_generation": true,
+      "original": {
+        "file": "best_seconds-v2-original.png",
+        "bytes": 2809663,
+        "sha256": "D219399FF1081B7AEB190B9C00443FC65C1F3259E073246C6D64684A2F7A89E5",
+        "size": [
+          1254,
+          1254
+        ],
+        "mode": "RGB"
+      },
+      "prompt": {
+        "file": "best_seconds-v2-original.prompt.txt",
+        "bytes": 1066,
+        "sha256": "D4CF135408059435750532ECBC452709466B641A9DED2CD8477EB221B3D484CA"
+      },
+      "packaged512": {
+        "file": "packaged512/best_seconds.png",
+        "bytes": 537593,
+        "sha256": "31EA552040F83A967366BCC6B89097A1EC03EADAC500BB10C664D05374771B39",
+        "size": [
+          512,
+          512
+        ],
+        "mode": "RGB"
+      },
+      "review64": {
+        "file": "review64/best_seconds.png",
+        "bytes": 9893,
+        "sha256": "A13E05E9DE488884CACFEA3580D8AA5061A8C11A2C42F74B706E6489ED562121",
+        "size": [
+          64,
+          64
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "kills",
+      "kind": "leaderboard",
+      "generator": "built-in image_gen",
+      "individual_generation": true,
+      "original": {
+        "file": "kills-v2-original.png",
+        "bytes": 2771380,
+        "sha256": "71DEC3709FEB2B551B2950419562EED14E8108D806EFA9586D0287EF98D78B9F",
+        "size": [
+          1254,
+          1254
+        ],
+        "mode": "RGB"
+      },
+      "prompt": {
+        "file": "kills-v2-original.prompt.txt",
+        "bytes": 1079,
+        "sha256": "0C928413C5BFFF3C43F84F62A7D6C26AD260201F63855E4CBC1F48CF905131C4"
+      },
+      "packaged512": {
+        "file": "packaged512/kills.png",
+        "bytes": 516590,
+        "sha256": "E6D106E55B93DAABE5A4BB92B7FAF74D0F19864D7C211CEDD9F99D9FE48BCAAF",
+        "size": [
+          512,
+          512
+        ],
+        "mode": "RGB"
+      },
+      "review64": {
+        "file": "review64/kills.png",
+        "bytes": 9641,
+        "sha256": "A5D5E81F387805367939A9846F7AE03A866AF874ECCEA690D458E539B8D299DD",
+        "size": [
+          64,
+          64
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "player_level",
+      "kind": "leaderboard",
+      "generator": "built-in image_gen",
+      "individual_generation": true,
+      "original": {
+        "file": "player_level-v2-original.png",
+        "bytes": 2787211,
+        "sha256": "1D174D8C591502B7D03471D14A5944418436764F17D7B6EE6EEEA683C6C6903F",
+        "size": [
+          1254,
+          1254
+        ],
+        "mode": "RGB"
+      },
+      "prompt": {
+        "file": "player_level-v2-original.prompt.txt",
+        "bytes": 1116,
+        "sha256": "DE9CCE176451243DE09E3F1085F1246020B85DA083143F917DF950DB9B174A9F"
+      },
+      "packaged512": {
+        "file": "packaged512/player_level.png",
+        "bytes": 509161,
+        "sha256": "18A205C7D74DEE15C2173CE769C52A26A1F5287D69F6C4E50F19B73BE3DD1916",
+        "size": [
+          512,
+          512
+        ],
+        "mode": "RGB"
+      },
+      "review64": {
+        "file": "review64/player_level.png",
+        "bytes": 9351,
+        "sha256": "10F49FB6CD81E1C7A61D7175405E6EDA9AA69080927E09B7841A49CB714F3392",
+        "size": [
+          64,
+          64
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "seen",
+      "kind": "leaderboard",
+      "generator": "built-in image_gen",
+      "individual_generation": true,
+      "original": {
+        "file": "seen-v2-original.png",
+        "bytes": 2856684,
+        "sha256": "D1996425B48CC67698BAF9EDEC205B5C31D7159CCA380F0DA0BD53FAC78B6D7B",
+        "size": [
+          1254,
+          1254
+        ],
+        "mode": "RGB"
+      },
+      "prompt": {
+        "file": "seen-v2-original.prompt.txt",
+        "bytes": 1298,
+        "sha256": "86F0C9C13B38C213306A2FAECC6A94A3FE7A14143F94718DC8BF1C17D2D8FBA3"
+      },
+      "packaged512": {
+        "file": "packaged512/seen.png",
+        "bytes": 537378,
+        "sha256": "1191E9048DD2191FF2A641F96F1012057533F4E06CCC966E7C7B7547519BF44D",
+        "size": [
+          512,
+          512
+        ],
+        "mode": "RGB"
+      },
+      "review64": {
+        "file": "review64/seen.png",
+        "bytes": 9652,
+        "sha256": "23BB04C0C135DCC0AC11FA14D51ED703F3D25E04B8729859A14A07D267EBAE49",
+        "size": [
+          64,
+          64
+        ],
+        "mode": "RGB"
+      }
+    }
+  ]
+}

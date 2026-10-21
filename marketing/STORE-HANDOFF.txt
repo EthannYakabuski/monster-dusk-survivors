@@ -1,3 +1,13 @@
+ROUND TWO ART / HISTORICAL CAPTURE SCOPE (2026-10-21)
+Current app/feature and all27achievement/fiveleaderboard illustrations are replaced.
+Each badge was generated individually; originals/prompts/hash manifests are under
+source-art. Final512px and64px thumbnails were inspected. Feature artwork uses
+the actual Monster Dusk: Apocalypse title. Illustrations are not gameplay images.
+The native capture receipt below belongs to the preserved original7267EF89 APK.
+New source exports/native acceptance/final-build captures remain coordinator work.
+Public source exists; newer Round Two changes remain local after a push denial.
+No Pages, Library or Google Play publication is claimed.
+
 LOCAL CAPTURE HANDOFF - Monster Dusk: Apocalypse
 
 CURRENT SOURCE CATALOG
@@ -33,6 +43,6 @@ Root owns the separate current-APK offline, progress reload, network restoration
 Back and actual service receipts. Display-restoration flags in frame metadata do
 not certify those flows. Final physical-device/human testing, production signing,
 service IDs/backends, support/privacy disclosures and Play submission remain owner
-responsibilities. No repository, website or store publication is performed here.
+responsibilities. This capture handoff does not perform repository, website or store publication.
 
 See screenshots/capture-manifest.json and per-frame sanitized provenance.

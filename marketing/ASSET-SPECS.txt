@@ -1,15 +1,29 @@
 APP ICON
-app-icon-512.png: 512x512 RGB PNG, full-square source artwork. Platform/store supplies display mask.
-app-icon-192.png: 192x192 RGB launcher preview.
+app-icon-512.png: 512x512 full-square PNG; platform/store supplies display mask.
+app-icon-192.png: 192x192 launcher preview. platform/app-icon-512.png is the
+Android preset source; retain the separate platform path when updating icons.
 
 FEATURE GRAPHIC
-feature-graphic-1024x500.png: 1024x500 RGB PNG. Original brand illustration; not a gameplay screenshot.
+feature-graphic-1024x500.png: current1024x500 PNG with the actual Apocalypse title.
+feature-1024x500.png is an identical current alias. Illustration, not gameplay.
 
-ACHIEVEMENTS AND LEADERBOARDS
-Individual named 512x512 RGB PNGs under achievements/ and leaderboards/. Symbolic keys in store-listing.json must map to final console IDs.
+ACHIEVEMENTS / LEADERBOARDS
+27/5 distinct512x512 PNGs under achievements/ and leaderboards/. Exact symbolic
+keys match ../game/catalog.json. Console IDs remain owner configuration.
+All final512 images and64px thumbnails received visual review.
 
-REBUILD
-Run python generate_assets.py from this marketing directory with Pillow installed in the existing environment. It reads brand.json and ../game/catalog.json when present; it does not use the network. source_art/ retains the small source extracts needed to regenerate this game artwork. Source fonts are read from the installed Windows font library for rendering and are not redistributed.
+SOURCE / PACKAGING
+source-art/ contains current original generated PNGs, exact per-badge prompts and
+SHA256 manifests. Each badge used one distinct built-in imagegen call. Standard
+Lanczos resizing alone produced final512 badges/app art and1024x500 feature art.
+Keep originals unchanged; package from them using Godot Image.resize or equivalent
+standard resizing, and update asset-manifest.json. No credential/API tool needed.
+generate_assets.py and source_art/ are retained legacy first-pass material; that
+procedural generator does NOT reproduce the current illustrations. Do not run it
+over the current art. No fonts from private machine folders are required here.
 
-LICENSING
-Generated branding/code is part of the original Apache-2.0 project work. Supplied Kenney source art remains under its own provenance/notices. Preserve source_art notices and the root project notices.
+SCOPE / LICENSES
+Illustrations are original Apache-2.0 project work, not gameplay evidence. The
+existing native screenshots retain their original APK scope until accepted new
+captures replace them. Kenney Creature Mixer uses custom terms, not CC0; retain
+the complete root LICENSES bundle and source_art notices when redistributing.

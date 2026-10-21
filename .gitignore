@@ -30,3 +30,6 @@ CHECKPOINT.txt
 **/runtime-receipt.json
 # Editor sidecars for preserved screenshots are local metadata.
 /marketing/screenshots/**/*.import
+
+# Generated editor metadata for retained promotional originals stays local.
+/marketing/source-art/**/*.import

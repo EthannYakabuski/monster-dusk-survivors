@@ -1,1 +1,5 @@
-Original generated Monster Dusk: Apocalypse app and feature illustrations: Apache-2.0 original project work. Not gameplay screenshots. Creature Mixer sprites and all existing third-party content retain their own complete license terms and notices.
+Monster Dusk: Apocalypse Round Two app/feature,27achievement and5leaderboard
+illustrations are original generated project work under Apache-2.0. Source PNGs,
+per-badge prompts and SHA256 manifests are retained under marketing/source-art.
+These illustrations are not gameplay screenshots. Creature Mixer custom terms,
+Kenney CC0 audio/scenery terms and all existing asset/plugin notices are unchanged.

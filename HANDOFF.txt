@@ -1,5 +1,5 @@
 MONSTER DUSK: APOCALYPSE - CONTINUATION HANDOFF
-Updated 2026-10-21. Original package remains available for local review; Round Two source awaits new exports/native verification and updated marketing art. Production release remains owner work.
+Updated 2026-10-21. Original package remains available for local review; Round Two source and illustrated marketing are complete locally; new exports/native verification and final-build captures remain required. Production release remains owner work.
 
 An endless portrait monster shooter with six enemy behavior families, escalating waves, weapon builds, bestiary and permanent progression.
 
@@ -37,4 +37,15 @@ Adds separate original camp/patrol music, a simulation-timed 120-second dusk/nig
 
 Strict isolated source checks passed: 36 Round Two, 125 model, 35 UI and 20 fullscreen-revive checks, plus service smoke checks and clean import. An isolated Windows Compatibility GPU run rendered five portrait views and checked actual music-player camp/patrol selection, toggle, pause and lifecycle state with its process audio bus muted; this is not an audible or Android test. The preview fixtures are synthetic development views, not store/native gameplay evidence.
 
-The preserved SHA256-named original APK above was not rebuilt by this source update and does not verify these changes. New Android/Web exports, actual affected Android gameplay/ad-return/save/Back/offline/audio checks and final-build captures remain required. Marketing redo is pending separate illustrated assets. Do not replace the original native QA date/hash with a hosted CI artifact.
+The preserved SHA256-named original APK above was not rebuilt by this source update and does not verify these changes. New Android/Web exports, actual affected Android gameplay/ad-return/save/Back/offline/audio checks and final-build captures remain required. The illustrated app/feature art, all27achievement and five leaderboard icons are complete, with retained originals/prompts/hashes and final512/64px visual review. Do not replace the original native QA date/hash with a hosted CI artifact.
+
+ROUND TWO MARKETING (2026-10-21)
+Each of the 32 badges has a distinct generated illustration tied to its catalog key.
+Source originals and prompts remain under marketing/source-art; standard resizing
+produces the final512px files. The feature uses the actual Monster Dusk: Apocalypse
+title. Legacy generate_assets.py does not reproduce this illustrated set; do not
+run it over the current art. The existing nine native screenshots still document
+the preserved original APK until replaced by accepted final-build captures.
+Local Round Two changes have not reached public main after an approval-system
+denial; no later hosted CI result is claimed. Keep current local source and dated
+public baseline/CI results distinct.

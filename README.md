@@ -37,13 +37,17 @@ godot --headless --path . --install-android-build-template --export-debug Androi
 
 Create build/web and build/android first. Android package: `com.ethannyakabuski.monsterdusk`. Tests are documented under game/ and tests/. No Windows build is supplied.
 
-See [Round Two implementation and verification](docs/ROUND_TWO.md) for the current source changes, balance values and remaining native/art acceptance. The older APK and dated CI result below do not verify this source update.
+See [Round Two implementation and verification](docs/ROUND_TWO.md) for the current source changes, balance values and remaining native acceptance. The older APK and dated CI result below do not verify this source update.
 
 ## Integration and handoff
 
 AdMob uses Google's official test IDs. Menus support a banner, every two completed rounds create an interstitial opportunity, and rewarded benefits require the earned-reward callback. Unavailable ads or consent leave normal play usable. Google Play Games uses symbolic achievement/leaderboard maps with empty production IDs and is disabled until the owner configures them. See platform/config.json and docs/PLATFORM_SETUP.md.
 
-Marketing text, icons, feature art and screenshot provenance are in marketing/. The current evidence, limitations and exact next owner actions are in HANDOFF.txt. Production backend testing, human playtesting and Google Play publication are human-owned.
+Round Two replaces app/feature art, all 27 achievement icons and all five leaderboard
+icons with distinct generated illustrations. Originals, exact per-badge prompts and
+SHA256 manifests are retained under `marketing/source-art`; packaged 512px badges
+were reviewed at final size and at 64px. These illustrations are not screenshots.
+Marketing text and preserved original-APK screenshot provenance are in marketing/. The current evidence, limitations and exact next owner actions are in HANDOFF.txt. Production backend testing, human playtesting and Google Play publication are human-owned.
 
 ## CI and Web
 
