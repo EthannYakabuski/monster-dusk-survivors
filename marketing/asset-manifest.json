@@ -249,7 +249,7 @@
       192
     ],
     "mode": "RGB",
-    "sha256": "4db9e4db12be4f9c3d2f6eac938ca008e04e9ed4a0d4e247932388d312a155bc"
+    "sha256": "e245ff9f58118c7102ad131e46bba7700d4fa4c61473ad0336a635e76e97f151"
   },
   {
     "file": "app-icon-512.png",
@@ -267,7 +267,7 @@
       500
     ],
     "mode": "RGB",
-    "sha256": "d5fd86ca14dc4ce0875c7810995408b7702af5a4e3341c34fe17a1aaa70bdd54"
+    "sha256": "c6ef16966abdb23b7983acc3a32f5880774758bc12849c7ff9f8f5a5cc41e81d"
   },
   {
     "file": "leaderboards/best_seconds.png",
