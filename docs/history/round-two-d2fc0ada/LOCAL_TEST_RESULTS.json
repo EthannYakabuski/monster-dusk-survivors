@@ -1,0 +1,57 @@
+{
+  "schema": "public-local-test-summary-v2",
+  "game": "Monster Dusk: Apocalypse",
+  "runtime_commit": "97c75e32f423772a5fb13dca26a78468b60f99fd",
+  "status": "Qualified local-test handoff ready for owner review.",
+  "android": {
+    "file": "build/round-two-97c75e32-a1/android/monster-dusk-survivors-debug.apk",
+    "sha256": "D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96",
+    "bytes": 188496197,
+    "debug": true
+  },
+  "web": {
+    "directory": "build/round-two-97c75e32-a1/web",
+    "html_sha256": "312EFE9CAEA92A01E84EE6523D18817D251EA9D503490E853B6B415CD41F70C2",
+    "pck_sha256": "BC5D13EEA4ED8A1D8D118CE16610E8EFE0387527FEF764AB294CBA24F578576B",
+    "interactive_browser_verified": false
+  },
+  "exports": {
+    "android_web_exit": 0,
+    "exact_committed_runtime_binding_before_after": true,
+    "runtime_inputs_stable": true,
+    "strict_error_lists_empty": true,
+    "complete_matching_notices": true,
+    "original_apk_preserved": true
+  },
+  "source_tests": {
+    "round_two": 36,
+    "models": 125,
+    "ui": 35,
+    "fullscreen_revive": 20,
+    "services_smoke_and_import": "Passed strict isolated checks.",
+    "actual_windows_compatibility_gpu": "Five synthetic views and17 music/player-policy checks; muted process. Not audible/native proof."
+  },
+  "native_summary": "NATIVE_QA.json",
+  "captures": {
+    "count": 9,
+    "manifest": "marketing/screenshots-round-two/capture-manifest.json",
+    "current_raw_bytes_unchanged": true
+  },
+  "licenses": {
+    "index": "LICENSES/INDEX.txt",
+    "packaged_notice_count": 19,
+    "creature_mixer": "Custom personal/educational/commercial terms excluding NFT/blockchain; not CC0."
+  },
+  "limits": [
+    "The retained captured Godot game-error scan was empty. Android log ring-buffer/chatty expiry applies; no exhaustive full-lifetime SDK-clean or every-frame claim is made.",
+    "Audio output was disabled. Native music toggles and saved preferences were checked; source/GPU fixtures checked playback selection and pause policy. Audible quality remains unverified.",
+    "All four phases were seen in ordinary play, including Day at92seconds. A native120second cycle repeat was not observed.",
+    "Separate current-build unearned dismissal, failed reward callback and real interstitial presentation were not verified. Offline gameplay/cold retention were tested; offline revive state was not separately forced.",
+    "The first post-earned return was alive with unchanged75second/70killHUD. Natural second defeat preceded the next observed frame, so same-run post-ad fresh movement/DASH is not accepted.",
+    "Native simultaneous multitouch, physical devices/tablets, interactive Web/WebGL/audio, production services, broad ad-fill reliability, long sessions, multi-day rollover and human balance remain unverified.",
+    "A genuine historical backup was restored after the installed package was absent. This is restoration, not retention across the earlier AVD session loss. Subsequent current-APK offline/online cold25-group comparisons required no restore.",
+    "Godot4.5.1 Compatibility minAPI24/targetAPI35 is the tested engine constraint, not current Play release eligibility. Production IDs/backend/consent/signing and Google Play publication remain owner work.",
+    "Offline saves/local clocks are not anti-cheat secure. Public Round Two pushes remain held after approval denial; no new hosted CI, Pages or Library result is claimed."
+  ],
+  "historical_original_summary": "history/first-pass/LOCAL_TEST_RESULTS.json"
+}

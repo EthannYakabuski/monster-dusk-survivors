@@ -1,52 +1,71 @@
 {
-  "schema": "public-native-qa-summary-v2",
-  "status": "Qualified local native functional and capture scope complete.",
-  "runtime_commit": "97c75e32f423772a5fb13dca26a78468b60f99fd",
+  "schema": "public-native-qa-summary-v3",
+  "game": "Monster Dusk: Apocalypse",
   "package": "com.ethannyakabuski.monsterdusk",
-  "apk_sha256": "D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96",
-  "apk_bytes": 188496197,
-  "native_functional_acceptance": true,
-  "observations": [
-    "Regular update retained all25 genuine banked groups before launch. Legacy XP, levels, purchases and equipment were retained; only legitimate day-roll behavior preceded the update.",
-    "One Power rank1to2 purchase cost430coins; the next displayed cost was780. The20XP daily reward label was observed without claiming it.",
-    "Music OFF/ON controls were usable, OFF persisted, and ON was restored with only the preference changing. Normal movement, auto-fire, DASH and AndroidBack pause/Resume worked on the checked emulator profiles.",
-    "Ordinary phone play showed Dusk, Night and Dawn; an ordinary offline seven-inch-profile run reached Day at92seconds, alive.",
-    "Natural first defeat at75seconds/70kills was followed by a real earned test-ad continue. The96.225second earned endcard dwell returned alive at unchanged75seconds/70kills, Dawn/Wave4/about65%health, with no interim bank.",
-    "Natural second defeat at81seconds/73kills showed no second revive. Results banked252coins/162XP once; journal navigation did not duplicate credit.",
-    "An ordinary offline92second/95killrun banked320coins/208XP; a separate5second/6killpartialrun banked38coins/17XP. These observed XP values agree with the revised formula.",
-    "Actual default-network-none and ordinary offline gameplay were observed. Offline cold launch on each logical tablet profile and final restored-network cold launch retained all25 banked groups byte-identically without restore.",
-    "Nine exact new-APK raw camp/arena/journal PNGs were independently reviewed. Display/radio settings and actual connectivity were restored; final safe stop and full private backup completed."
-  ],
-  "earned_continue": {
-    "earned_endcard_dwell_seconds": 96.225,
-    "pre_ad_hud_seconds": 75,
-    "pre_ad_kills": 70,
-    "first_return_hud_seconds": 75,
-    "first_return_kills": 70,
-    "first_return_alive": true,
-    "once_only_bank_observed": true,
-    "no_second_revive": true,
-    "same_run_post_ad_fresh_input_verified": false
+  "status": "ROUND_THREE_LIMITED_NATIVE_AND_18_CAPTURE_HANDOFF_WITH_LIMITATIONS",
+  "date_utc": "2026-10-22",
+  "runtime_commit": "3f519732a70553ca65dcd708f5e1323f0040fe61",
+  "tested_apk": {
+    "file": "build/round-three-3f519732-a1/android/monster-dusk-survivors-debug.apk",
+    "sha256": "7998FB97F42976D0F9FFB0A7B28C38C86C009514AA609097C2AABC211D8961C1",
+    "bytes": 188503271
   },
-  "qualified_profile_recovery": "Genuine historical backup restoration after absent package; not cross-AVD-session retention. Current regular update/cold comparisons retained25groups without restore.",
-  "save_groups_checked": 25,
-  "reviewed_current_screenshots": 9,
-  "capture_manifest": "../marketing/screenshots-round-two/capture-manifest.json",
+  "scope": "Sanitized current-build summary; no raw logs, real saves, machine identifiers or private evidence paths. Limited checks do not establish every native gate.",
+  "limited_affected_native_checks_complete": true,
+  "all_native_gates_passed": false,
+  "observations": [
+    "The accepted Round Three APK was installed after the temporary emulator session was lost. Genuine historical main, actual backup and pending progress files were restored and verified before launch. This is restoration, not retention across that host exit.",
+    "Held FIRE reduced ammunition from 20 to 14 in one attempt and 20 to 18 in another. Releasing FIRE then moving with one pointer preserved 18 rounds while the player moved. This does not establish simultaneous two-finger input.",
+    "The earlier manual partial reload showed its countdown and disabled FIRE. A later single targeted genuine run spent one round (19/20 at 0:03), then manual RELOAD plus sequential evasive movement refilled 20/20 at 0:06. FIRE was enabled and full-magazine RELOAD disabled; Back safely paused alive. Native empty-magazine automatic reload remains unverified.",
+    "Android Back paused the arena. Two earlier genuine 8/9-second failed runs with no eliminations each banked21 coins/6 XP once. The targeted 7-second partial run then banked21 coins/6 XP once through ordinary Bank & return. No revive, purchase, claim, synthetic state or reward replay was used.",
+    "Legacy Power ownership remained and the missing magazine rank defaulted to zero. The earlier stopped/cold comparison on this same APK retained banked main bytes without restoration; it predates the targeted refill run.",
+    "Earlier Daily overview materialized only three false claim flags without payout. After the targeted run, its freshly banked main remained byte-identical through background/stop and was verified with the actual backup and pending store in the latest stopped full private archive. Previous genuine backups were preserved historically.",
+    "An automatic test interstitial appeared after banking. A planned menu tap may have activated the appearing ad and opened the browser; attribution is unverified. Returning without accepting browser terms and closing the observed ad returned Home with banked main bytes unchanged. No combat was active during the transition.",
+    "All 18 raw screenshots were independently accepted. Phone arena/pause/result views and menu views on all three profiles were checked. Tablet screenshots are menus, not tablet combat validation.",
+    "A normal outer-margin swipe revealed footer Back above the banner and its visible button returned Home. Long and nested menus intentionally scroll.",
+    "The exact installed APK, original display/radio state, connected network and normal Launcher were checked at final stop. A bounded recent retained-log scan had no targeted strict-pattern matches; exhaustive lifetime SDK cleanliness is not claimed."
+  ],
+  "capture_manifest": "../marketing/screenshots-round-three/capture-manifest.json",
+  "screenshot_count": 18,
+  "profiles": {
+    "phone": "1080x1920@420",
+    "logical7inch": "1200x1920@320",
+    "logical10inch": "1600x2560@300"
+  },
+  "native_reload_completion_verified": true,
+  "native_empty_reload_verified": false,
+  "native_simultaneous_touch_verified": false,
+  "tablet_combat_layout_verified": false,
+  "midcombat_background_held_input_verified": false,
+  "earned_revive_endcard_verified": false,
+  "automatic_interstitial_return_observed": true,
+  "offline_verified": false,
   "diagnostics": {
-    "retained_captured_game_error_scan": [],
-    "full_lifetime_sdk_clean_claim": false,
-    "scope": "Retained captured logs only; ring-buffer/chatty expiration limits apply."
+    "bounded_recent_log_scan_targeted_matches": 0,
+    "full_lifetime_sdk_clean_claim": false
   },
   "limits": [
-    "The retained captured Godot game-error scan was empty. Android log ring-buffer/chatty expiry applies; no exhaustive full-lifetime SDK-clean or every-frame claim is made.",
-    "Audio output was disabled. Native music toggles and saved preferences were checked; source/GPU fixtures checked playback selection and pause policy. Audible quality remains unverified.",
-    "All four phases were seen in ordinary play, including Day at92seconds. A native120second cycle repeat was not observed.",
-    "Separate current-build unearned dismissal, failed reward callback and real interstitial presentation were not verified. Offline gameplay/cold retention were tested; offline revive state was not separately forced.",
-    "The first post-earned return was alive with unchanged75second/70killHUD. Natural second defeat preceded the next observed frame, so same-run post-ad fresh movement/DASH is not accepted.",
-    "Native simultaneous multitouch, physical devices/tablets, interactive Web/WebGL/audio, production services, broad ad-fill reliability, long sessions, multi-day rollover and human balance remain unverified.",
-    "A genuine historical backup was restored after the installed package was absent. This is restoration, not retention across the earlier AVD session loss. Subsequent current-APK offline/online cold25-group comparisons required no restore.",
-    "Godot4.5.1 Compatibility minAPI24/targetAPI35 is the tested engine constraint, not current Play release eligibility. Production IDs/backend/consent/signing and Google Play publication remain owner work.",
-    "Offline saves/local clocks are not anti-cheat secure. Public Round Two pushes remain held after approval denial; no new hosted CI, Pages or Library result is claimed."
+    "Native empty-magazine automatic reload and true simultaneous touch remain UNVERIFIED. Manual partial-magazine refill is verified separately. Roughly12 seconds of continuous target fire would be needed to drain the baseline 20 rounds, beyond the earlier 8/9-second bounded sequential-input runs; no grinding, ammo injection or false multitouch was used. Source fixtures are separate evidence.",
+    "Tablet combat/control layout and mid-combat background-held-input clearing remain UNVERIFIED. Tablet captures show menus only.",
+    "Actual offline mode remains UNVERIFIED because earlier emulator radio/UI changes did not remove validated connectivity. This native window did not repeat those toggles.",
+    "Current Round Three earned-reward revive/endcard remains UNVERIFIED. The observed automatic interstitial return is separate evidence.",
+    "One menu tap coincided with an appearing test ad and a browser first-run screen. Accidental ad activation is possible; event-level attribution was not established. No browser terms were accepted. No application defect is inferred solely from that transition.",
+    "Phone footer/help and Back use normal outer scrolling above the banner. Nested-list scrolling is usable but its discoverability remains a usability qualification.",
+    "Two short sequential-input failed runs do not establish human difficulty balance. Audible output, physical devices/tablets, interactive Web/audio/WebGL, production services, long sessions and multi-day behavior remain unverified.",
+    "Godot 4.5.1 Compatibility minimum API 24 / target API 35 is the tested engine constraint, not current Google Play release eligibility. Local clocks/profiles are not anti-cheat secure."
   ],
-  "original_native_report": "history/first-pass/NATIVE_QA.json"
+  "historical_round_two_report": "history/round-two-d2fc0ada/NATIVE_QA.json",
+  "native_manual_reload_completion_verified": true,
+  "targeted_manual_reload": {
+    "before_ammo": 19,
+    "before_HUD_seconds": 3,
+    "after_ammo": 20,
+    "after_HUD_seconds": 6,
+    "FIRE_enabled_after": true,
+    "full_magazine_RELOAD_disabled_after": true,
+    "Back_pause_alive_after": true,
+    "input_scope": "One genuine run: held FIRE, manual RELOAD and sequential evasive movement; not simultaneous two-finger input.",
+    "banking": "One ordinary Bank & return awarded 21 coins / 6 XP for 7 seconds, with no kills or optional reward.",
+    "source_or_synthetic_state_edits": false
+  }
 }

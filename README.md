@@ -38,11 +38,11 @@ godot --headless --path . --install-android-build-template --export-debug Androi
 
 Create a new unused build/next-reviewed-update/web and build/next-reviewed-update/android first; choose another unused name for each later build. Preserve all accepted and original artifacts. Android package: `com.ethannyakabuski.monsterdusk`. Tests are documented under game/ and tests/. No Windows build is supplied.
 
-See [Round Two implementation and verification](docs/ROUND_TWO.md) for source changes, exact balance formulas and qualified acceptance. Current local Android/Web outputs are under `build/round-two-97c75e32-a1/`; the APK is `D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96`. HANDOFF selects the two new ZIPs. The original APK and dated hosted CI remain separate evidence.
+See [preserved Round Two implementation and verification](docs/ROUND_TWO.md) for its source changes, balance formulas and qualified acceptance. Historical Android/Web outputs remain under `build/round-two-97c75e32-a1/`, APK `D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96`. The current Round Three exports are described below; `HANDOFF.txt` selects their new ZIPs. Original APKs and dated hosted CI retain their separate scopes.
 
-## Round Three source update
+## Round Three qualified local handoff
 
-Manual firing, a persistent magazine upgrade and the requested enemy/weapon rebalance are implemented. Read [Round Three formulas and validation scope](docs/ROUND_THREE.md). Runtime `3f519732a70553ca65dcd708f5e1323f0040fe61` has accepted Android/Web test exports under `build/round-three-3f519732-a1/` and [exact-source CI SUCCESS](https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39795003210). Full artifact identities are in `HANDOFF.txt`. Native control/reward/save checks and refreshed screenshots remain pending behind task-emulator System UI failure; this is not a completed Round Three native handoff. The D2FC APK and captures documented below remain Round Two evidence; they do not verify the changed controls or balance.
+Manual firing, the persistent magazine upgrade and enemy/weapon rebalance have accepted Android/Web exports from runtime `3f519732a70553ca65dcd708f5e1323f0040fe61` under `build/round-three-3f519732-a1/`, with [exact-source CI SUCCESS](https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39795003210). Limited sequential native controls including a genuine manual 19-to-20-round refill, once-only banking, cold banked retention and [18 genuine screenshots](marketing/screenshots-round-three/capture-manifest.json) are complete. Empty-magazine automatic reload, simultaneous touch, tablet combat layout, mid-combat background-held-input clearing, earned revive, actual offline mode and human/device/audio/Web/production acceptance remain unverified. An automatic interstitial returned with banked data unchanged; a possible accidental test-ad/browser transition is qualified in [native scope](docs/NATIVE_QA.json). Full artifacts and limits are in `HANDOFF.txt`. The preserved D2FC APK and captures below retain their Round Two scope.
 
 ## Integration and handoff
 
@@ -52,7 +52,7 @@ Round Two replaces app/feature art, all 27 achievement icons and all five leader
 icons with distinct generated illustrations. Original hashes, exact per-badge prompts and
 provenance are recorded under `marketing/source-art`; full generated originals remain privately retained where recorded. Committed packaged 512px badges
 were reviewed at final size and at 64px. These illustrations are not screenshots.
-Marketing text, current nine raw screenshots under `marketing/screenshots-round-two/`, and preserved original-APK screenshot provenance are in marketing/. The current evidence, limitations and exact next owner actions are in HANDOFF.txt. Production backend testing, human playtesting and Google Play publication are human-owned.
+Marketing text, the preserved nine Round Two raw screenshots under `marketing/screenshots-round-two/`, current 18-image Round Three manifest and original-APK provenance are in marketing/. The current evidence, limitations and exact next owner actions are in HANDOFF.txt. Production backend testing, human playtesting and Google Play publication are human-owned.
 
 ## CI and Web
 
@@ -80,8 +80,10 @@ Pages remains disabled; no live deployment, Library action or Google Play public
 
 Both Round Two exports passed exact committed runtime binding and matching notices. Ordinary native play observed all four light phases through Day at92seconds, the revised purchase/reward values, music-preference persistence, normal controls/Back, a96.225second earned endcard with alive unchanged-HUD return and once-only banking, actual offline/cold25-group retention and restored-network cold retention. A genuine historical save was restored after an absent package before the update; this does not establish retention across earlier AVD loss.
 
-The retained captured Godot error scan was empty; no exhaustive full-lifetime SDK-clean claim is made. Native120second repeat, separate unearned/failure callback/current interstitial, same-run fresh post-ad inputs, simultaneous multitouch, audible/physical/interactive-Web/production/human balance remain unverified. See `docs/NATIVE_QA.json` and HANDOFF for exact scope.
+The retained captured Godot error scan was empty; no exhaustive full-lifetime SDK-clean claim is made. Native120second repeat, separate unearned/failure callback/current interstitial, same-run fresh post-ad inputs, simultaneous multitouch, audible/physical/interactive-Web/production/human balance remain unverified. See the [archived Round Two native summary](docs/history/round-two-d2fc0ada/NATIVE_QA.json) and the preserved Round Two section of HANDOFF for that historical scope.
 
-## Screenshot verification
+## Screenshot verification by build
 
-`marketing/screenshots-round-two/capture-manifest.json` records nine exact current-APK raw PNGs, relative names, SHA256 digests and logical profile sizes. Operator and coordinator independently reviewed all nine. They were not resized, cropped, overlaid or generated as fixtures. Logical tablet profiles do not prove physical-device acceptance. Original `marketing/screenshots/` files and their manifest remain unchanged and belong to the original APK.
+`marketing/screenshots-round-three/capture-manifest.json` records 18 current Round Three raw PNGs, six per logical profile. All were reviewed by the operator and coordinator. Tablet frames show menus only; they do not verify tablet combat.
+
+The preserved `marketing/screenshots-round-two/capture-manifest.json` records nine exact dated D2FC APK raw PNGs, relative names, SHA256 digests and logical profile sizes. Operator and coordinator independently reviewed all nine. They were not resized, cropped, overlaid or generated as fixtures. Logical tablet profiles do not prove physical-device acceptance. Original `marketing/screenshots/` files and their manifest remain unchanged and belong to the original APK.

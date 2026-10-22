@@ -1,0 +1,303 @@
+{
+  "schema": "genuine-native-capture-manifest-v3",
+  "game": "Monster Dusk: Apocalypse",
+  "date_utc": "2026-10-22",
+  "runtime_source_commit": "3f519732a70553ca65dcd708f5e1323f0040fe61",
+  "source_apk_sha256": "7998FB97F42976D0F9FFB0A7B28C38C86C009514AA609097C2AABC211D8961C1",
+  "source_apk_bytes": 188503271,
+  "capture_scope": "18 new genuine current-APK raw screenshots, six per logical emulator profile. No resize, crop, rotation, overlay, restyling or old-build substitution.",
+  "operator_reviewed": true,
+  "coordinator_independently_reviewed_all 18": true,
+  "profile_counts": {
+    "phone": 6,
+    "7-inch": 6,
+    "10-inch": 6
+  },
+  "display_profiles": {
+    "phone": {
+      "pixels": [
+        1080,
+        1920
+      ],
+      "density_dpi": 420,
+      "actual_display_readback_verified": true
+    },
+    "7-inch": {
+      "pixels": [
+        1200,
+        1920
+      ],
+      "density_dpi": 320,
+      "actual_display_readback_verified": true
+    },
+    "10-inch": {
+      "pixels": [
+        1600,
+        2560
+      ],
+      "density_dpi": 300,
+      "actual_display_readback_verified": true
+    }
+  },
+  "notes": [
+    "Logical tablet layouts are one emulator display overrides, not physical-device acceptance.",
+    "Phone frames include actual combat, pause and a terminal result. Tablet frames are menus only; tablet combat/control layout remains unverified.",
+    "Actual gameplay advanced banked progress between some phone frames. No purchases, login/quest claims or synthetic progression were used.",
+    "Normal outer scrolling exposes footer Back above the banner. Nested-menu scrolling discoverability remains qualified.",
+    "Selected 10-inch Home is the settled 1600x2560 actual app frame. Transitional/Launcher frames were excluded."
+  ],
+  "frames": [
+    {
+      "file": "phone/home.png",
+      "profile": "phone",
+      "scene": "home",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density_dpi": 420,
+      "bytes": 123868,
+      "sha256": "03108CD66EC21668B02EA635F011FD60004B6F93712AEB2B71DB708CC9DE40AE",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "phone/armory-magazine.png",
+      "profile": "phone",
+      "scene": "armory-magazine",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density_dpi": 420,
+      "bytes": 158114,
+      "sha256": "3719436DC1BA4FA5F5D22A9FA8394BCD280D4C01641F48928409570C16D29807",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "phone/field-journal.png",
+      "profile": "phone",
+      "scene": "field-journal",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density_dpi": 420,
+      "bytes": 220012,
+      "sha256": "2AA707BB1BAC07DC302BAA257D01CADD9EE737427EFC121813046D9648767747",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "phone/genuine-combat-after-release.png",
+      "profile": "phone",
+      "scene": "genuine-combat-after-release",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density_dpi": 420,
+      "bytes": 110592,
+      "sha256": "F7845AB323678E27C67FE3772CF8C5325149BF8DE83A1F3F20997732AFA2817E",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "phone/pause-controls.png",
+      "profile": "phone",
+      "scene": "pause-controls",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density_dpi": 420,
+      "bytes": 169174,
+      "sha256": "4D8B6DCB684B76C4848D7D3AE56AC53F45690CF7F194AED6424A2A95153A534B",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "phone/genuine-result.png",
+      "profile": "phone",
+      "scene": "genuine-result",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "density_dpi": 420,
+      "bytes": 120359,
+      "sha256": "164565713299D8A8D48B0BC23F40F68E35413967424C573EFB73A50477EE90C4",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "7inch/home.png",
+      "profile": "7-inch",
+      "scene": "home",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density_dpi": 320,
+      "bytes": 91850,
+      "sha256": "974B5B05DF7A30A5516C62FC692AB0CA5B936976F7BD05A060D37F8B298A9A3F",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "7inch/armory-top.png",
+      "profile": "7-inch",
+      "scene": "armory-top",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density_dpi": 320,
+      "bytes": 157604,
+      "sha256": "04BB4606E4AEB05ED9CE3EDC8080BEA34F762C230ECBE24072F488421F9A0558",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "7inch/armory-magazine.png",
+      "profile": "7-inch",
+      "scene": "armory-magazine",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density_dpi": 320,
+      "bytes": 149756,
+      "sha256": "F2EC5FBF1FD27D6905246D4D04012DB386312759CDDDE0979D234BA0C6BEFF05",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "7inch/field-journal.png",
+      "profile": "7-inch",
+      "scene": "field-journal",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density_dpi": 320,
+      "bytes": 216248,
+      "sha256": "368FEEA2E977E789E5EBC27AAA93795E68958C6C224A0821B82661F10E651A41",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "7inch/records.png",
+      "profile": "7-inch",
+      "scene": "records",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density_dpi": 320,
+      "bytes": 160459,
+      "sha256": "1F421913FB474727E1C71D93638FDEFABA21D340601980F6C1F81F0F217BE6AE",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "7inch/daily-overview.png",
+      "profile": "7-inch",
+      "scene": "daily-overview",
+      "dimensions": [
+        1200,
+        1920
+      ],
+      "density_dpi": 320,
+      "bytes": 153316,
+      "sha256": "17FBFDC57D4C8A077342650B8F3D5ED1F6972360363C75D6F75BADD406E26FC4",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "10inch/home.png",
+      "profile": "10-inch",
+      "scene": "home",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density_dpi": 300,
+      "bytes": 144754,
+      "sha256": "9F975EF3F7F53F5F03733042D99A10BA0A198873EF094551CB3676ADF7358922",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "10inch/armory-top.png",
+      "profile": "10-inch",
+      "scene": "armory-top",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density_dpi": 300,
+      "bytes": 196576,
+      "sha256": "C71BB49F227900F3181CA2237CC01A16D00F0A4E871E6435043EB085CC5629D1",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "10inch/armory-magazine.png",
+      "profile": "10-inch",
+      "scene": "armory-magazine",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density_dpi": 300,
+      "bytes": 179263,
+      "sha256": "E2CC93EC4771C434AC0BBC8266423FE534E1D4CED2D1D943251C29EC95992236",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "10inch/field-journal.png",
+      "profile": "10-inch",
+      "scene": "field-journal",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density_dpi": 300,
+      "bytes": 245214,
+      "sha256": "101CB3D2E83279863C728D5E25339C8844CEBBE50CF94809957ED45465286FD9",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "10inch/records.png",
+      "profile": "10-inch",
+      "scene": "records",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density_dpi": 300,
+      "bytes": 187917,
+      "sha256": "B7AF05CA54CC8E9E011FFD75C082954504E3098BB769CFC37FF1C7BA8FB0B958",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    },
+    {
+      "file": "10inch/daily-overview.png",
+      "profile": "10-inch",
+      "scene": "daily-overview",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "density_dpi": 300,
+      "bytes": 182827,
+      "sha256": "41887D6300D256AC1F9B0FC2A887124E8446CFCFBDA8547C523ADFB611B2E414",
+      "actual_native_capture": true,
+      "pixels_modified": false
+    }
+  ]
+}

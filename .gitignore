@@ -33,3 +33,6 @@ CHECKPOINT.txt
 
 # Generated editor metadata for retained promotional originals stays local.
 /marketing/source-art/**/*.import
+
+# Generated editor metadata for current raw Round Three screenshots stays local.
+/marketing/screenshots-round-three/**/*.import

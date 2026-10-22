@@ -1,57 +1,86 @@
 {
-  "schema": "public-local-test-summary-v2",
+  "schema": "public-local-test-summary-v3",
   "game": "Monster Dusk: Apocalypse",
-  "runtime_commit": "97c75e32f423772a5fb13dca26a78468b60f99fd",
-  "status": "Qualified local-test handoff ready for owner review.",
+  "status": "ROUND_THREE_QUALIFIED_LOCAL_TEST_HANDOFF",
+  "date_utc": "2026-10-22",
+  "runtime_commit": "3f519732a70553ca65dcd708f5e1323f0040fe61",
   "android": {
-    "file": "build/round-two-97c75e32-a1/android/monster-dusk-survivors-debug.apk",
-    "sha256": "D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96",
-    "bytes": 188496197,
-    "debug": true
+    "file": "build/round-three-3f519732-a1/android/monster-dusk-survivors-debug.apk",
+    "sha256": "7998FB97F42976D0F9FFB0A7B28C38C86C009514AA609097C2AABC211D8961C1",
+    "bytes": 188503271
   },
   "web": {
-    "directory": "build/round-two-97c75e32-a1/web",
-    "html_sha256": "312EFE9CAEA92A01E84EE6523D18817D251EA9D503490E853B6B415CD41F70C2",
-    "pck_sha256": "BC5D13EEA4ED8A1D8D118CE16610E8EFE0387527FEF764AB294CBA24F578576B",
+    "file": "build/round-three-3f519732-a1/web/index.html",
+    "html_sha256": "83A94E928970CAF16E94242F289665F543EF16B7588FB36697650CBFD74DE75A",
+    "pck_sha256": "97DA200A8103AADC1AA43C2F09CCABAC4E4C1F4387FE85F489413D0DC1EFFA2B",
+    "export_accepted": true,
+    "complete_bundle_and_licenses_verified": true,
     "interactive_browser_verified": false
   },
-  "exports": {
-    "android_web_exit": 0,
-    "exact_committed_runtime_binding_before_after": true,
-    "runtime_inputs_stable": true,
+  "export_binding": {
+    "frozen_committed_runtime_and_test_preset_verified": true,
+    "runtime_inputs_stable_before_after": true,
     "strict_error_lists_empty": true,
-    "complete_matching_notices": true,
-    "original_apk_preserved": true
+    "complete_matching_notices_verified": true,
+    "owner_working_tree_preset_excluded": true,
+    "original_artifacts_preserved": true,
+    "reproducible_build_claim": false
   },
   "source_tests": {
-    "round_two": 36,
+    "round_three": 263,
     "models": 125,
-    "ui": 35,
-    "fullscreen_revive": 20,
-    "services_smoke_and_import": "Passed strict isolated checks.",
-    "actual_windows_compatibility_gpu": "Five synthetic views and17 music/player-policy checks; muted process. Not audible/native proof."
+    "round_two": 36,
+    "UI": 35,
+    "fullscreen": 21,
+    "total_assertions": 480,
+    "import_service_smoke_and_runtime_smoke": "PASS strict isolated checks",
+    "synthetic_runtime_smoke": "30 simulation seconds/one kill/rank one",
+    "synthetic_deterministic_fixture": "133.33 simulation seconds/21 kills/rank three; not native or human balance evidence",
+    "ammo_fixture": {
+      "file": "tests/test_round_three.gd",
+      "lines": "119-169",
+      "scope": "Synthetic source fixture only: last round starts1.65-second reload, still empty before boundary, fills 20 at boundary with no automatic shot after release, fresh held shot afterward, one accepted partial reload, frozen on cards/death, one ammo per volley."
+    },
+    "lifecycle_and_pointer_fixtures": {
+      "file": "tests/test_round_three.gd",
+      "lines": "253-267 and 338-346",
+      "scope": "Synthetic fullscreen/background freeze and neutral rearm; synthetic viewport pointer owners and hit tests. These do not establish native simultaneous touch or mid-combat background-held-input behavior."
+    }
   },
+  "runtime_CI": {
+    "head": "3f519732a70553ca65dcd708f5e1323f0040fe61",
+    "url": "https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39795003210",
+    "conclusion": "SUCCESS"
+  },
+  "later_documentation_capture_CI": "Consult repository Actions for the exact later commit; source CI, hosted artifacts and local native acceptance have distinct scopes.",
   "native_summary": "NATIVE_QA.json",
   "captures": {
-    "count": 9,
-    "manifest": "marketing/screenshots-round-two/capture-manifest.json",
-    "current_raw_bytes_unchanged": true
+    "count": 18,
+    "manifest": "marketing/screenshots-round-three/capture-manifest.json",
+    "raw_pixels_unchanged": true,
+    "tablet_combat_verified": false
   },
-  "licenses": {
-    "index": "LICENSES/INDEX.txt",
-    "packaged_notice_count": 19,
-    "creature_mixer": "Custom personal/educational/commercial terms excluding NFT/blockchain; not CC0."
+  "packages": {
+    "directory": "build/round-three-3f519732-a1/packages",
+    "android_test": "monster-dusk-survivors-round-three-android-test-7998fb97.zip",
+    "complete": "monster-dusk-survivors-round-three-complete-7998fb97.zip",
+    "receipt": "PACKAGE-RECEIPT.json",
+    "scope": "Separate local distributions; sibling receipt records final archive hashes and source-package commit. Source bytes use raw committed Git files, excluding the preserved owner preset edit."
   },
   "limits": [
-    "The retained captured Godot game-error scan was empty. Android log ring-buffer/chatty expiry applies; no exhaustive full-lifetime SDK-clean or every-frame claim is made.",
-    "Audio output was disabled. Native music toggles and saved preferences were checked; source/GPU fixtures checked playback selection and pause policy. Audible quality remains unverified.",
-    "All four phases were seen in ordinary play, including Day at92seconds. A native120second cycle repeat was not observed.",
-    "Separate current-build unearned dismissal, failed reward callback and real interstitial presentation were not verified. Offline gameplay/cold retention were tested; offline revive state was not separately forced.",
-    "The first post-earned return was alive with unchanged75second/70killHUD. Natural second defeat preceded the next observed frame, so same-run post-ad fresh movement/DASH is not accepted.",
-    "Native simultaneous multitouch, physical devices/tablets, interactive Web/WebGL/audio, production services, broad ad-fill reliability, long sessions, multi-day rollover and human balance remain unverified.",
-    "A genuine historical backup was restored after the installed package was absent. This is restoration, not retention across the earlier AVD session loss. Subsequent current-APK offline/online cold25-group comparisons required no restore.",
-    "Godot4.5.1 Compatibility minAPI24/targetAPI35 is the tested engine constraint, not current Play release eligibility. Production IDs/backend/consent/signing and Google Play publication remain owner work.",
-    "Offline saves/local clocks are not anti-cheat secure. Public Round Two pushes remain held after approval denial; no new hosted CI, Pages or Library result is claimed."
+    "Native empty-magazine automatic reload and true simultaneous touch remain UNVERIFIED. Manual partial-magazine refill is verified separately. Roughly12 seconds of continuous target fire would be needed to drain the baseline 20 rounds, beyond the earlier 8/9-second bounded sequential-input runs; no grinding, ammo injection or false multitouch was used. Source fixtures are separate evidence.",
+    "Tablet combat/control layout and mid-combat background-held-input clearing remain UNVERIFIED. Tablet captures show menus only.",
+    "Actual offline mode remains UNVERIFIED because earlier emulator radio/UI changes did not remove validated connectivity. This native window did not repeat those toggles.",
+    "Current Round Three earned-reward revive/endcard remains UNVERIFIED. The observed automatic interstitial return is separate evidence.",
+    "One menu tap coincided with an appearing test ad and a browser first-run screen. Accidental ad activation is possible; event-level attribution was not established. No browser terms were accepted. No application defect is inferred solely from that transition.",
+    "Phone footer/help and Back use normal outer scrolling above the banner. Nested-list scrolling is usable but its discoverability remains a usability qualification.",
+    "Two short sequential-input failed runs do not establish human difficulty balance. Audible output, physical devices/tablets, interactive Web/audio/WebGL, production services, long sessions and multi-day behavior remain unverified.",
+    "Godot 4.5.1 Compatibility minimum API 24 / target API 35 is the tested engine constraint, not current Google Play release eligibility. Local clocks/profiles are not anti-cheat secure."
   ],
-  "historical_original_summary": "history/first-pass/LOCAL_TEST_RESULTS.json"
+  "historical_round_two_summary": "history/round-two-d2fc0ada/LOCAL_TEST_RESULTS.json",
+  "owner_native_follow_up": [
+    "Check empty-magazine automatic reload in ordinary play when practical; source boundary fixtures are separate from native proof.",
+    "Use actual two-finger movement plus FIRE and verify mid-combat background neutral rearm; tablet combat layouts remain unverified.",
+    "Verify earned-revive/endcard, genuinely disconnected play, audible output and physical devices; production services need owner configuration."
+  ]
 }

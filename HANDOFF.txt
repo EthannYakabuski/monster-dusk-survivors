@@ -1,36 +1,41 @@
-MONSTER DUSK: APOCALYPSE - ROUND THREE EXPORT CANDIDATE
-Updated2026-10-22. EXPORTS VERIFIED; NATIVE ACCEPTANCE NOT COMPLETE. This is an incremental build receipt, not a completed Round Three gameplay/store handoff.
+MONSTER DUSK: APOCALYPSE - ROUND THREE QUALIFIED LOCAL TEST HANDOFF
+Updated 2026-10-22. Limited affected native checks and 18 actual screenshots complete. Stated reload/input/lifecycle/offline and other gates remain unverified; no blanket native-clean or production-release claim.
 
+CURRENT ARTIFACTS
 Runtime/source commit: 3f519732a70553ca65dcd708f5e1323f0040fe61
 Android: build/round-three-3f519732-a1/android/monster-dusk-survivors-debug.apk
 SHA256 7998FB97F42976D0F9FFB0A7B28C38C86C009514AA609097C2AABC211D8961C1
-Bytes: 188503271; debug/test build; minAPI24/targetAPI35.
+Bytes: 188503271; debug/test preset; min API 24 / target API 35.
 Web: build/round-three-3f519732-a1/web/index.html
 HTML SHA256 83A94E928970CAF16E94242F289665F543EF16B7588FB36697650CBFD74DE75A
 PCK SHA256 97DA200A8103AADC1AA43C2F09CCABAC4E4C1F4387FE85F489413D0DC1EFFA2B
-Keep the complete Web bundle and matching LICENSE/NOTICE/LICENSES with both exports.
+Keep all Web sidecars and complete matching LICENSE/NOTICE/LICENSES with distributions.
 
-EXACT RUNTIME SOURCE CI: SUCCESS
+LOCAL DISTRIBUTIONS
+build/round-three-3f519732-a1/packages/monster-dusk-survivors-round-three-android-test-7998fb97.zip
+build/round-three-3f519732-a1/packages/monster-dusk-survivors-round-three-complete-7998fb97.zip
+The first contains the exact accepted APK and notices. The complete bundle adds Web, this handoff and the audited committed source/assets/docs/marketing tree. PACKAGE-MANIFEST.json separates runtime from final documentation/source-package commit; sibling PACKAGE-RECEIPT.json records final ZIP hashes/bytes. Original artifacts and export-only candidates are preserved.
+
+SOURCE / BUILD / CI
+Exact-runtime hosted build/test CI SUCCESS:
 https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39795003210
-The completed hosted build/test run matches runtime commit 3f519732a70553ca65dcd708f5e1323f0040fe61. Later documentation commits and hosted artifacts have their own identities; this result does not certify their native behavior.
+All 480 isolated game assertions, import/services/runtime smoke passed strict checks. Synthetic fixtures are separate from native and human balance. Android/Web exports passed frozen committed runtime/test-preset binding, stable before/after inputs, empty strict-error lists and complete notices. The preserved owner working-tree export preset/artwork were excluded from compilation/source packaging. A later owner build with changed IDs/settings is a distinct binary. Later documentation/capture commits need their own exact CI result; hosted artifacts are separate binaries.
 
-BUILD BINDING
-Both local exports exited0 with stable before/after runtime inputs, verified frozen committed-source binding, empty strict error/bundle-error lists and complete accompanying notices. They use the pinned committed export settings. Preserved owner working-tree settings and unrelated local files were not injected into the build. A later owner build using changed backend/signing/export settings is a distinct binary requiring its own checks.
+ACTUAL CURRENT NATIVE SCOPE
+The accepted APK and genuine historical main/actual-backup/pending files were restored after a temporary emulator session loss. This is restoration, not retention across that host exit. Legacy ownership remained and loading added the expected zero magazine rank.
+Held FIRE consumed 20 to 14 and 20 to 18 rounds; release then sequential movement left 18 unchanged. Manual reload initially showed its countdown and disabled FIRE; one DASH was recorded. A later single targeted genuine run spent one round (19/20 at 0:03), then manual RELOAD plus 1900ms sequential evasive movement refilled 20/20 at 0:06 with FIRE enabled and full-magazine RELOAD disabled. Back safely paused alive. This verifies manual refill, not empty-magazine automatic reload or simultaneous touch.
+Two earlier bounded 8/9-second failed runs with no eliminations each banked 21 coins / 6 XP once. The later targeted 7-second partial run banked 21 coins / 6 XP once through ordinary Bank & return, with no claims, revive or synthetic state. The earlier same-APK cold comparison retained banked main bytes without restoration; Daily subsequently materialized only three false claim flags without payout. After the targeted run, the newly banked main remained byte-identical through background/stop and matched the latest full private archive with its actual backup and pending store. Earlier genuine archives remain historical.
+An automatic test interstitial appeared after banking. A planned menu tap coincided with ad promotion and a browser first-run screen; accidental ad activation is possible, attribution unverified. No browser terms were accepted. Returning and closing the observed ad returned Home with banked main unchanged; there was no active combat during the transition. Existing fullscreen/menu guards were inspected; no code fix was justified solely from that event. Earned revive/endcard behavior remains unverified on this APK.
+Original display/radio state and actual connected network plus normal Launcher were checked. A bounded recent retained-log scan had no targeted strict-pattern matches; exhaustive SDK cleanliness is not claimed.
 
-NATIVE / REMAINING ACCEPTANCE
-This Round Three APK has not yet received native testing. Native work is delayed by task-emulator System UI failure; no application defect is inferred and no Round Three screenshots are accepted.
-Affected native gameplay, controls/layout, reward-return, Back/save/offline checks and six genuine screenshots per phone/7-inch/10-inch profile remain pending. Old Round Two APK observations and captures are historical evidence for those binaries only. Interactive Web/WebGL/audio, audible Android output, physical devices/tablets, production backend/services and human balance remain unverified. API24/35 is the tested engine constraint, not current Play-release eligibility.
-No Pages activation, Library action or Google Play publication is included.
+SCREENSHOTS / SCROLLING
+marketing/screenshots-round-three/capture-manifest.json records 18 exact unchanged PNGs, six per phone 1080x1920@420, logical 7-inch 1200x1920@320 and logical 10-inch 1600x2560@300. Operator and coordinator reviewed all 18. Phone images include genuine arena/pause/result; tablet images are menus only. No tablet combat/control-layout acceptance is implied. Normal outer scrolling exposes footer Back above the banner, with nested scrolling discoverability still qualified. Transitional/Launcher images were excluded. Original and Round Two captures remain unchanged and build-qualified.
 
-ROUND THREE SOURCE BEHAVIOR - 2026-10-22
-Manual fire, magazine/reload and the requested rebalance are implemented in source.
-See docs/ROUND_THREE.md for exact formulas, migration and source-only validation.
-The Android/Web candidate above is export-verified. Native checks and refreshed Round Three screenshots remain pending.
-Do not treat the dated D2FC artifact/capture acceptance below as Round Three evidence.
-Current source controls: drag to move, hold the gun to fire with assisted aim;
-RELOAD/R or automatic empty reload takes1.65seconds; J fire, Space DASH, Escape pause.
-New magazine upgrade adds2rounds/rank, 20initial rounds, max40at rank10.
-The full Round Two handoff and all original artifacts remain preserved below.
+REMAINING LIMITS / OWNER WORK
+Native empty-magazine automatic reload, true simultaneous touch, tablet combat layout and mid-combat background-held-input clearing remain UNVERIFIED. Actual offline networking remains unverified because earlier emulator flags/UI did not clear real connectivity. No extra network toggles or synthetic state were used here. Current earned-reward revive/endcard remains unverified; automatic interstitial return does not establish it.
+Draining the baseline 20 rounds requires roughly 12 seconds of continuous target fire, beyond the earlier 8/9-second bounded sequential-input survival; no grinding or injected ammunition was used. Source-only tests/test_round_three.gd lines 119-169 cover last-round/partial reload and exact 1.65-second boundaries; lines 253-267 and 338-346 cover synthetic lifecycle and pointer behavior. Exact-runtime CI is linked above. These fixtures do not establish native empty reload, two-finger input or background-held-input behavior.
+Two short single-pointer failures do not establish human balance. Audible output, physical devices/tablets, interactive Web/audio/WebGL, production services, long sessions and multi-day behavior remain unverified. API 24/35 is a tested engine constraint, not current Play eligibility. Owner supplies real IDs/backend/signing/privacy/consent/store declarations and Play publication. No Pages activation or Library action.
+Current sanitized details: docs/NATIVE_QA.json and docs/LOCAL_TEST_RESULTS.json. Dated Round Two summaries are preserved under docs/history/round-two-d2fc0ada/. Continue from AGENTS.md and docs/PLATFORM_SETUP.md. Preserve owner edits, original artifacts and private saves/backups.
 
 PRESERVED DATED ROUND TWO HANDOFF
 The following evidence and then-current publication notes retain their historical scope.
