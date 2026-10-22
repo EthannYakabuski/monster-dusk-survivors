@@ -42,7 +42,7 @@ See [Round Two implementation and verification](docs/ROUND_TWO.md) for source ch
 
 ## Round Three source update
 
-Manual firing, a persistent magazine upgrade and the requested enemy/weapon rebalance are implemented. Read [Round Three formulas and validation scope](docs/ROUND_THREE.md). This source change is awaiting its own Android/Web exports, native control/reward/save checks and refreshed screenshots. The D2FC APK and captures documented below remain Round Two evidence; they do not verify the changed controls or balance.
+Manual firing, a persistent magazine upgrade and the requested enemy/weapon rebalance are implemented. Read [Round Three formulas and validation scope](docs/ROUND_THREE.md). Runtime `3f519732a70553ca65dcd708f5e1323f0040fe61` has accepted Android/Web test exports under `build/round-three-3f519732-a1/` and [exact-source CI SUCCESS](https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39795003210). Full artifact identities are in `HANDOFF.txt`. Native control/reward/save checks and refreshed screenshots remain pending behind task-emulator System UI failure; this is not a completed Round Three native handoff. The D2FC APK and captures documented below remain Round Two evidence; they do not verify the changed controls or balance.
 
 ## Integration and handoff
 

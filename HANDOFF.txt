@@ -1,12 +1,39 @@
-ROUND THREE SOURCE UPDATE - 2026-10-22
+MONSTER DUSK: APOCALYPSE - ROUND THREE EXPORT CANDIDATE
+Updated2026-10-22. EXPORTS VERIFIED; NATIVE ACCEPTANCE NOT COMPLETE. This is an incremental build receipt, not a completed Round Three gameplay/store handoff.
+
+Runtime/source commit: 3f519732a70553ca65dcd708f5e1323f0040fe61
+Android: build/round-three-3f519732-a1/android/monster-dusk-survivors-debug.apk
+SHA256 7998FB97F42976D0F9FFB0A7B28C38C86C009514AA609097C2AABC211D8961C1
+Bytes: 188503271; debug/test build; minAPI24/targetAPI35.
+Web: build/round-three-3f519732-a1/web/index.html
+HTML SHA256 83A94E928970CAF16E94242F289665F543EF16B7588FB36697650CBFD74DE75A
+PCK SHA256 97DA200A8103AADC1AA43C2F09CCABAC4E4C1F4387FE85F489413D0DC1EFFA2B
+Keep the complete Web bundle and matching LICENSE/NOTICE/LICENSES with both exports.
+
+EXACT RUNTIME SOURCE CI: SUCCESS
+https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39795003210
+The completed hosted build/test run matches runtime commit 3f519732a70553ca65dcd708f5e1323f0040fe61. Later documentation commits and hosted artifacts have their own identities; this result does not certify their native behavior.
+
+BUILD BINDING
+Both local exports exited0 with stable before/after runtime inputs, verified frozen committed-source binding, empty strict error/bundle-error lists and complete accompanying notices. They use the pinned committed export settings. Preserved owner working-tree settings and unrelated local files were not injected into the build. A later owner build using changed backend/signing/export settings is a distinct binary requiring its own checks.
+
+NATIVE / REMAINING ACCEPTANCE
+This Round Three APK has not yet received native testing. Native work is delayed by task-emulator System UI failure; no application defect is inferred and no Round Three screenshots are accepted.
+Affected native gameplay, controls/layout, reward-return, Back/save/offline checks and six genuine screenshots per phone/7-inch/10-inch profile remain pending. Old Round Two APK observations and captures are historical evidence for those binaries only. Interactive Web/WebGL/audio, audible Android output, physical devices/tablets, production backend/services and human balance remain unverified. API24/35 is the tested engine constraint, not current Play-release eligibility.
+No Pages activation, Library action or Google Play publication is included.
+
+ROUND THREE SOURCE BEHAVIOR - 2026-10-22
 Manual fire, magazine/reload and the requested rebalance are implemented in source.
 See docs/ROUND_THREE.md for exact formulas, migration and source-only validation.
-Android/Web rebuilds, native checks and refreshed Round Three screenshots remain pending.
+The Android/Web candidate above is export-verified. Native checks and refreshed Round Three screenshots remain pending.
 Do not treat the dated D2FC artifact/capture acceptance below as Round Three evidence.
 Current source controls: drag to move, hold the gun to fire with assisted aim;
 RELOAD/R or automatic empty reload takes1.65seconds; J fire, Space DASH, Escape pause.
 New magazine upgrade adds2rounds/rank, 20initial rounds, max40at rank10.
 The full Round Two handoff and all original artifacts remain preserved below.
+
+PRESERVED DATED ROUND TWO HANDOFF
+The following evidence and then-current publication notes retain their historical scope.
 
 MONSTER DUSK: APOCALYPSE - ROUND TWO QUALIFIED LOCAL TEST HANDOFF
 Updated2026-10-21. The scoped local Android functional/capture package is ready for owner testing. Production release and remaining acceptance below are owner work.

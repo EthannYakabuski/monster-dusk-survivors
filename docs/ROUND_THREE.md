@@ -1,6 +1,6 @@
 # Round Three — deliberate firing and combat balance
 
-This is a source update for Godot 4.5.1 Compatibility, with Android primary and Web retained. Its own exports, native control/reward/save checks and refreshed screenshots are pending. The D2FC APK and nine screenshots in the dated Round Two handoff verify the earlier automatic-fire build only. No new native, audible, physical-device or production-service acceptance is implied.
+This is a source update for Godot 4.5.1 Compatibility, with Android primary and Web retained. Its Android/Web exports are now verified as recorded below; native control/reward/save checks and refreshed screenshots remain pending. The D2FC APK and nine screenshots in the dated Round Two handoff verify the earlier automatic-fire build only. No new native, audible, physical-device or production-service acceptance is implied.
 
 ## Controls and ammunition
 
@@ -29,7 +29,7 @@ All six enemy families, ranged retreat/projectiles, hex telegraphs, five-wave el
 
 The save schema remains 1. Loading an older profile adds only `upgrades.magazine = 0` to its upgrade dictionary. Existing coins, XP, level thresholds, purchases, selected/owned weapons, achievements, daily/login claims and pending-run banking retain their prior logic. New magazine ranks are saved and clamped to 0–10. Ammo and reload are transient run state.
 
-Local Windows headless validation on 2026-10-22 passed import, 263 focused Round Three checks, 125 model checks, 36 Round Two migration/music checks, 35 UI checks, 21 fullscreen checks and service smoke, with no matched script/error/leak diagnostics. Runtime smoke passed at 30 simulation seconds, one kill and rank one; the separate deterministic fixture reached 133.33 seconds, 21 kills and rank three. This verifies synthetic source behavior only. No hosted CI result or new binary acceptance is claimed here.
+Local Windows headless validation on 2026-10-22 passed import, 263 focused Round Three checks, 125 model checks, 36 Round Two migration/music checks, 35 UI checks, 21 fullscreen checks and service smoke, with no matched script/error/leak diagnostics. Runtime smoke passed at 30 simulation seconds, one kill and rank one; the separate deterministic fixture reached 133.33 seconds, 21 kills and rank three. This verifies synthetic source behavior only. These are local source checks; exact-runtime hosted CI and local export verification are recorded below, separately from pending native acceptance.
 
 Run tests with fresh, per-process APPDATA and LOCALAPPDATA roots (and isolated XDG roots on Linux). Never use genuine app save directories for synthetic fixtures:
 
@@ -49,3 +49,16 @@ The focused suite checks every family at waves 1/5/20/100 with normal and elite 
 The deterministic session fixture now runs 4,000 purposeful-fire frames (133.33 simulation seconds), retaining its kill/rank/bounded-object checks and strengthening duration/wave expectations for the tougher balance. Runtime smoke now requests fire explicitly for 900 frames instead of assuming automatic shots in 420 frames. These are synthetic fixtures, not human balance or native evidence. Strict error/leak checks remain required. Hosted CI must be verified on the actual published commit separately.
 
 `assets/weapon.png` reuses the existing Kenney Desert Shooter Pack 1.0 gun sprite under CC0, with its pack notice retained in `assets/licenses` and the accompanying license bundle. The original code remains Apache-2.0; Creature Mixer keeps its separate custom terms. No new illustration or audio asset is part of this change.
+
+## Verified exports and exact-source CI, 2026-10-22
+
+Runtime/source commit: `3f519732a70553ca65dcd708f5e1323f0040fe61`.
+
+- Android: `build/round-three-3f519732-a1/android/monster-dusk-survivors-debug.apk`; 188503271 bytes.
+  SHA256 `7998FB97F42976D0F9FFB0A7B28C38C86C009514AA609097C2AABC211D8961C1`.
+- Web: `build/round-three-3f519732-a1/web/index.html` plus every sidecar and notice.
+- [Exact-runtime hosted build/test CI](https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/39795003210): **SUCCESS**, with the same runtime commit.
+
+Both exports passed source/input binding, strict error checks and complete-notice verification. They were compiled from frozen committed export settings; unrelated owner working-tree files/settings remain preserved and were not build inputs. These are export-only candidates, distinct from hosted artifacts and historical native-tested binaries. Later documentation commits require their own CI result.
+
+**Native acceptance remains pending.** This Round Three APK has not yet received native testing. Native work is delayed by task-emulator System UI failure; no application defect is inferred and no Round Three screenshots are accepted. Affected native behavior and six genuine screenshots per phone/7-inch/10-inch profile are still required. See `../HANDOFF.txt` for complete artifact identities and dated Round Two qualifications. Interactive Web, audible output, physical devices and production backend/services remain unverified.
