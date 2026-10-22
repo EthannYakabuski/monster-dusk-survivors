@@ -149,7 +149,7 @@ func _test_combat() -> void:
 	s.shield_left = 0
 	s.take_damage(20)
 	s.take_damage(20)
-	check(s.hp == before - 20, "Hit recovery prevents same-frame damage stacking")
+	check(is_equal_approx(s.hp, before - 24.0), "Hit recovery prevents same-frame damage stacking")
 	s.invulnerability = 0
 	s.take_damage(1000)
 	check(not s.alive and s.hp == 0, "Lethal damage ends the run cleanly")
@@ -176,7 +176,7 @@ func _test_combat() -> void:
 	s = arena()
 	s.bullets.append({"pos": s.player, "vel": Vector2.ZERO, "damage": 13.0, "friendly": false, "life": 1.0, "radius": 7.0, "pierce": 0})
 	s._move_bullets(0.01)
-	check(s.hp == 87 and s.bullets.is_empty(), "Hostile projectiles damage the keeper and are consumed")
+	check(is_equal_approx(s.hp, 84.4) and s.bullets.is_empty(), "Hostile projectiles damage the keeper and are consumed")
 	s = arena()
 	s.hp = 50
 	s._apply_pickup("heal")
@@ -203,8 +203,8 @@ func _test_weapons() -> void:
 	var s = arena()
 	s.spawn_enemy("slow", s.player + Vector2(100, 0))
 	s.fire_clock = 0
-	s._fire(0.01)
-	check(s.bullets.size() == 1 and s.bullets[0].vel.x > 0, "The repeater automatically aims at the nearest monster")
+	s._fire(0.01, true)
+	check(s.bullets.size() == 1 and s.bullets[0].vel.x > 0, "A deliberately fired repeater aims at the nearest monster")
 	for tick in range(30):
 		s._move_bullets(1.0 / 60.0)
 	check(s.enemies.size() == 1 and s.enemies[0].hp < s.enemies[0].max_hp, "Friendly bullets deal actual collision damage")
@@ -212,18 +212,18 @@ func _test_weapons() -> void:
 	s.weapon = "scatter"
 	s.spawn_enemy("slow", s.player + Vector2(100, 0))
 	s.fire_clock = 0
-	s._fire(0.01)
+	s._fire(0.01, true)
 	check(s.bullets.size() == 3 and s.bullets[0].vel != s.bullets[1].vel, "Scatter creates three divergent projectiles")
 	s = arena()
 	s.weapon = "lantern"
 	s.spawn_enemy("slow", s.player + Vector2(100, 0))
 	s.fire_clock = 0
-	s._fire(0.01)
-	check(s.bullets.size() == 1 and s.bullets[0].pierce == 1 and s.bullets[0].damage > 13, "Moon lantern supplies stronger piercing shots")
+	s._fire(0.01, true)
+	check(s.bullets.size() == 1 and s.bullets[0].pierce == 1 and is_equal_approx(s.bullets[0].damage, 13 * .75 * 1.25), "Moon lantern supplies stronger piercing shots")
 	s.bullets.clear()
 	s.cards.spread = 3
 	s.fire_clock = 0
-	s._fire(0.01)
+	s._fire(0.01, true)
 	check(s.bullets.size() == 4, "Run spread cards change the actual weapon build")
 
 func _test_spawning() -> void:
@@ -251,18 +251,20 @@ func _test_spawning() -> void:
 	b.start(Profile.new(), 45912)
 	a.invulnerability = 999
 	b.invulnerability = 999
-	for frame in range(2000):
+	# The slower, tougher Round Three balance needs a longer full-session fixture.
+	for frame in range(4000):
 		var direction := Vector2(sin(frame * 0.03), cos(frame * 0.02))
 		a.movement = direction
 		b.movement = direction
 		if a.pending_cards > 0: a.choose_card("power")
 		if b.pending_cards > 0: b.choose_card("power")
-		a.step(1.0 / 30.0)
-		b.step(1.0 / 30.0)
+		a.step(1.0 / 30.0, true)
+		b.step(1.0 / 30.0, true)
 		a.events.clear()
 		b.events.clear()
+	print("MONSTER_DETERMINISTIC seconds=", a.elapsed, " kills=", a.kills, " rank=", a.rank)
 	check(a.result() == b.result() and a.player == b.player and a.enemies == b.enemies, "Fixed seed and inputs produce identical combat, drops and spawning")
-	check(a.elapsed > 60 and a.wave >= 3 and a.kills > 10 and a.rank > 1, "A complete deterministic session progresses through waves, combat and upgrades")
+	check(a.elapsed > 120 and a.wave >= 6 and a.kills > 10 and a.rank > 1, "A complete deterministic session progresses through waves, combat and upgrades")
 	check(a.enemies.size() <= 90 and a.bullets.size() < 200 and a.drops.size() < 400, "Sustained combat keeps active object counts bounded")
 
 func _test_catalog() -> void:

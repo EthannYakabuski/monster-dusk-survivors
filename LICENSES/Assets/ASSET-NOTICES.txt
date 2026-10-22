@@ -9,7 +9,7 @@ but not mandatory. The exact terms and authoritative reference accompany this
 distribution in LICENSES/Assets/CREATURE-MIXER-TERMS.txt.
 Source: https://kenney.itch.io/creature-mixer
 
-Western player and desert scenery: Kenney Desert Shooter Pack 1.0, CC0.
+Western player, desert scenery and assets/weapon.png gun-control icon: Kenney Desert Shooter Pack 1.0, CC0.
 Sound effects: Kenney Digital Audio and Interface Sounds, CC0.
 These packs' original notices are preserved in assets/licenses and the
 accompanying LICENSES/Assets directory. Creature Mixer is not one of these CC0 packs.

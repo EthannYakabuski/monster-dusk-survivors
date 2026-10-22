@@ -1,6 +1,12 @@
 extends RefCounted
 ## Deterministic arena simulation, independent from the presentation and native SDKs.
 
+const WEAPON_DAMAGE_SCALE := 0.75
+const FIRE_RATE_SCALE := 0.75
+const ENEMY_EXTRA_HP := 29.25 # Three additional baseline post-rebalance hits.
+const ENEMY_SPEED_SCALE := 1.25
+const INCOMING_DAMAGE_SCALE := 1.20
+const RELOAD_SECONDS := 1.65
 const ARENA := Rect2(20, 145, 500, 640)
 const PROFILES := {
 	"slow": {"name": "Shambler", "speed": 40.0, "hp": 24.0, "damage": 10.0, "radius": 19.0, "color": "a5be77"},
@@ -43,7 +49,11 @@ var shield_left: float = 0.0
 var spawn_clock: float = 0.4
 var fire_clock: float = 0.0
 var last_elite_wave: int = 0
-var damage: float = 13.0
+var damage: float = 13.0 * WEAPON_DAMAGE_SCALE
+var nova_damage: float = 13.0 * 5.0
+var magazine_capacity: int = 20
+var ammo: int = 20
+var reload_left: float = 0.0
 var base_fire_interval: float = 0.46
 var pickup_radius: float = 35.0
 var weapon: String = "repeater"
@@ -54,8 +64,12 @@ func start(profile: RefCounted, seed_value: int) -> void:
 	rng.seed = seed_value
 	max_hp = profile.maximum_health()
 	hp = max_hp
-	damage = profile.bullet_damage()
-	base_fire_interval = profile.fire_interval()
+	nova_damage = profile.bullet_damage() * 5.0
+	damage = profile.bullet_damage() * WEAPON_DAMAGE_SCALE
+	base_fire_interval = profile.fire_interval() / FIRE_RATE_SCALE
+	magazine_capacity = profile.magazine_capacity()
+	ammo = magazine_capacity
+	reload_left = 0.0
 	pickup_radius = profile.pickup_radius()
 	weapon = profile.selected_weapon
 	for index in range(3): spawn_enemy("slow", Vector2(65 + index * 205, 160))
@@ -71,11 +85,18 @@ func spawn_enemy(kind: String, position: Vector2 = Vector2.INF, elite: bool = fa
 			1: place = Vector2(ARENA.end.x, rng.randf_range(ARENA.position.y, ARENA.end.y))
 			2: place = Vector2(rng.randf_range(ARENA.position.x, ARENA.end.x), ARENA.position.y)
 			3: place = Vector2(rng.randf_range(ARENA.position.x, ARENA.end.x), ARENA.end.y)
-	var scaling := 1.0 + (wave - 1) * 0.11
-	var health := float(spec.hp) * scaling * (3.4 if elite else 1.0)
+	var stats := enemy_stats(kind, wave, elite)
+	var health := float(stats.hp)
 	var sprite := rng.randi_range(0, 199)
-	enemies.append({"kind": kind, "pos": place, "hp": health, "max_hp": health, "speed": float(spec.speed) * minf(1.7, 1.0 + wave * 0.017), "radius": float(spec.radius) * (1.35 if elite else 1.0), "timer": rng.randf_range(0.3, 2.0), "flash": 0.0, "elite": elite, "sprite": sprite})
+	enemies.append({"kind": kind, "pos": place, "hp": health, "max_hp": health, "speed": float(stats.speed), "radius": float(spec.radius) * (1.35 if elite else 1.0), "timer": rng.randf_range(0.3, 2.0), "flash": 0.0, "elite": elite, "sprite": sprite})
 	if sprite not in seen: seen.append(sprite)
+
+static func enemy_stats(kind: String, at_wave: int, elite: bool = false) -> Dictionary:
+	var spec: Dictionary = PROFILES[kind]
+	var scaling := 1.0 + (at_wave - 1) * 0.11
+	return {"hp": float(spec.hp) * scaling * (3.4 if elite else 1.0) + ENEMY_EXTRA_HP,
+		"speed": float(spec.speed) * minf(1.7, 1.0 + at_wave * 0.017) * ENEMY_SPEED_SCALE,
+		"contact_damage": (float(spec.damage) + at_wave * 0.5) * INCOMING_DAMAGE_SCALE}
 
 func choose_kind() -> String:
 	var available := ["slow", "fast"]
@@ -99,7 +120,7 @@ func dash() -> bool:
 func take_damage(amount: float) -> void:
 	if not alive or invulnerability > 0.0 or shield_left > 0.0:
 		return
-	hp = maxf(0.0, hp - amount)
+	hp = maxf(0.0, hp - amount * INCOMING_DAMAGE_SCALE)
 	invulnerability = 0.65
 	events.append({"type": "hurt", "pos": player})
 	if hp <= 0.0:
@@ -127,7 +148,7 @@ func choose_card(key: String) -> bool:
 	if key == "mend": hp = minf(max_hp, hp + max_hp * 0.35)
 	return true
 
-func step(delta: float) -> void:
+func step(delta: float, fire_requested: bool = false) -> void:
 	if not alive or pending_cards > 0:
 		return
 	var dt := clampf(delta, 0.0, 0.05)
@@ -153,7 +174,7 @@ func step(delta: float) -> void:
 		spawn_enemy("tank" if wave % 10 == 0 else "magical", Vector2.INF, true)
 		_events_text("ELITE AT THE GATE")
 	_move_enemies(dt)
-	_fire(dt)
+	_fire(dt, fire_requested)
 	_move_bullets(dt)
 	_update_hazards(dt)
 	_update_drops(dt)
@@ -183,9 +204,26 @@ func _move_enemies(dt: float) -> void:
 		if distance < float(enemy.radius) + 14.0:
 			take_damage(float(PROFILES[kind].damage) + wave * 0.5)
 
-func _fire(dt: float) -> void:
-	fire_clock -= dt
-	if fire_clock > 0.0 or enemies.is_empty(): return
+func request_reload() -> bool:
+	if not alive or pending_cards > 0 or reload_left > 0.0 or ammo >= magazine_capacity:
+		return false
+	reload_left = RELOAD_SECONDS
+	return true
+
+func _fire(dt: float, requested: bool = false) -> void:
+	# Timers advance only inside an active simulation step. Releasing FIRE
+	# stops shots without freezing a cooldown or automatic empty-magazine reload.
+	fire_clock = maxf(0.0, fire_clock - dt)
+	if reload_left > 0.0:
+		reload_left = maxf(0.0, reload_left - dt)
+		if reload_left <= 0.000001:
+			reload_left = 0.0
+			ammo = magazine_capacity
+		return
+	if not alive or pending_cards > 0 or not requested or fire_clock > 0.0 or enemies.is_empty(): return
+	if ammo <= 0:
+		request_reload()
+		return
 	var nearest: Dictionary = enemies[0]
 	var distance: float = player.distance_squared_to(nearest.pos)
 	for enemy in enemies:
@@ -209,6 +247,8 @@ func _fire(dt: float) -> void:
 		var angle := (float(index) - float(spread - 1) * 0.5) * 0.18
 		bullets.append({"pos": player + direction * 20.0, "vel": direction.rotated(angle) * 510.0, "damage": shot_damage, "friendly": true, "life": 1.4, "radius": 5.5, "pierce": 1 if weapon == "lantern" else 0})
 	fire_clock = interval
+	ammo -= 1 # A spread/scatter volley consumes one round, not one per projectile.
+	if ammo == 0: request_reload()
 	events.append({"type": "shot", "pos": player})
 
 func _move_bullets(dt: float) -> void:
@@ -283,7 +323,7 @@ func _apply_pickup(kind: String, value: int = 1) -> void:
 			"nova":
 				for index in range(enemies.size() - 1, -1, -1):
 					if enemies[index].pos.distance_to(player) < 180.0:
-						enemies[index].hp = float(enemies[index].hp) - damage * 5.0
+						enemies[index].hp = float(enemies[index].hp) - nova_damage
 						if float(enemies[index].hp) <= 0.0: _defeat(index)
 		events.append({"type": "pickup", "pos": player, "kind": kind})
 

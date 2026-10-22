@@ -63,7 +63,7 @@ func _run() -> void:
 	check(game.screen == "home" and services.menu_visible, "Camp opens with the menu banner enabled")
 	check(press(game, "Armory") and game.screen == "armory", "Camp armory button opens permanent upgrades")
 	await process_frame
-	check(buttons(game.ui).size() == 8, "Armory exposes four upgrades, three weapons and a return path")
+	check(buttons(game.ui).size() == 9, "Armory exposes five upgrades, three weapons and a return path")
 	var upgraded := false
 	for button in buttons(game.ui):
 		if button.text.begins_with("Upgrade ") and not button.disabled:

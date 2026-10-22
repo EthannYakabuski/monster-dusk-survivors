@@ -110,7 +110,9 @@ func _run() -> void:
 	services.close()
 	var elapsed: float = game.simulation.elapsed
 	game._process(45.0)
-	check(game.simulation.elapsed > elapsed and game.simulation.elapsed <= elapsed + 0.051, "Close resumes normal capped simulation without replaying covered time")
+	check(game.simulation.elapsed == elapsed, "First uncovered frame discards elapsed ad time and held input")
+	game._process(0.05)
+	check(game.simulation.elapsed > elapsed and game.simulation.elapsed <= elapsed + 0.051, "Following frame resumes capped simulation without replaying covered time")
 	check(game.simulation.alive and game.simulation.invulnerability >= 3.44, "Player returns alive with valuable revive protection")
 	game._show_pause()
 	services.active = true

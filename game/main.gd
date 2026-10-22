@@ -29,6 +29,13 @@ var joystick := Vector2.ZERO
 var stick_origin := Vector2(105, 852)
 var stick_current := Vector2(105, 852)
 var pointer_index := -1
+var fire_index := -1
+var fire_held := false
+var fire_request := false
+var _waiting_for_neutral_fire := false
+var _waiting_for_neutral_movement := false
+var _waiting_for_neutral_dash := false
+var _discard_next_combat_delta := false
 var paused := false
 var finalized := false
 var reward_pending := false
@@ -42,6 +49,12 @@ var hud_hp: ProgressBar
 var hud_status: Label
 var hud_wave: Label
 var dash_button: Button
+var fire_button: Button
+var reload_button: Button
+var pause_button: Button
+var ammo_label: Label
+var move_label: Label
+var fire_hint: Label
 var music: AudioStreamPlayer
 var music_context := ""
 var music_streams: Dictionary = {}
@@ -133,19 +146,22 @@ func _process(delta: float) -> void:
 		particles[index].pos += particles[index].vel * delta
 		if float(particles[index].life) <= 0.0: particles.remove_at(index)
 	var gameplay_suspended := _gameplay_suspended()
-	if gameplay_suspended: _release_stick()
-	if screen == "arena" and not paused and not gameplay_suspended:
-		var vector := joystick
-		if Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT): vector.x -= 1.0
-		if Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT): vector.x += 1.0
-		if Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP): vector.y -= 1.0
-		if Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN): vector.y += 1.0
-		if Input.is_physical_key_pressed(KEY_SPACE): simulation.dash()
+	var discard_delta := _discard_next_combat_delta
+	if gameplay_suspended:
+		_hold_external_input()
+	elif discard_delta:
+		_discard_next_combat_delta = false
+		_clear_arena_input()
+	if screen == "arena" and not paused and not gameplay_suspended and not discard_delta:
+		var vector := _movement_input()
+		if _dash_keyboard_input(Input.is_physical_key_pressed(KEY_SPACE)): simulation.dash()
 		if smoke:
 			vector = Vector2(sin(float(smoke_frames) * 0.035), cos(float(smoke_frames) * 0.027))
 			simulation.invulnerability = 999.0
 		simulation.movement = vector.limit_length(1.0)
-		if capture_screen.is_empty() or capture_frames < 8: simulation.step(1.0 / 30.0 if smoke else delta)
+		if capture_screen.is_empty() or capture_frames < 8:
+			simulation.step(1.0 / 30.0 if smoke else delta, _fire_input() or smoke)
+		fire_request = false
 		_consume_events()
 		_refresh_hud()
 		if not simulation.alive: _show_results()
@@ -158,9 +174,9 @@ func _process(delta: float) -> void:
 			_save_profile(true)
 	if smoke:
 		smoke_frames += 1
-		if smoke_frames >= 420:
-			var passed: bool = simulation.elapsed > 10.0 and simulation.kills > 0 and simulation.hp > 0.0
-			print("MONSTER_DUSK_RUNTIME_PASS seconds=", simulation.elapsed, " kills=", simulation.kills) if passed else print("MONSTER_DUSK_RUNTIME_FAIL")
+		if smoke_frames >= 900:
+			var passed: bool = simulation.elapsed > 25.0 and simulation.kills > 0 and simulation.hp > 0.0
+			print("MONSTER_DUSK_RUNTIME_PASS seconds=", simulation.elapsed, " kills=", simulation.kills, " rank=", simulation.rank) if passed else print("MONSTER_DUSK_RUNTIME_FAIL seconds=", simulation.elapsed, " kills=", simulation.kills, " hp=", simulation.hp, " screen=", screen)
 			get_tree().quit(0 if passed else 1)
 	if not capture_screen.is_empty():
 		capture_frames += 1
@@ -214,10 +230,13 @@ func _apply_banner_layout(reserve_override: float = -1.0) -> void:
 		reserve = float(services.call("menu_bottom_reserve", self)) if is_instance_valid(services) and services.has_method("menu_bottom_reserve") else 0.0
 	if not menu_visible: reserve = 0.0
 	reserve = clampf(reserve, 0.0, 400.0)
-	menu_scroll.size = Vector2(540.0, 960.0 - reserve)
-	menu_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO if reserve > 0.0 else ScrollContainer.SCROLL_MODE_SHOW_NEVER
-	menu_scroll.mouse_filter = Control.MOUSE_FILTER_PASS if reserve > 0.0 else Control.MOUSE_FILTER_IGNORE
-	if reserve <= 0.0: menu_scroll.scroll_vertical = 0
+	var height := _arena_view_height()
+	var scrollable := menu_visible and (reserve > 0.0 or height < 960.0)
+	menu_scroll.size = Vector2(540.0, height - reserve)
+	menu_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO if scrollable else ScrollContainer.SCROLL_MODE_SHOW_NEVER
+	menu_scroll.mouse_filter = Control.MOUSE_FILTER_PASS if scrollable else Control.MOUSE_FILTER_IGNORE
+	if not scrollable: menu_scroll.scroll_vertical = 0
+	if screen == "arena": _layout_arena_controls()
 	queue_redraw()
 
 func _menu_draw_offset() -> Vector2:
@@ -252,6 +271,7 @@ func _button(text: String, rectangle: Rect2, callback: Callable, accent: bool = 
 	var button := Button.new()
 	button.mouse_filter = Control.MOUSE_FILTER_PASS if screen not in ["arena", "cards"] else Control.MOUSE_FILTER_STOP
 	button.text = text
+	if screen == "arena": button.focus_mode = Control.FOCUS_NONE
 	button.position = rectangle.position
 	button.size = rectangle.size
 	button.add_theme_stylebox_override("normal", _style(GOLD if accent else Color("3c5362")))
@@ -263,6 +283,9 @@ func _button(text: String, rectangle: Rect2, callback: Callable, accent: bool = 
 	button.add_theme_color_override("font_pressed_color", INK)
 	button.add_theme_font_size_override("font_size", 19)
 	button.pressed.connect(func() -> void:
+		if _gameplay_suspended():
+			_hold_external_input()
+			return
 		_sound("click")
 		callback.call())
 	ui.add_child(button)
@@ -343,7 +366,7 @@ func _show_home() -> void:
 	_button("Field journal", Rect2(30, 680, 233, 62), _show_journal)
 	_button("Records", Rect2(277, 680, 233, 62), _show_records)
 	_button("Sound & privacy", Rect2(30, 765, 480, 53), _show_settings)
-	_label("Drag to move  •  Fire automatically  •  Dash to escape", Vector2(35, 840), 15, Color("a9c2c0"))
+	_label("Drag to move  •  Hold the gun to fire  •  Dash to escape", Vector2(35, 840), 15, Color("a9c2c0"))
 	_set_menu(true)
 
 func _start_run() -> void:
@@ -353,8 +376,7 @@ func _start_run() -> void:
 	reward_pending = false
 	run_receipt = {}
 	paused = false
-	joystick = Vector2.ZERO
-	pointer_index = -1
+	_release_stick()
 	screen = "arena"
 	_build_arena_ui()
 	_set_menu(false)
@@ -363,7 +385,7 @@ func _build_arena_ui() -> void:
 	_new_ui()
 	hud_wave = _label("WAVE 1", Vector2(23, 28), 27)
 	hud_status = _label("", Vector2(24, 68), 17, Color("b6cecb"), 400)
-	_button("II", Rect2(460, 30, 56, 52), _show_pause)
+	pause_button = _button("II", Rect2(460, 30, 56, 52), _show_pause)
 	hud_hp = ProgressBar.new()
 	hud_hp.position = Vector2(25, 110)
 	hud_hp.size = Vector2(490, 17)
@@ -372,10 +394,41 @@ func _build_arena_ui() -> void:
 	hud_hp.add_theme_stylebox_override("background", _style(Color("172b38")))
 	hud_hp.add_theme_stylebox_override("fill", _style(CORAL))
 	ui.add_child(hud_hp)
-	dash_button = _button("DASH", Rect2(393, 815, 115, 70), _dash, true)
-	_label("DRAG TO MOVE", Vector2(33, 906), 15, Color("adbfba"), 260)
-	_label("AUTO-FIRE", Vector2(384, 905), 15, GOLD, 145)
+	ammo_label = _label("", Vector2(239, 785), 17, GOLD, 282)
+	ammo_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	fire_button = _button("FIRE", Rect2(355, 824, 160, 64), func() -> void: pass, true)
+	fire_button.icon = load("res://assets/weapon.png")
+	fire_button.expand_icon = true
+	fire_button.add_theme_constant_override("icon_max_width", 39)
+	fire_button.tooltip_text = "Hold to fire toward the nearest monster (J)."
+	fire_button.button_down.connect(func() -> void: _press_fire(-2))
+	reload_button = _button("RELOAD", Rect2(239, 899, 132, 47), _reload)
+	dash_button = _button("DASH", Rect2(384, 899, 131, 47), _dash, true)
+	move_label = _label("DRAG TO MOVE", Vector2(27, 907), 15, Color("adbfba"), 205)
+	fire_hint = _label("HOLD GUN / J", Vector2(215, 839), 14, Color("adbfba"), 135)
+	_layout_arena_controls()
 	_refresh_hud()
+
+func _arena_view_height() -> float:
+	return minf(960.0, get_viewport_rect().size.y)
+
+func _arena_world_transform() -> Transform2D:
+	# Keep the simulation arena unchanged. Fit its entire drawing uniformly
+	# between the header and full-size controls on shorter logical viewports.
+	var scale_value := minf(1.0, maxf(0.1, (_arena_view_height() - 320.0) / Survival.ARENA.size.y))
+	var offset := Vector2(270.0 * (1.0 - scale_value), Survival.ARENA.position.y * (1.0 - scale_value))
+	return Transform2D(Vector2(scale_value, 0), Vector2(0, scale_value), offset)
+
+func _layout_arena_controls() -> void:
+	if not is_instance_valid(fire_button) or not is_instance_valid(fire_hint): return
+	var height := _arena_view_height()
+	fire_button.position.y = height - 136.0
+	reload_button.position.y = height - 61.0
+	dash_button.position.y = height - 61.0
+	ammo_label.position.y = height - 170.0
+	ammo_label.size.y = 26.0
+	move_label.position.y = height - 53.0
+	fire_hint.position.y = height - 121.0
 
 func _refresh_hud() -> void:
 	if not is_instance_valid(hud_wave): return
@@ -384,10 +437,24 @@ func _refresh_hud() -> void:
 	hud_hp.value = simulation.hp
 	dash_button.text = "DASH" if simulation.dash_cooldown <= 0 else "%.1fs" % simulation.dash_cooldown
 	dash_button.disabled = simulation.dash_cooldown > 0.0
+	ammo_label.text = "RELOADING %.1fs" % simulation.reload_left if simulation.reload_left > 0 else "%02d / %02d ROUNDS" % [simulation.ammo, simulation.magazine_capacity]
+	reload_button.text = "%.1fs" % simulation.reload_left if simulation.reload_left > 0 else "RELOAD"
+	reload_button.disabled = simulation.reload_left > 0 or simulation.ammo == simulation.magazine_capacity
+	fire_button.modulate = Color(0.65, 0.65, 0.65) if simulation.reload_left > 0 else Color.WHITE
 
 func _dash() -> void:
-	if _gameplay_suspended(): return
-	simulation.dash()
+	if _gameplay_suspended():
+		_hold_external_input()
+		return
+	if screen == "arena" and not paused: simulation.dash()
+
+func _reload() -> void:
+	if _gameplay_suspended():
+		_hold_external_input()
+		return
+	if screen == "arena" and not paused:
+		simulation.request_reload()
+		_refresh_hud()
 
 func _gameplay_suspended() -> bool:
 	return _application_suspended or (is_instance_valid(services) and services.has_method("fullscreen_ad_active") and bool(services.fullscreen_ad_active()))
@@ -398,7 +465,7 @@ func _show_pause() -> void:
 	paused = true
 	screen = "pause"
 	var column := _page("A quiet moment", "Your run is paused.")
-	_card(column, "Keep your lantern lit", "Drag anywhere on the arena to steer. Your weapon aims at the nearest monster. Dash follows your last movement direction, even after you lift your thumb.")
+	_card(column, "Keep your lantern lit", "Drag on the arena to steer. Hold the gun to fire toward the nearest monster; release to stop. Reload takes 1.65 seconds and starts automatically when empty. Dash follows your last movement direction. Keyboard: WASD/arrows, J fire, R reload, Space dash.")
 	_card(column, "Resume the night", "Continue this run exactly where you left it.", "Resume", func() -> void:
 		paused = false
 		screen = "arena"
@@ -489,8 +556,8 @@ func _bank_run() -> void:
 func _show_armory() -> void:
 	screen = "armory"
 	var column := _page("The little armory", "%d coins  •  Keeper level %d" % [profile.coins, profile.level()])
-	var labels := {"power": "Bright powder", "vitality": "Sturdy coat", "tempo": "Quick hands", "magnet": "Lantern pull"}
-	var details := {"power": "+2.7 base bullet damage each level.", "vitality": "+12 maximum health each level.", "tempo": "A shorter delay between volleys.", "magnet": "Collect lantern XP from farther away."}
+	var labels := {"power": "Bright powder", "vitality": "Sturdy coat", "tempo": "Quick hands", "magnet": "Lantern pull", "magazine": "Deep pockets"}
+	var details := {"power": "+2.025 projectile damage each level before cards and weapon effects.", "vitality": "+12 maximum health each level.", "tempo": "A shorter delay between volleys.", "magnet": "Collect lantern XP from farther away.", "magazine": "+2 rounds each level. 20 rounds initially; 1.65 seconds to reload."}
 	for key: String in Profile.UPGRADE_KEYS:
 		var cost := profile.upgrade_cost(key)
 		_card(column, "%s  %d/10" % [labels[key], int(profile.upgrades[key])], details[key], "MAXIMUM" if cost < 0 else "Upgrade • %d coins" % cost, func() -> void:
@@ -537,7 +604,8 @@ func _show_journal() -> void:
 	_card(column, "Six kinds of trouble", "Shamblers follow. Rushers chase. Ironhides soak damage. Ember Fangs hit hard but fall fast. Spitters keep their distance. Hexlings mark the ground before casting.")
 	for kind in Survival.PROFILES:
 		var spec: Dictionary = Survival.PROFILES[kind]
-		_card(column, "%s • %d defeated" % [spec.name, int(profile.kind_kills[kind])], "Speed %d  •  Base health %d  •  Touch damage %d" % [int(spec.speed), int(spec.hp), int(spec.damage)])
+		var stats := Survival.enemy_stats(str(kind), 1)
+		_card(column, "%s / %d defeated" % [spec.name, int(profile.kind_kills[kind])], "Wave 1: speed %.1f / health %.2f / touch damage %.1f. Later waves and elites grow stronger." % [stats.speed, stats.hp, stats.contact_damage])
 	for entry in catalog.achievements:
 		var unlocked := bool(profile.achieved.get(entry.key, false))
 		_card(column, ("★ " if unlocked else "○ ") + str(entry.name), str(entry.description) + "\n%d / %d" % [mini(profile.metric(str(entry.metric)), int(entry.threshold)), int(entry.threshold)])
@@ -611,57 +679,156 @@ func _toast(text: String) -> void:
 	toast_text = text
 	toast_left = 3.5
 
-func _release_stick() -> void:
+func _clear_arena_input() -> void:
 	joystick = Vector2.ZERO
 	pointer_index = -1
+	fire_index = -1
+	fire_held = false
+	fire_request = false
 	simulation.movement = Vector2.ZERO
 
-func _unhandled_input(event: InputEvent) -> void:
+func _release_stick() -> void:
+	_clear_arena_input()
+	_waiting_for_neutral_fire = true
+	_waiting_for_neutral_movement = true
+	_waiting_for_neutral_dash = true
+
+func _hold_external_input() -> void:
+	_release_stick()
+	_discard_next_combat_delta = true
+
+func _press_fire(owner: int) -> void:
 	if _gameplay_suspended():
-		_release_stick()
+		_hold_external_input()
 		return
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		if screen == "arena": _show_pause()
-		elif screen == "pause":
-			paused = false
-			screen = "arena"
-			_build_arena_ui()
-			_set_menu(false)
-		elif screen not in ["results", "cards"]: _show_home()
-	if screen != "arena" or paused: return
+	if screen == "arena" and not paused and fire_index == -1:
+		fire_index = owner
+		fire_held = true
+		fire_request = true
+
+func _fire_input() -> bool:
+	return _fire_keyboard_input(Input.is_physical_key_pressed(KEY_J))
+
+func _fire_keyboard_input(keyboard: bool) -> bool:
+	if _waiting_for_neutral_fire:
+		if not keyboard: _waiting_for_neutral_fire = false
+		keyboard = false
+	return fire_held or fire_request or keyboard
+
+func _movement_input() -> Vector2:
+	var keyboard := Vector2(
+		float(Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT)),
+		float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP)))
+	var any_key := false
+	for key in [KEY_A, KEY_D, KEY_W, KEY_S, KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN]:
+		any_key = any_key or Input.is_physical_key_pressed(key)
+	return _movement_from_keyboard(keyboard, any_key)
+
+func _movement_from_keyboard(keyboard: Vector2, any_key: bool) -> Vector2:
+	if _waiting_for_neutral_movement:
+		if not any_key: _waiting_for_neutral_movement = false
+		keyboard = Vector2.ZERO
+	return (joystick + keyboard).limit_length(1.0)
+
+func _dash_keyboard_input(pressed: bool) -> bool:
+	if _waiting_for_neutral_dash:
+		if not pressed: _waiting_for_neutral_dash = false
+		return false
+	return pressed
+
+func _route_touch(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
-		if event.pressed and pointer_index == -1:
-			pointer_index = event.index
-			stick_origin = event.position
-			stick_current = event.position
-		elif not event.pressed and event.index == pointer_index:
-			pointer_index = -1
-			joystick = Vector2.ZERO
+		if event.pressed and not event.canceled:
+			if fire_button.get_global_rect().has_point(event.position):
+				_press_fire(event.index)
+			elif reload_button.get_global_rect().has_point(event.position):
+				_reload()
+			elif dash_button.get_global_rect().has_point(event.position):
+				_dash()
+			elif pause_button.get_global_rect().has_point(event.position):
+				_show_pause()
+			elif pointer_index == -1:
+				pointer_index = event.index
+				stick_origin = event.position
+				stick_current = event.position
+		else:
+			if event.index == fire_index:
+				fire_index = -1
+				fire_held = false
+				fire_request = false
+			if event.index == pointer_index:
+				pointer_index = -1
+				joystick = Vector2.ZERO
 	elif event is InputEventScreenDrag and event.index == pointer_index:
 		stick_current = event.position
 		joystick = (stick_current - stick_origin).limit_length(68.0) / 68.0
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and pointer_index == -1:
-			pointer_index = -2
-			stick_origin = event.position
+
+func _input(event: InputEvent) -> void:
+	if screen != "arena" or paused: return
+	if _gameplay_suspended():
+		_hold_external_input()
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		# Native fingers are owned before GUI consumes their synthetic mouse copies.
+		_route_touch(event)
+		get_viewport().set_input_as_handled()
+	elif event is InputEventMouse:
+		if event.device == InputEvent.DEVICE_ID_EMULATION:
+			get_viewport().set_input_as_handled()
+		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+			if fire_index == -2:
+				fire_held = false
+				fire_request = false
+				fire_index = -1
+			if pointer_index == -2:
+				pointer_index = -1
+				joystick = Vector2.ZERO
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _gameplay_suspended():
+		_hold_external_input()
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_ESCAPE:
+			if screen == "arena": _show_pause()
+			elif screen == "pause":
+				paused = false
+				screen = "arena"
+				_build_arena_ui()
+				_set_menu(false)
+			elif screen not in ["results", "cards"]: _show_home()
+		if event.keycode == KEY_R: _reload()
+	if screen != "arena" or paused: return
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		_route_touch(event)
+	elif event is InputEventMouse:
+		if event.device == InputEvent.DEVICE_ID_EMULATION: return
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed and pointer_index == -1:
+				pointer_index = -2
+				stick_origin = event.position
+				stick_current = event.position
+			elif not event.pressed and pointer_index == -2:
+				pointer_index = -1
+				joystick = Vector2.ZERO
+		elif event is InputEventMouseMotion and pointer_index == -2:
 			stick_current = event.position
-		elif not event.pressed and pointer_index == -2:
-			pointer_index = -1
-			joystick = Vector2.ZERO
-	elif event is InputEventMouseMotion and pointer_index == -2:
-		stick_current = event.position
-		joystick = (stick_current - stick_origin).limit_length(68.0) / 68.0
+			joystick = (stick_current - stick_origin).limit_length(68.0) / 68.0
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_PAUSED:
 		_application_suspended = true
-		_release_stick()
+		_hold_external_input()
 		if screen in ["arena", "cards", "pause", "results"]: _save_profile(true)
 		else: _save_profile()
 		if screen == "arena": _show_pause()
 	elif what == NOTIFICATION_APPLICATION_RESUMED:
 		_application_suspended = false
+		_hold_external_input()
+	elif what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		_release_stick()
+		if screen == "arena": _show_pause()
 	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		if _gameplay_suspended():
 			_release_stick()
@@ -701,7 +868,7 @@ func _draw() -> void:
 	if screen in ["arena", "pause", "cards", "results"]:
 		# Stable control panels preserve text contrast through bright dawn/day skies.
 		draw_rect(Rect2(0, 0, 540, 142), DUSK)
-		draw_rect(Rect2(0, 790, 540, 170), DUSK)
+		draw_rect(Rect2(0, _arena_view_height() - 170.0, 540, 170), DUSK)
 		_draw_arena()
 	else:
 		draw_set_transform(_menu_draw_offset())
@@ -730,12 +897,20 @@ func _draw_camp() -> void:
 		draw_circle(Vector2(280, 403), 7, GOLD)
 
 func draw_ellipse_shadow(position: Vector2, dimensions: Vector2) -> void:
-	var offset := _menu_draw_offset() if screen not in ["arena", "pause", "cards", "results"] else Vector2.ZERO
-	draw_set_transform(position + offset, 0, Vector2(1, dimensions.y / dimensions.x))
-	draw_circle(Vector2.ZERO, dimensions.x * 0.5, Color(0.06, 0.1, 0.15, 0.4))
-	draw_set_transform(offset)
+	if screen in ["arena", "pause", "cards", "results"]:
+		var world := _arena_world_transform()
+		var scale_value := world.x.length()
+		draw_set_transform(world * position, 0, Vector2(scale_value, scale_value * dimensions.y / dimensions.x))
+		draw_circle(Vector2.ZERO, dimensions.x * 0.5, Color(0.06, 0.1, 0.15, 0.4))
+		draw_set_transform_matrix(world)
+	else:
+		var offset := _menu_draw_offset()
+		draw_set_transform(position + offset, 0, Vector2(1, dimensions.y / dimensions.x))
+		draw_circle(Vector2.ZERO, dimensions.x * 0.5, Color(0.06, 0.1, 0.15, 0.4))
+		draw_set_transform(offset)
 
 func _draw_arena() -> void:
+	draw_set_transform_matrix(_arena_world_transform())
 	var light := DuskCycle.sample(simulation.elapsed)
 	var ground: Color = light.ground
 	draw_style_box(_style(ground, ground.lightened(0.22)), Survival.ARENA)
@@ -777,13 +952,15 @@ func _draw_arena() -> void:
 		var color: Color = particle.color
 		color.a = clampf(float(particle.life) * 2.3, 0, 1)
 		draw_circle(particle.pos, 3.5, color)
+	# World-only transform ends before the joystick and screen-space overlay.
+	draw_set_transform(Vector2.ZERO)
 	if screen == "arena":
-		var origin := stick_origin if pointer_index != -1 else Vector2(105, 852)
+		var origin := stick_origin if pointer_index != -1 else Vector2(105, _arena_view_height() - 108.0)
 		draw_circle(origin, 48, Color(0.3, 0.5, 0.57, 0.25))
 		draw_arc(origin, 48, 0, TAU, 32, Color("73989f"), 2, true)
 		draw_circle(origin + joystick * 31.0, 19, Color("bad0ca"))
 	elif screen in ["pause", "cards", "results"]:
-		draw_rect(Rect2(0, 0, 540, 960), Color(0.11, 0.18, 0.25, 0.86))
+		draw_rect(Rect2(0, 0, 540, _arena_view_height()), Color(0.11, 0.18, 0.25, 0.86))
 
 func _capture_fixture() -> void:
 	simulation.elapsed = 97.0

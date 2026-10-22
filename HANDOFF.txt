@@ -1,3 +1,13 @@
+ROUND THREE SOURCE UPDATE - 2026-10-22
+Manual fire, magazine/reload and the requested rebalance are implemented in source.
+See docs/ROUND_THREE.md for exact formulas, migration and source-only validation.
+Android/Web rebuilds, native checks and refreshed Round Three screenshots remain pending.
+Do not treat the dated D2FC artifact/capture acceptance below as Round Three evidence.
+Current source controls: drag to move, hold the gun to fire with assisted aim;
+RELOAD/R or automatic empty reload takes1.65seconds; J fire, Space DASH, Escape pause.
+New magazine upgrade adds2rounds/rank, 20initial rounds, max40at rank10.
+The full Round Two handoff and all original artifacts remain preserved below.
+
 MONSTER DUSK: APOCALYPSE - ROUND TWO QUALIFIED LOCAL TEST HANDOFF
 Updated2026-10-21. The scoped local Android functional/capture package is ready for owner testing. Production release and remaining acceptance below are owner work.
 

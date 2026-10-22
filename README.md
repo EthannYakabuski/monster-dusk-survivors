@@ -6,7 +6,7 @@ A portrait endless monster shooter with six enemy behavior families, escalating 
 
 ## Play
 
-Move through the arena, shape your weapon build with upgrades, survive escalating creatures and spend your rewards between attempts. Daily goals and the bestiary track your discoveries. A repeating dusk/night/dawn/day cycle changes the arena light, while separate original camp and patrol scores follow music and pause settings. Future account XP and permanent upgrades progress more slowly; existing saved XP, levels, purchases and claims are retained.
+Drag to move, hold the gun button to fire toward the nearest creature, and use DASH to escape. A magazine starts with 20 rounds; empty magazines reload in 1.65 seconds, or tap RELOAD early. Keyboard controls are WASD/arrows to move, J to fire, R to reload, Space to dash and Escape to pause. Shape your weapon build with upgrades, survive escalating creatures and spend your rewards between attempts. Daily goals and the bestiary track your discoveries. A repeating dusk/night/dawn/day cycle changes the arena light, while separate original camp and patrol scores follow music and pause settings. Future account XP and permanent upgrades progress more slowly; existing saved XP, levels, purchases and claims are retained.
 
 Touch/mouse portrait play and offline local saves are supported. Android is the primary target; Web retains gameplay and saves when Android services are unavailable. Browser play never grants pretend ad rewards.
 
@@ -28,6 +28,7 @@ Use Godot **4.5.1**, **Compatibility**, matching export templates, Java 17 and t
 
 ```sh
 godot --headless --editor --path . --import
+godot --headless --path . --script tests/test_round_three.gd
 godot --headless --path . --script tests/test_round_two.gd
 godot --headless --path . --script tests/test_models.gd
 godot --headless --path . --script platform/tests/services_smoke.gd
@@ -38,6 +39,10 @@ godot --headless --path . --install-android-build-template --export-debug Androi
 Create a new unused build/next-reviewed-update/web and build/next-reviewed-update/android first; choose another unused name for each later build. Preserve all accepted and original artifacts. Android package: `com.ethannyakabuski.monsterdusk`. Tests are documented under game/ and tests/. No Windows build is supplied.
 
 See [Round Two implementation and verification](docs/ROUND_TWO.md) for source changes, exact balance formulas and qualified acceptance. Current local Android/Web outputs are under `build/round-two-97c75e32-a1/`; the APK is `D2FC0ADA386F51BD3ADEC057FC4B2EA4FEC41BED5F529198DDD44C0364BCDC96`. HANDOFF selects the two new ZIPs. The original APK and dated hosted CI remain separate evidence.
+
+## Round Three source update
+
+Manual firing, a persistent magazine upgrade and the requested enemy/weapon rebalance are implemented. Read [Round Three formulas and validation scope](docs/ROUND_THREE.md). This source change is awaiting its own Android/Web exports, native control/reward/save checks and refreshed screenshots. The D2FC APK and captures documented below remain Round Two evidence; they do not verify the changed controls or balance.
 
 ## Integration and handoff
 
@@ -71,9 +76,9 @@ The public repository contains source, assets, notices and sanitized verificatio
 
 Pages remains disabled; no live deployment, Library action or Google Play publication is part of this handoff. Keep the complete third-party notices with redistributed source and builds.
 
-## Current local verification
+## Previously accepted Round Two local verification
 
-Both current exports passed exact committed runtime binding and matching notices. Ordinary native play observed all four light phases through Day at92seconds, the revised purchase/reward values, music-preference persistence, normal controls/Back, a96.225second earned endcard with alive unchanged-HUD return and once-only banking, actual offline/cold25-group retention and restored-network cold retention. A genuine historical save was restored after an absent package before the update; this does not establish retention across earlier AVD loss.
+Both Round Two exports passed exact committed runtime binding and matching notices. Ordinary native play observed all four light phases through Day at92seconds, the revised purchase/reward values, music-preference persistence, normal controls/Back, a96.225second earned endcard with alive unchanged-HUD return and once-only banking, actual offline/cold25-group retention and restored-network cold retention. A genuine historical save was restored after an absent package before the update; this does not establish retention across earlier AVD loss.
 
 The retained captured Godot error scan was empty; no exhaustive full-lifetime SDK-clean claim is made. Native120second repeat, separate unearned/failure callback/current interstitial, same-run fresh post-ad inputs, simultaneous multitouch, audible/physical/interactive-Web/production/human balance remain unverified. See `docs/NATIVE_QA.json` and HANDOFF for exact scope.
 

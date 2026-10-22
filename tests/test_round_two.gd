@@ -31,7 +31,9 @@ func _run() -> void:
 	var old_data: Dictionary = original.to_data()
 	var restored = Profile.new()
 	check(restored.load_data(old_data), "Legacy schema remains loadable")
-	check(restored.to_data() == old_data, "Legacy coins, XP, equipment, ranks, achievements and claims remain exact")
+	var migrated_data := old_data.duplicate(true)
+	migrated_data.upgrades.magazine = 0
+	check(restored.to_data() == migrated_data, "Legacy coins, XP, equipment, ranks, achievements and claims remain exact")
 	check(restored.level() == original.level(), "Existing keeper level is not reduced by new reward pace")
 	var fresh = Profile.new()
 	check(fresh.purchase_upgrade("power") and fresh.coins == 0, "Starting allowance still buys one chosen first upgrade")
@@ -41,7 +43,7 @@ func _run() -> void:
 		check(fresh.upgrade_cost("power") >= historical * 2.25, "Future upgrade prices are materially slower at rank %d" % rank)
 	var receipt: Dictionary = restored.record_run({"seconds":125,"kills":42,"wave":6})
 	check(receipt.xp == 106 and receipt.xp < 219 * .5, "Representative future run earns under half the original XP")
-	check(restored.xp == 7654+106 and restored.upgrades == old_data.upgrades, "Banking adds future XP without modifying legacy purchases")
+	check(restored.xp == 7654+106 and restored.upgrades == migrated_data.upgrades, "Banking adds future XP without modifying legacy purchases")
 	check(restored.claim_login(200) == 0 and restored.claim_quest("kills") == 0, "New pacing cannot reopen previously claimed rewards")
 	for second in [0.0,30.0,60.0,90.0]:
 		check(Cycle.sample(second).name == ["Dusk","Night","Dawn","Day"][int(second/30)], "Cycle shows distinct phase at %d seconds" % second)

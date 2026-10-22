@@ -1,7 +1,7 @@
 extends RefCounted
 ## Durable local progression. Currency is never granted merely for opening an ad.
 
-const UPGRADE_KEYS := ["power", "vitality", "tempo", "magnet"]
+const UPGRADE_KEYS := ["power", "vitality", "tempo", "magnet", "magazine"]
 const WEAPONS := ["repeater", "scatter", "lantern"]
 const DAILY_GOALS := {"kills": 40, "survival": 120, "dashes": 8}
 const LOGIN_REWARDS := [100, 150, 210, 280, 360, 460, 750]
@@ -17,7 +17,7 @@ var elites: int = 0
 var powerups: int = 0
 var quests_claimed: int = 0
 var selected_weapon: String = "repeater"
-var upgrades: Dictionary = {"power": 0, "vitality": 0, "tempo": 0, "magnet": 0}
+var upgrades: Dictionary = {"power": 0, "vitality": 0, "tempo": 0, "magnet": 0, "magazine": 0}
 var owned_weapons: Array = ["repeater"]
 var kind_kills: Dictionary = {"slow": 0, "fast": 0, "tank": 0, "glass": 0, "ranged": 0, "magical": 0}
 var seen: Array = []
@@ -44,6 +44,9 @@ func bullet_damage() -> float:
 
 func fire_interval() -> float:
 	return maxf(0.19, 0.46 - 0.022 * int(upgrades.tempo))
+
+func magazine_capacity() -> int:
+	return 20 + 2 * int(upgrades.magazine)
 
 func pickup_radius() -> float:
 	return 35.0 + 11.0 * int(upgrades.magnet)
