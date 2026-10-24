@@ -66,7 +66,7 @@ Marketing text, the preserved nine Round Two raw screenshots under `marketing/sc
 
 ## CI and Web
 
-Hosted GitHub Actions imports resources, runs game/service tests, exports Web and an Android debug APK, and retains export artifacts. Pages deployment remains explicitly disabled. Build outputs, caches and signing keys are excluded from source. Confirm actual run results in HANDOFF.txt; workflow presence alone is not a passing CI claim.
+Hosted GitHub Actions imports resources, runs game/service tests, exports Web and validates an Android debug AAB, and retains export artifacts. Pages deployment remains explicitly disabled. Build outputs, caches and signing keys are excluded from source. Confirm actual run results in HANDOFF.txt; workflow presence alone is not a passing CI claim.
 
 ## Future extension
 
