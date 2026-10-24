@@ -1,5 +1,9 @@
 # Monster Dusk: Apocalypse
 
+## Round Four source update
+
+The prior 25% firing-rate nerf is removed. All monster movement speeds are reduced by 10% from Round Three; existing wave-four ranged Spitters are verified by source tests. See [current gameplay rules](docs/ROUND_FOUR.md). New exports/native checks and exact-commit CI are separate gates; dated Round Three artifacts below retain their original scope.
+
 Keep the lantern burning. The creatures keep coming.
 
 A portrait endless monster shooter with six enemy behavior families, escalating waves, a large creature bestiary, weapon builds and permanent progression.

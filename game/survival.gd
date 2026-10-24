@@ -2,9 +2,9 @@ extends RefCounted
 ## Deterministic arena simulation, independent from the presentation and native SDKs.
 
 const WEAPON_DAMAGE_SCALE := 0.75
-const FIRE_RATE_SCALE := 0.75
+const FIRE_RATE_SCALE := 1.0 # Round Four restores the pre-Round-Three firing rate.
 const ENEMY_EXTRA_HP := 29.25 # Three additional baseline post-rebalance hits.
-const ENEMY_SPEED_SCALE := 1.25
+const ENEMY_SPEED_SCALE := 1.25 * 0.90 # Ten percent slower than Round Three.
 const INCOMING_DAMAGE_SCALE := 1.20
 const RELOAD_SECONDS := 1.65
 const ARENA := Rect2(20, 145, 500, 640)

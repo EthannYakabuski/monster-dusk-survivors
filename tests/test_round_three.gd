@@ -57,7 +57,7 @@ func _test_balance() -> void:
 				var old_hp: float = float(base.hp) * (1 + (wave - 1) * .11) * (3.4 if elite else 1.0)
 				var old_speed := float(base.speed) * minf(1.7, 1 + wave * .017)
 				check(is_equal_approx(enemy.hp, old_hp + 29.25) and enemy.max_hp == enemy.hp, "Three extra baseline hits added after wave/elite HP: %s/%d/%s" % [kind, wave, elite])
-				check(is_equal_approx(enemy.speed, old_speed * 1.25), "Final enemy speed is 25 percent faster: %s/%d/%s" % [kind, wave, elite])
+				check(is_equal_approx(enemy.speed, old_speed * 1.25 * .90), "Round Four retains the prior buff then reduces speed ten percent: %s/%d/%s" % [kind, wave, elite])
 	for rank in [0, 5, 10]:
 		var p = Profile.new()
 		p.upgrades.power = rank
@@ -71,11 +71,11 @@ func _test_balance() -> void:
 			s.haste_left = 7.0
 			s._fire(0.0, true)
 			var damage: float = (13.0 + 2.7 * rank) * .75 * (1.0 + 2 * .22)
-			var interval := maxf(.19, .46 - .022 * rank) / .75 / (1 + 3 * .14) * .52
+			var interval := maxf(.19, .46 - .022 * rank) / (1 + 3 * .14) * .52
 			if weapon == "scatter": damage *= .65; interval *= 1.32
 			if weapon == "lantern": damage *= 1.25; interval *= 1.22
 			check(is_equal_approx(s.bullets[0].damage, damage), "Projectile nerf precedes card and weapon effects: %s/%d" % [weapon, rank])
-			check(is_equal_approx(s.fire_clock, interval), "Rate reduction preserves tempo, haste and weapon cadence: %s/%d" % [weapon, rank])
+			check(is_equal_approx(s.fire_clock, interval), "Restored rate preserves tempo, haste and weapon cadence: %s/%d" % [weapon, rank])
 			s.bullets.clear()
 			s.enemies[0].pos = s.player + Vector2(100, 0)
 			var before := float(s.enemies[0].hp)

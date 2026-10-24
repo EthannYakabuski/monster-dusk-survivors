@@ -1,3 +1,9 @@
+ROUND FOUR GAMEPLAY SOURCE UPDATE - 2026-10-24
+Scoped rules and isolated source verification: docs/ROUND_FOUR.md.
+New runtime export/native acceptance and exact-commit CI remain coordinator gates.
+The preserved native APKs, screenshots and historical evidence below retain their original build scope.
+Existing owner export configuration and untracked artwork are preserved; no genuine saves were used.
+
 MONSTER DUSK: APOCALYPSE - ROUND THREE QUALIFIED LOCAL TEST HANDOFF
 Updated 2026-10-22. Limited affected native checks and 18 actual screenshots complete. Stated reload/input/lifecycle/offline and other gates remain unverified; no blanket native-clean or production-release claim.
 
