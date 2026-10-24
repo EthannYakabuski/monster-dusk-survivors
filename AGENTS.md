@@ -1,6 +1,12 @@
 # Monster Dusk: Apocalypse: working agreement
 
-This folder is the canonical Git working copy. Work only on this game and the requested update; do not launch another game or treat archived publication copies as parallel development locations. The ten-game review cap is already reached.
+## Round 4 continuation
+
+Work only on the requested Round 4 changes; do not start new games. The current Android default is Gradle **AAB**, min API **24** / target API **36**, with ARM64, x86 and x86_64. Follow the [Round 4 Android guide](docs/ROUND_FOUR_ANDROID.md) for current export instructions instead of older APK examples in historical guides.
+
+The 2026-10-24 continuation snapshot does not claim passing exact-current-source CI or native acceptance for rebuilt Round 4 binaries. Record later source-bound checks in `HANDOFF.txt`; keep all dated original APK evidence intact. Debug AABs are test-signed bundles, distinct from owner-signed releases. Preserve user configuration and untracked files.
+
+This folder is the canonical Git working copy. Work only on this game and the requested update; do not launch another game or treat archived publication copies as parallel development locations. This continuation covers the requested Round 4 updates only; do not start new games.
 
 Before editing, read README.md, HANDOFF.txt and docs/PLATFORM_SETUP.md, then inspect git status, branch/upstream and origin. A fresh task must load these files; prior chat history is not assumed. Preserve user edits and local artifacts. Do not reset/clean an existing worktree or delete backups.
 
@@ -14,7 +20,7 @@ Before editing, read README.md, HANDOFF.txt and docs/PLATFORM_SETUP.md, then ins
 
 ## Build and verify
 
-Godot4.5.1 Compatibility, Android primary plus Web, Java17 and matching export templates/SDK. Retain min API24/target API35 as the current engine test constraint; verify current store requirements before release. Keep current Android shader-cache and remote-run settings unless separately justified.
+Godot4.5.1 Compatibility, Android primary plus Web, Java17 and matching export templates/SDK. Retain min API24/target API36 as the current preset configuration; verify current store requirements before release. Keep current Android shader-cache and remote-run settings unless separately justified.
 
 Import once with `godot --headless --editor --path . --import`. Run the affected tests below, plus `platform/tests/services_smoke.gd` when services change. Use a process-scoped temporary user-data root (APPDATA and LOCALAPPDATA on Windows; XDG_DATA_HOME on Linux) so tests and service pending queues never touch genuine saves. Keep existing timeouts and strict script/parse/assertion/engine-error checks.
 

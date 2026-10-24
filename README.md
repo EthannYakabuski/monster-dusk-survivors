@@ -1,5 +1,11 @@
 # Monster Dusk: Apocalypse
 
+## Round 4 build continuation (2026-10-24)
+
+The Android preset now defaults to **AAB** with Gradle, minimum API **24** and target API **36**. ARM64, x86 and x86_64 are selected; the [Round 4 Android guide](docs/ROUND_FOUR_ANDROID.md) explains the native ABI-pair validator and release-owner steps. These are current preset choices, not permanent engine restrictions.
+
+Round 4 exact-source hosted CI and affected native acceptance are pending in this dated continuation snapshot; consult `HANDOFF.txt` for later source-bound results. An ABI-validated debug AAB is test-signed and does not establish Google Play acceptance. Dated APK hashes and screenshots below retain their original build provenance. This round does not start new games.
+
 ## Round Four source update
 
 The prior 25% firing-rate nerf is removed. All monster movement speeds are reduced by 10% from Round Three; existing wave-four ranged Spitters are verified by source tests. See [current gameplay rules](docs/ROUND_FOUR.md). New exports/native checks and exact-commit CI are separate gates; dated Round Three artifacts below retain their original scope.
@@ -28,7 +34,7 @@ Later documentation commits require their own CI result; this dated result does 
 
 Original code: Apache-2.0. Developer: [EthannYakabuski](https://github.com/EthannYakabuski). Included assets/plugins retain their own licenses and notices.
 
-Use Godot **4.5.1**, **Compatibility**, matching export templates, Java 17 and the Android SDK. The test preset uses minimum API 24 and target API 35. This is a test-configured build; final release signing, current Play requirements and production backend verification remain with the owner. See [native setup](docs/PLATFORM_SETUP.md).
+Use Godot **4.5.1**, **Compatibility**, matching export templates, Java 17 and the Android SDK. The test preset uses minimum API 24 and target API 36. This is a test-configured build; final release signing, current Play requirements and production backend verification remain with the owner. See [native setup](docs/PLATFORM_SETUP.md).
 
 ```sh
 godot --headless --editor --path . --import
@@ -37,7 +43,7 @@ godot --headless --path . --script tests/test_round_two.gd
 godot --headless --path . --script tests/test_models.gd
 godot --headless --path . --script platform/tests/services_smoke.gd
 godot --headless --path . --export-release Web build/next-reviewed-update/web/index.html
-godot --headless --path . --install-android-build-template --export-debug Android build/next-reviewed-update/android/game-debug.apk
+godot --headless --path . --install-android-build-template --export-debug Android build/next-reviewed-update/android/game-debug.aab
 ```
 
 Create a new unused build/next-reviewed-update/web and build/next-reviewed-update/android first; choose another unused name for each later build. Preserve all accepted and original artifacts. Android package: `com.ethannyakabuski.monsterdusk`. Tests are documented under game/ and tests/. No Windows build is supplied.
