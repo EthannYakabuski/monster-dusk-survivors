@@ -132,7 +132,10 @@ func _sync_music() -> void:
 		music.stream = music_streams[wanted]
 		music_context = wanted
 	if not music.playing: music.play()
-	music.stream_paused = policy.paused
+	var pause_music: bool = policy.paused
+	# Web samples restart their buffer on redundant unpause calls.
+	if music.stream_paused != pause_music:
+		music.stream_paused = pause_music
 
 func _sound(key: String) -> void:
 	if profile.effects_enabled and audio.has(key): audio[key].play()
