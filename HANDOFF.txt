@@ -1,3 +1,29 @@
+ROUND FOUR - QUALIFIED SOURCE / EXPORT HANDOFF
+Current Round Four features: The prior 25% firing-rate nerf is removed; monster movement is 10% slower than Round Three. Existing wave-four ranged Spitters remain.
+The focused music pause-state follow-up leaves music enabled and avoids redundant pause-state updates.
+Current focused source: 4a278ba54737e9d7d08e6c6b3026a0c05f3ccfcb
+Exact post-audio source CI: SUCCESS - https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/40146779414
+Latest validated Android AAB: build/round-four-music-aab-003/monster-dusk-survivors-debug.aab
+AAB SHA256: 1004DA4C4785027E96004149109A4A260773620FEC5DDF8C91F093BD9C8858A1
+AAB as-built source: 4a278ba54737e9d7d08e6c6b3026a0c05f3ccfcb
+Latest validated Web entry: build/round-four-web-003/index.html
+Web HTML SHA256: BEE7A6C02EB0FD7D2B2EF81398CB6574E9426A9CD4412D4D633903AFFC8D94EF
+Web as-built source: 4a278ba54737e9d7d08e6c6b3026a0c05f3ccfcb
+Corrected Web runtime scope and remaining diagnostics: Bounded isolated Chrome Web003 observations: Home opened a genuine fresh Wave 1. The live interface showed 20/20 rounds and manual Fire, Reload, Dash and movement controls. A stationary run ended naturally after 10 seconds with zero kills and zero dashes before the Fire input took effect. Return to camp awarded 21 coins and 6 XP, leaving 201 coins at level 1. No createBuffer recurrence was recorded during the 272-second check. Full original audio and project playback configuration were retained.
+Remaining browser and platform limits: The zero-kill run is not a win or a combat-controls pass. Firing/cadence, manual or empty-magazine reload, movement/dash effectiveness and actual ranged-enemy behavior remain unverified. Fire arrived after the run ended; this latency-limited observation does not establish a control defect or human usability acceptance. Headless tab changes kept both pages visible and focused; actual hidden/focus-loss and music pause/resume transitions remain unverified. These are bounded Chrome Web003 observations, not Android screenshots or native/device, audible-output, SDK/ad, production-service or release acceptance. No cold browser restart was tested.
+Qualified Android/Web test package: build/round-four-music-4a278ba5-aab003-web003/packages/monster-dusk-survivors-round-four-audio-export-test.zip
+Package SHA256: CA5645848C886089C05FB2FA79CCF19BC8B60D87C6030EFD8BB8ECBA8BB9237F
+The AAB and Web exports above passed their recorded export checks. Bounded Web observations and outstanding owner checks remain separate. Source CI above validates the as-built code; later documentation/UID-only commits require their own hosted run.
+RECORDED PRIOR ROUND FOUR EXPORT CANDIDATE - PRE-AUDIO SOURCE
+AAB: build/round-four-aab-001/monster-dusk-survivors-debug.aab; SHA256 7963669B9EF4F7A2167914727F85E138029C7711F692BE7D7B4CBED0B52E3A00; as-built source 580388a2c9eeaf0844778db49df4290151a8dace.
+Web: build/round-four-web-002/index.html; HTML SHA256 45BC2BBE0EE26678D82425D4C64AE711BDC1E1DFFCC37E898B971E21DA840776; as-built source 580388a2c9eeaf0844778db49df4290151a8dace.
+Recorded export-only ZIP: build/round-four-export-only-7963669b-web002/packages/monster-dusk-survivors-round-four-export-test.zip; SHA256 B169CB34684241534460DF6521BA5F90050640BF072EB4E0B09536088A9A94A8. These frozen pre-audio component identities are preserved as dated evidence, not validation of the newer source or a promise that an archive remains selected for distribution.
+NATIVE / OWNER QUALIFICATION
+Affected Round Four Android/native behavior and current-build Android screenshots remain unverified. Browser frames are not Android/store screenshots. Physical-device, audible-output, real SDK/production-service and store-release acceptance remain separate; a debug AAB is test-signed, not a release submission.
+Only materially changed visuals require refreshed genuine captures. Unchanged older screenshots retain their named original APK/source provenance and are not relabelled as current-build evidence.
+Remaining owner checks: affected Android/native gameplay and real SDK/ad callback/save/offline flows on the new binary, materially changed genuine current-build Android captures, intended physical devices, audible output and production services. The specific unverified gameplay/control paths in the browser limits above remain open; no all-native-ready claim is made.
+
+PRESERVED EARLIER HANDOFF / DATED EVIDENCE — each passage retains its named source/build scope; current qualification above supersedes earlier readiness statements.
 ROUND FOUR GAMEPLAY SOURCE UPDATE - 2026-10-24
 Scoped rules and isolated source verification: docs/ROUND_FOUR.md.
 New runtime export/native acceptance and exact-commit CI remain coordinator gates.

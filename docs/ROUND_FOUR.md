@@ -32,3 +32,12 @@ production-service verification. New Android/Web builds and exact-commit CI are
 separate coordinator gates. The preserved Round Three native APK/screenshots and
 remaining reload/multitouch/device/offline/ad qualifications retain their dated
 scope; see HANDOFF.txt and NATIVE_QA.json. No screenshots are relabelled.
+
+## Focused music pause-state follow-up / qualified verification
+
+Music remains enabled. The focused follow-up avoids redundant pause-state assignments while leaving the gameplay and service rules above intact. Its source is `4a278ba54737e9d7d08e6c6b3026a0c05f3ccfcb`; its [exact hosted CI](https://github.com/EthannYakabuski/monster-dusk-survivors/actions/runs/40146779414) passed. The actual accepted AAB/Web003 components and qualified test package are recorded in `../HANDOFF.txt`. Earlier named-source tests and frozen exports do not establish this follow-up's runtime acceptance.
+
+Corrected Web runtime findings: Bounded isolated Chrome Web003 observations: Home opened a genuine fresh Wave 1. The live interface showed 20/20 rounds and manual Fire, Reload, Dash and movement controls. A stationary run ended naturally after 10 seconds with zero kills and zero dashes before the Fire input took effect. Return to camp awarded 21 coins and 6 XP, leaving 201 coins at level 1. No createBuffer recurrence was recorded during the 272-second check. Full original audio and project playback configuration were retained.
+Remaining browser and platform limits: The zero-kill run is not a win or a combat-controls pass. Firing/cadence, manual or empty-magazine reload, movement/dash effectiveness and actual ranged-enemy behavior remain unverified. Fire arrived after the run ended; this latency-limited observation does not establish a control defect or human usability acceptance. Headless tab changes kept both pages visible and focused; actual hidden/focus-loss and music pause/resume transitions remain unverified. These are bounded Chrome Web003 observations, not Android screenshots or native/device, audible-output, SDK/ad, production-service or release acceptance. No cold browser restart was tested.
+
+Affected Android/native checks, real SDK callbacks and current-build Android screenshots remain unverified. Physical-device play, audible-output and production services are separate acceptance work. Preserve all old APK/capture provenance and full third-party notices.
