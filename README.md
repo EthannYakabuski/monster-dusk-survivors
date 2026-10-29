@@ -1,5 +1,10 @@
 # Monster Dusk: Apocalypse
 
+## Round Five control update
+
+DASH now sits immediately left of FIRE with a matching 160×64 logical touch target and a 12-unit gap. RELOAD remains below; its hit area and the fire hint stay separate. [Acceptance scope](docs/ROUND_FIVE.md) distinguishes source/viewport tests from fresh Android touch and device verification. Owner Play Games/export configuration and existing saves are preserved.
+
+
 ## Round 4 build continuation (2026-10-24)
 
 The Android preset now defaults to **AAB** with Gradle, minimum API **24** and target API **36**. ARM64, x86 and x86_64 are selected; the [Round 4 Android guide](docs/ROUND_FOUR_ANDROID.md) explains the native ABI-pair validator and release-owner steps. These are current preset choices, not permanent engine restrictions.

@@ -1,0 +1,58 @@
+{
+  "date_utc": "2026-10-29",
+  "criteria": {
+    "dash_immediately_left_of_fire": "PASS in real Godot Window logical viewport tests",
+    "matching_touch_target": "160x64 each,12-unit gap",
+    "responsive_profiles": "phone/7-inch/10-inch logicalprofiles",
+    "inputs": "Existing independent movement/fire/reload/dash routing PASS"
+  },
+  "checks": [
+    {
+      "script": "IMPORT",
+      "exit_code": 0,
+      "strict_errors": [],
+      "result": "PASS"
+    },
+    {
+      "script": "tests/test_round_three.gd",
+      "exit_code": 0,
+      "strict_errors": [],
+      "result": "PASS"
+    },
+    {
+      "script": "tests/test_ui.gd",
+      "exit_code": 0,
+      "strict_errors": [],
+      "result": "PASS"
+    },
+    {
+      "script": "tests/test_round_four.gd",
+      "exit_code": 0,
+      "strict_errors": [],
+      "result": "PASS"
+    },
+    {
+      "script": "tests/test_models.gd",
+      "exit_code": 0,
+      "strict_errors": [],
+      "result": "PASS"
+    },
+    {
+      "script": "tests/test_fullscreen_revive.gd",
+      "exit_code": 0,
+      "strict_errors": [],
+      "result": "PASS"
+    },
+    {
+      "script": "platform/tests/services_smoke.gd",
+      "exit_code": 0,
+      "strict_errors": [],
+      "result": "PASS"
+    }
+  ],
+  "qualifications": [
+    "Headless Window/input source tests are not Android or physical touch acceptance.",
+    "No new native screenshots, signed-in service tests or audible verification.",
+    "Owner configuration/export and untracked art remain preserved, excluded from this patch."
+  ]
+}

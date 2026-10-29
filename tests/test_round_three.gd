@@ -320,8 +320,10 @@ func _test_viewports() -> void:
 		check(game.menu_scroll.size.y == expected_height, "Arena input container fits actual viewport height")
 		for button in [game.fire_button, game.reload_button, game.dash_button, game.pause_button]:
 			check(actual.encloses(button.get_global_rect()), "Combat control remains fully reachable: " + button.text)
-		check(game.fire_button.size == Vector2(160,64) and game.reload_button.size == Vector2(132,47) and game.dash_button.size == Vector2(131,47), "Short viewports retain full-size touch targets")
+		check(game.fire_button.size == Vector2(160,64) and game.reload_button.size == Vector2(132,47) and game.dash_button.size == Vector2(160,64), "Short viewports retain full-size touch targets")
 		check(not game.fire_button.get_rect().intersects(game.reload_button.get_rect()) and not game.fire_button.get_rect().intersects(game.dash_button.get_rect()) and not game.reload_button.get_rect().intersects(game.dash_button.get_rect()), "Responsive fire/reload/dash hit areas do not overlap")
+		check(game.dash_button.get_rect().end.x + 12.0 == game.fire_button.position.x and game.dash_button.position.y == game.fire_button.position.y and game.dash_button.size == game.fire_button.size, "Round Five DASH is immediately left of FIRE with matching large touch targets")
+		check(not game.fire_hint.get_rect().intersects(game.dash_button.get_rect()) and not game.fire_hint.get_rect().intersects(game.reload_button.get_rect()), "Fire hint stays clear of moved DASH and RELOAD touch targets")
 		check(actual.encloses(game.ammo_label.get_global_rect()), "Ammo and reload HUD stays inside actual viewport")
 		var world: Transform2D = game._arena_world_transform()
 		var mapped: Rect2 = world * Survival.ARENA

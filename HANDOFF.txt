@@ -1,3 +1,10 @@
+ROUND FIVE LOCAL SOURCE CHECKS: PASS (2026-10-29)
+Godot4.5.1 import and strict diagnostics pass. RoundThree269, UI35, RoundFour111, Models125 and fullscreen lifecycle21 checks pass, plus service smoke. These include actual Window profile/control geometry and synthetic input routing; native Android/device, audible and production-service acceptance remain pending. Hosted tests/Android-Web exports must match the containing commit.
+
+ROUND FIVE - CONTROL LAYOUT UPDATE
+Updated 2026-10-29. DASH is immediately left of FIRE; both are 160x64 logical units with a 12-unit gap. RELOAD and helper labels remain separate. See docs/ROUND_FIVE.md for source/viewport acceptance and outstanding device checks. This source change does not transfer older APK/native QA to a new build. Owner service/export settings and untracked art are preserved outside this layout commit.
+
+PRESERVED EARLIER HANDOFF
 ROUND FOUR - QUALIFIED SOURCE / EXPORT HANDOFF
 Current Round Four features: The prior 25% firing-rate nerf is removed; monster movement is 10% slower than Round Three. Existing wave-four ranged Spitters remain.
 The focused music pause-state follow-up leaves music enabled and avoids redundant pause-state updates.

@@ -1,12 +1,12 @@
 # Monster Dusk: Apocalypse: working agreement
 
-## Round 4 continuation
+## Round 5 continuation
 
-Work only on the requested Round 4 changes; do not start new games. The current Android default is Gradle **AAB**, min API **24** / target API **36**, with ARM64, x86 and x86_64. Follow the [Round 4 Android guide](docs/ROUND_FOUR_ANDROID.md) for current export instructions instead of older APK examples in historical guides.
+Work only on the requested Round 5 changes; do not start new games. The current Android default is Gradle **AAB**, min API **24** / target API **36**, with ARM64, x86 and x86_64. Follow the [Round 4 Android guide](docs/ROUND_FOUR_ANDROID.md) for current export instructions instead of older APK examples in historical guides.
 
 The 2026-10-24 continuation snapshot does not claim passing exact-current-source CI or native acceptance for rebuilt Round 4 binaries. Record later source-bound checks in `HANDOFF.txt`; keep all dated original APK evidence intact. Debug AABs are test-signed bundles, distinct from owner-signed releases. Preserve user configuration and untracked files.
 
-This folder is the canonical Git working copy. Work only on this game and the requested update; do not launch another game or treat archived publication copies as parallel development locations. This continuation covers the requested Round 4 updates only; do not start new games.
+This folder is the canonical Git working copy. Work only on this game and the requested update; do not launch another game or treat archived publication copies as parallel development locations. This continuation covers the requested Round 5 updates only; do not start new games.
 
 Before editing, read README.md, HANDOFF.txt and docs/PLATFORM_SETUP.md, then inspect git status, branch/upstream and origin. A fresh task must load these files; prior chat history is not assumed. Preserve user edits and local artifacts. Do not reset/clean an existing worktree or delete backups.
 
@@ -41,3 +41,5 @@ Stage only reviewed project changes. Keep build outputs, raw SDK/log evidence, r
 When done, report changed behavior, actual tests, remaining limitations and artifact identity; update HANDOFF.txt without claiming old native QA applies to new binaries.
 
 Round Three source continuation: read docs/ROUND_THREE.md before combat/control edits. Its pending native/export gates are separate from the dated Round Two APK and captures. Include tests/test_round_three.gd in isolated source validation. Preserve owner service/export configuration and untracked artwork.
+
+Round Five: read docs/ROUND_FIVE.md before combat-control edits. DASH and FIRE share 160x64 logical touch targets on the same row, with DASH directly left of FIRE. Preserve owner export/configuration and untracked art; these are not part of this layout-only commit. Keep the existing service integration and all save/controls contracts.

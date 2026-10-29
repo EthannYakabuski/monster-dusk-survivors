@@ -406,9 +406,9 @@ func _build_arena_ui() -> void:
 	fire_button.tooltip_text = "Hold to fire toward the nearest monster (J)."
 	fire_button.button_down.connect(func() -> void: _press_fire(-2))
 	reload_button = _button("RELOAD", Rect2(239, 899, 132, 47), _reload)
-	dash_button = _button("DASH", Rect2(384, 899, 131, 47), _dash, true)
+	dash_button = _button("DASH", Rect2(183, 824, 160, 64), _dash, true)
 	move_label = _label("DRAG TO MOVE", Vector2(27, 907), 15, Color("adbfba"), 205)
-	fire_hint = _label("HOLD GUN / J", Vector2(215, 839), 14, Color("adbfba"), 135)
+	fire_hint = _label("HOLD GUN / J", Vector2(380, 899), 14, Color("adbfba"), 135)
 	_layout_arena_controls()
 	_refresh_hud()
 
@@ -427,11 +427,11 @@ func _layout_arena_controls() -> void:
 	var height := _arena_view_height()
 	fire_button.position.y = height - 136.0
 	reload_button.position.y = height - 61.0
-	dash_button.position.y = height - 61.0
+	dash_button.position.y = height - 136.0
 	ammo_label.position.y = height - 170.0
 	ammo_label.size.y = 26.0
 	move_label.position.y = height - 53.0
-	fire_hint.position.y = height - 121.0
+	fire_hint.position.y = height - 61.0
 
 func _refresh_hud() -> void:
 	if not is_instance_valid(hud_wave): return
