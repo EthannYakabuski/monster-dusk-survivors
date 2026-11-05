@@ -1,5 +1,14 @@
 # Monster Dusk: Apocalypse
 
+## Web hosting (2026-11-05)
+
+The validated main-branch Web build is configured for **https://ethannyakabuski.github.io/monster-dusk-survivors/**.
+See [deployment, controls and iframe guidance](docs/WEB_PAGES.md). The containing
+commit's Actions deployment and live `build-info.json` establish which revision
+is served; this configuration alone does not claim browser interaction or native
+acceptance. The owner's website is unchanged.
+
+
 ## Round Five control update
 
 DASH now sits immediately left of FIRE with a matching 160×64 logical touch target and a 12-unit gap. RELOAD remains below; its hit area and the fire hint stay separate. [Acceptance scope](docs/ROUND_FIVE.md) distinguishes source/viewport tests from fresh Android touch and device verification. Owner Play Games/export configuration and existing saves are preserved.
@@ -71,7 +80,7 @@ Marketing text, the preserved nine Round Two raw screenshots under `marketing/sc
 
 ## CI and Web
 
-Hosted GitHub Actions imports resources, runs game/service tests, exports Web and validates an Android debug AAB, and retains export artifacts. Pages deployment remains explicitly disabled. Build outputs, caches and signing keys are excluded from source. Confirm actual run results in HANDOFF.txt; workflow presence alone is not a passing CI claim.
+Hosted GitHub Actions imports resources, runs game/service tests, exports Web and validates an Android debug AAB, and retains export artifacts. Main-branch Pages deployment is configured after the existing validation/build gates; see [Web hosting and iframe guidance](docs/WEB_PAGES.md). Build outputs, caches and signing keys are excluded from source. Confirm actual run results in HANDOFF.txt; workflow presence alone is not a passing CI claim.
 
 ## Future extension
 
@@ -89,7 +98,7 @@ Android artifact.
 
 The public repository contains source, assets, notices and sanitized verification summaries. Original local QA APKs, raw SDK logs, real saves, signing material and private evidence stay outside tracked public content. Local restored build outputs remain ignored. Hosted export artifacts are separate binaries from the APK named in HANDOFF.txt and have not received that original native QA.
 
-Pages remains disabled; no live deployment, Library action or Google Play publication is part of this handoff. Keep the complete third-party notices with redistributed source and builds.
+The separately authorized Pages workflow publishes the validated Web export; see [Web hosting](docs/WEB_PAGES.md). Library actions and Google Play publication remain outside this handoff. Keep the complete third-party notices with redistributed source and builds.
 
 ## Previously accepted Round Two local verification
 

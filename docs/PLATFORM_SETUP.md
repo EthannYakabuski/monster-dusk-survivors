@@ -55,7 +55,7 @@ The Android preset intentionally uses `runnable=false`. CLI exports still work; 
 
 Enable `rendering/textures/vram_compression/import_etc2_astc=true` in project settings before importing assets for Android. Keep desktop texture import enabled for Web. Tests, test-only platform scripts, captures, marketing packages, helper scripts, logs and documentation are excluded from shipping resource packs. Copy the app icon to `platform/app-icon-512.png` and point the project icon setting there so excluding `marketing/` does not remove its runtime resource. Game catalogs and runtime art/audio remain included.
 
-Hosted Actions verifies pinned Godot download digests, builds and validates the native Android debug AAB, validates Web/editor service fallback behavior, discovers and runs `tests/test_*.gd`, `tests/*_test.gd`, and `tests/smoke.gd` (requiring at least one), exports Web, retains Android artifacts seven days, and leaves Pages deployment explicitly disabled. Test processes have bounded timeouts; logs containing script/parse/assertion errors fail even if Godot exits0. CI does not substitute for human playtesting or verify unpublished Google service IDs. Do not enable Pages or change deployment settings as part of an ordinary code or ID update.
+Hosted Actions verifies pinned Godot download digests, builds and validates the native Android debug AAB, validates Web/editor service fallback behavior, discovers and runs `tests/test_*.gd`, `tests/*_test.gd`, and `tests/smoke.gd` (requiring at least one), exports Web, retains Android artifacts seven days, and deploys the validated main-branch Web artifact through the separately authorized Pages workflow (see `WEB_PAGES.md`). Test processes have bounded timeouts; logs containing script/parse/assertion errors fail even if Godot exits0. CI does not substitute for human playtesting or verify unpublished Google service IDs. Changes to Pages publishing must follow `WEB_PAGES.md` and the current explicit deployment scope; ordinary ID updates do not authorize wider settings changes.
 
 ## Vendored dependencies and notices
 
@@ -98,3 +98,9 @@ Later documentation commits require their own CI result; this dated result does 
 ## Current local artifact scope
 
 Use a new unused output directory for each later export; create the example directories above first. Preserve the original APK/Web and accepted `build/round-two-97c75e32-a1/` outputs. HANDOFF selects the exact current D2FC APK/Web and two new ZIPs. Current scoped native observations and limitations are in NATIVE_QA and LOCAL_TEST_RESULTS; original reports remain under history/first-pass. Captured game-error scanning is bounded retained-log evidence, not exhaustive SDK lifetime acceptance. Public Round Two pushes remain held; no new hosted CI or deployment is implied.
+
+## Web deployment
+
+See [GitHub Pages and iframe guidance](WEB_PAGES.md) for this repository's
+main-branch Web publishing. Native services and real Android/device/backend
+acceptance remain separate; Web never simulates a successful native ad.
