@@ -8,6 +8,10 @@
 
 config_version=5
 
+[admob]
+
+general/android/app_id="ca-app-pub-7719473349082950~5381512044"
+
 [application]
 
 config/name="Monster Dusk: Apocalypse"

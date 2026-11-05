@@ -61,7 +61,7 @@ Manual firing, the persistent magazine upgrade and enemy/weapon rebalance have a
 
 ## Integration and handoff
 
-AdMob uses Google's official test IDs. Menus support a banner, every two completed rounds create an interstitial opportunity, and rewarded benefits require the earned-reward callback. Unavailable ads or consent leave normal play usable. Google Play Games uses symbolic achievement/leaderboard maps with empty production IDs and is disabled until the owner configures them. See platform/config.json and docs/PLATFORM_SETUP.md.
+AdMob stores the owner's production App/unit IDs. Debug/editor builds always select Google sample units; release builds select production units when `admob.test_mode=false` (set it true to test a release build safely). See `docs/PLATFORM_SETUP.md`. Menus support a banner, every two completed rounds create an interstitial opportunity, and rewarded benefits require the earned-reward callback. Unavailable ads or consent leave normal play usable. Google Play Games uses symbolic achievement/leaderboard maps with empty production IDs and is disabled until the owner configures them. See platform/config.json and docs/PLATFORM_SETUP.md.
 
 Round Two replaces app/feature art, all 27 achievement icons and all five leaderboard
 icons with distinct generated illustrations. Original hashes, exact per-badge prompts and

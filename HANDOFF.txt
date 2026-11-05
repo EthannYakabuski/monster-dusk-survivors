@@ -1,3 +1,11 @@
+MONSTER DUSK: APOCALYPSE - ADMOB PRODUCTION CONFIGURATION
+Updated 2026-11-05. Owner-supplied production App ID is set in project.godot's admob/general/android/app_id and the JSON reference. All three production units are in platform/config.json; test_mode=false enables them for release builds. Debug/editor builds always substitute Google's sample units; test_mode=true also forces samples in release builds. Consent gates, earned-only callbacks, Play Games configuration, gameplay and genuine saves remain unchanged.
+
+This is a source configuration/update, not a new accepted binary. See docs/PLATFORM_SETUP.md and tests/test_admob_config.gd. Actual Android manifest, UMP consent, live fill/reporting and earned-callback acceptance have not been exercised by this change. Existing artifact identities/QA retain their original provenance. No live-ad request/click, production signing, store submission or public push is included.
+
+Local isolated Godot4.5.1 verification PASS: import, 34 AdMob configuration/routing checks, service smoke, 21 fullscreen-revive checks, 125 model checks and 35 UI checks; strict diagnostics clean. No actual Android export, native SDK/live-ad request, audible output or production acceptance is claimed.
+
+PRESERVED PRE-ADMOB-CONFIGURATION HANDOFF
 ROUND FIVE LOCAL SOURCE CHECKS: PASS (2026-10-29)
 Godot4.5.1 import and strict diagnostics pass. RoundThree269, UI35, RoundFour111, Models125 and fullscreen lifecycle21 checks pass, plus service smoke. These include actual Window profile/control geometry and synthetic input routing; native Android/device, audible and production-service acceptance remain pending. Hosted tests/Android-Web exports must match the containing commit.
 
