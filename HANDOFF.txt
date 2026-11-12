@@ -1,3 +1,14 @@
+PLAY GAMES PRODUCTION ID INTEGRATION - 2026-11-12
+All 27 achievement and five leaderboard IDs supplied by the owner are enabled for game ID 844390891698; export metadata matches. Owner version 1.2.0/code 2 and feature-graphic-1024x500.jpeg are included. Longest Night is configured as Duration in Play Console: integer local/pending seconds convert to milliseconds only at native submission. Existing profile achievements and all five metrics reconcile on startup, recovered runs and profile changes, including daily quest level gains. Coalesced dispatch, successful/in-flight suppression, failed-upload retry and validated pending-file backup recovery preserve offline progress. Actual service notices reach the game UI.
+
+AdMob verification: manifest ProjectSettings App ID and JSON reference are ca-app-pub-7719473349082950~5381512044. Release configuration has test_mode=false and the owner banner/interstitial/rewarded units ending 2755348701 / 4068430375 / 3645371508. Debug/editor requests still select Google sample units. No live ad was requested or clicked.
+
+Final isolated Godot 4.5.1 source validation PASS: 842 assertions across Play Games211, AdMob34, fullscreen21, models125, RoundThree269, RoundFour111, RoundTwo36 and UI35, plus service smoke. Strict script/parse/assertion/engine-error gates passed. Fresh import and Web export passed. Local Android debug export timed out after 900 seconds; no new Android bundle is accepted by this local run. The containing commit's hosted Actions Android/Web result must be checked separately; older native QA does not apply to these sources. Tests use fake clients and do not submit scores or authenticate with Google.
+
+Native acceptance remains separate: verify intended signing/package/OAuth/testers, standard achievements, larger-is-better boards, Duration display, sign-in cancellation, natural unlocks, offline/reconnect, suspend/resume, UMP and sample-ad callbacks on Android. See docs/PLATFORM_SETUP.md. Requests without any native completion callback remain in flight until a new authenticated session or restart. No production signing, Play submission or genuine-save changes are included. Existing authorized main-branch Web deployment remains unchanged.
+
+PRESERVED EARLIER HANDOFF - DATED RESULTS RETAIN THEIR ORIGINAL SCOPE
+
 GITHUB PAGES WEB HOSTING - 2026-11-05
 Stable project URL: https://ethannyakabuski.github.io/monster-dusk-survivors/
 The requested workflow now configures public main-branch Web deployment only after the existing strict source/service/game, Web and Android build gates pass. build-info.json identifies the deployed commit. See docs/WEB_PAGES.md for publishing, controls, iframe and browser-storage limitations. The owner's website, gameplay, native service IDs, debug ad routing, genuine saves and unrelated export/artwork edits remain unchanged.

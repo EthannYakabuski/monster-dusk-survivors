@@ -69,6 +69,8 @@ var smoke_frames := 0
 func _ready() -> void:
 	font = ThemeDB.fallback_font
 	services = get_node_or_null("/root/Services")
+	if is_instance_valid(services) and services.has_signal("service_notice"):
+		services.connect("service_notice", _toast)
 	if is_instance_valid(services) and services.has_signal("menu_bottom_reserve_changed"):
 		services.connect("menu_bottom_reserve_changed", _apply_banner_layout)
 	get_viewport().size_changed.connect(_apply_banner_layout)
@@ -550,7 +552,6 @@ func _bank_run() -> void:
 	profile.roll_day(_today())
 	run_receipt = profile.record_run(simulation.result())
 	_check_achievements()
-	_submit_scores()
 	_save_profile(false)
 	if bool(run_receipt.get("recorded", false)):
 		_toast("+%d coins  +%d XP" % [int(run_receipt.coins), int(run_receipt.xp)])
@@ -626,8 +627,9 @@ func _show_records() -> void:
 			if is_instance_valid(services): services.open_leaderboards(key)
 			_toast("Online boards need Play Games; your record stays local."))
 	_card(column, "Connect Play Games", "Optional online leaderboards and achievements. Your game remains playable without sign-in.", "Connect", func() -> void:
-		if is_instance_valid(services): services.sign_in()
-		_toast("Online services may be unavailable in this build."))
+		if is_instance_valid(services):
+			services.sign_in()
+			_toast(services.status()))
 
 func _show_settings() -> void:
 	screen = "settings"
@@ -653,8 +655,13 @@ func _set_menu(visible: bool) -> void:
 	_apply_banner_layout()
 
 func _check_achievements() -> void:
-	for key in profile.check_achievements(catalog):
-		if is_instance_valid(services): services.unlock(str(key))
+	profile.check_achievements(catalog)
+	# Rebuild service history from the gameplay save, including restored saves
+	# without a pending queue and interrupted runs recovered during startup.
+	for entry in catalog.achievements:
+		if bool(profile.achieved.get(entry.key, false)) and is_instance_valid(services):
+			services.unlock(str(entry.key))
+	_submit_scores()
 
 func _submit_scores() -> void:
 	if not is_instance_valid(services): return

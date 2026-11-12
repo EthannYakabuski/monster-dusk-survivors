@@ -16,7 +16,7 @@ This project targets Godot **4.5.1 Compatibility**, Android (API36 target, min24
 - Interstitials: every second naturally completed round, when an ad is loaded; no added fixed-time throttle. Failed/unavailable ads do not prevent play.
 - Rewarded: opt-in, available only after a real native rewarded ad loads; benefits granted only on the earned-reward callback, once per request. Dismissal/failure grants nothing.
 - Consent: refresh UMP consent at Android launch, show a required form, and initialize advertising only after `OBTAINED` or `NOT_REQUIRED`. A privacy-options action is exposed. Without configured/available consent information, requests pause and gameplay continues. Google's sample AdMob app does not prove the publisher's eventual privacy-message configuration; this requires human final configuration/testing.
-- Play Games: disabled until real app configuration is provided. Local unlocks and best scores are retained in `user://platform_pending_v1.json` and resubmitted idempotently after sign-in. Only the configured symbolic keys map to remote IDs.
+- Play Games: enabled for game ID `844390891698`, with 27 achievement and five leaderboard mappings. Local unlocks and best scores are retained in `user://platform_pending_v1.json` with backup recovery and reconciled from the gameplay save after loading and profile changes. Native uploads are coalesced; successful unchanged values are not repeatedly uploaded in the same authenticated session. Failed values remain queued for the next progress sync, board open, resume or sign-in. Only configured symbolic keys map to remote IDs.
 
 ### Menu geometry
 
@@ -33,7 +33,7 @@ Coordinate references: https://docs.godotengine.org/en/4.5/classes/class_canvasi
 Android debug builds log `NATIVE_AD_EVENT` only from actual SDK presentation, dismissal, failure, and accepted earned-reward callbacks. `rewarded_earned` is logged after the game's successful callback and only once, with its event context. Request attempts are not presentation proof. Editor/Web unit callback exercises never emit these native diagnostics; no analytics or network calls were added.
 
 1. The owner's production App ID is configured in both `project.godot` (`admob/general/android/app_id`) and JSON `admob.app_id`; JSON alone does not set the Android manifest. The supplied production banner/interstitial/rewarded units are in `platform/config.json`, with `test_mode=false`. Debug/editor builds always substitute Google sample units. A release build uses production units only with `test_mode=false`; set `test_mode=true` to select samples in a release build too. Missing `test_mode` defaults to samples. The manifest App ID stays the owner's in both build types; the sample unit IDs provide the development request protection. See `platform/services.gd` and `addons/admob/internal/exporters/android/export_plugin.gd`.
-2. In `platform/config.json`, fill `play_games.game_id`, set `enabled` to true, and map every game/catalog achievement and leaderboard key to its console ID. Set the same numeric game ID in `export_presets.cfg` (`godot_play_game_services/game_id`). The export's value `0` is a deliberate inactive placeholder, not a working Google project.
+2. The owner supplied game ID `844390891698` and all 27 achievement/five leaderboard IDs in `platform/config.json`; Play Games is enabled and the Android preset has the matching game ID. Keep these mappings synchronized with the console. Achievements use standard unlocks, and all five leaderboards must be larger-is-better. Longest Night was confirmed as **Duration**: the adapter submits milliseconds while local gameplay and pending saves retain seconds. The other four boards submit integer counts. See [Google's score-format contract](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient.html).
 3. Configure package name, OAuth clients/signing fingerprints, authorized testers, Play Games resources, AdMob app/privacy messages, audience and production ad IDs in the owner's consoles. Supply signing material outside source control. Confirm applicable consent/audience settings before production.
 4. Test real sign-in cancellation/failure, score/achievement submission, consent/privacy options, all test-ad formats, save persistence, offline behavior, and suspend/resume on the intended devices. Human production-ID/backend testing is distinct from passing local/CI tests.
 5. Google Play publication remains the owner's responsibility. No workflow submits to Google Play or uses production signing keys.
@@ -75,15 +75,17 @@ Achievement keys: `first_light`, `trail_keeper`, `dusk_defender`, `night_legend`
 
 Leaderboard keys: `best_wave`, `best_seconds`, `kills`, `player_level`, `seen`.
 
-`play_games.enabled` is currently false and all production mappings are empty. Supply `play_games.game_id`, achievement and leaderboard IDs in JSON and the matching `godot_play_game_services/game_id` in the Android section of `export_presets.cfg`. The current `0` preset value is inactive. Configure matching package, OAuth/signing fingerprints and authorized testers in the owner consoles before enabling Play Games.
+`play_games.enabled` is true and all production mappings are populated. The JSON game ID and Android `godot_play_game_services/game_id` are both `844390891698`. The owner's version name `1.2.0` and version code `2` are retained. Matching package, OAuth/signing fingerprints, authorized testers and published service resources still require console/device verification; IDs and passing source tests cannot establish backend acceptance.
 
-For AdMob, enter production `banner_unit_id`, `interstitial_unit_id` and `rewarded_unit_id` in `platform/config.json`. Release builds with `test_mode=false` request these units; debug/editor builds always request Google sample units, and `test_mode=true` forces samples in release builds too. Unsupported or missing production units request nothing. Set the manifest App ID in `admob/general/android/app_id` (the `[admob]` section of `project.godot`) and keep JSON `admob.app_id` consistent. No runtime code reads JSON `app_id` to set the manifest. Run `tests/test_admob_config.gd` with isolated user data to check routing and App-ID setting consistency; this fixture makes no SDK requests. Actual exported Android manifest, UMP consent, production fill/reporting and earned-callback acceptance require separate Android build/device checks. Never click live ads for testing.
+For AdMob, the owner's production `banner_unit_id`, `interstitial_unit_id` and `rewarded_unit_id` are configured in `platform/config.json`. Release builds with `test_mode=false` request these units; debug/editor builds always request Google sample units, and `test_mode=true` forces samples in release builds too. Unsupported or missing production units request nothing. Set the manifest App ID in `admob/general/android/app_id` (the `[admob]` section of `project.godot`) and keep JSON `admob.app_id` consistent. No runtime code reads JSON `app_id` to set the manifest. Run `tests/test_admob_config.gd` with isolated user data to check routing and App-ID setting consistency; this fixture makes no SDK requests. Actual exported Android manifest, UMP consent, production fill/reporting and earned-callback acceptance require separate Android build/device checks. Never click live ads for testing.
 
 Run test scripts and capture fixtures with process-scoped temporary user data: isolate both `APPDATA` and `LOCALAPPDATA` on Windows, or `XDG_DATA_HOME` on Linux. Do not modify global environment settings or run fixtures against genuine player saves. The service adapter also writes pending progress, so a test-only gameplay filename alone does not isolate the entire process.
 
 Actual game test entrypoints:
 
 ```sh
+godot --headless --path . --script tests/test_play_games.gd
+godot --headless --path . --script tests/test_admob_config.gd
 godot --headless --path . --script tests/test_fullscreen_revive.gd
 godot --headless --path . --script tests/test_models.gd
 godot --headless --path . --script tests/test_ui.gd
@@ -104,3 +106,17 @@ Use a new unused output directory for each later export; create the example dire
 See [GitHub Pages and iframe guidance](WEB_PAGES.md) for this repository's
 main-branch Web publishing. Native services and real Android/device/backend
 acceptance remain separate; Web never simulates a successful native ad.
+
+## Service-ID acceptance plan (2026-11-12)
+
+The isolated Play Games fixture covers configured mappings, duration conversion,
+profile reconciliation, safe offline storage and fake-client dispatch/callbacks.
+It does not authenticate an account or submit fabricated scores to Google.
+Before a production release, use an authorized tester and the intended signed
+Android build to verify successful and cancelled sign-in, each real board and a
+naturally earned achievement, Duration display, offline progress/reconnect,
+suspend/resume and save retention. Confirm the signing certificate/package and
+service publication/tester status in Play Console. Use sample ads for automated
+or development QA; check UMP/privacy options, all three ad formats and earned-only
+rewards on device. Production fill/reporting remains a separate owner check.
+No store upload, production signing or live-ad interaction is part of this update.

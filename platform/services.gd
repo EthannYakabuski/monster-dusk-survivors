@@ -25,6 +25,11 @@ var _achievements_client: PlayGamesAchievementsClient
 var _leaderboards_client: PlayGamesLeaderboardsClient
 var _pending_unlocks: Dictionary = {}
 var _pending_scores: Dictionary = {}
+var _uploaded_unlocks: Dictionary = {}
+var _uploaded_scores: Dictionary = {}
+var _uploading_unlocks: Dictionary = {}
+var _uploading_scores: Dictionary = {}
+var _flush_scheduled := false
 var _notice := "Offline progress is available."
 var _menu_metric_elapsed := 0.0
 var _menu_metric_key := ""
@@ -39,7 +44,9 @@ const TEST_AD_UNIT_IDS := {
 	"rewarded": "ca-app-pub-3940256099942544/5224354917",
 }
 
+const PendingStore = preload("res://game/save_store.gd")
 const PENDING_PATH := "user://platform_pending_v1.json"
+const PENDING_BACKUP_PATH := "user://platform_pending_v1.backup.json"
 
 func _ready() -> void:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://platform/config.json"))
@@ -69,6 +76,8 @@ func _process(delta: float) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_RESUMED and OS.get_name() == "Android":
 		_refresh_menu_metrics.call_deferred()
+		if _pgs_ready:
+			_sign_in_client.is_authenticated()
 
 ## Bottom margin in reference-local units. Use the unscaled owner/root when
 ## fitting a child stage, to avoid feeding a stage's changed scale back into itself.
@@ -376,50 +385,106 @@ func _start_play_games() -> void:
 	add_child(_leaderboards_client)
 	_pgs_ready = true
 	_sign_in_client.user_authenticated.connect(_authentication_changed)
+	_achievements_client.achievement_unlocked.connect(_achievement_uploaded)
+	_leaderboards_client.score_submitted.connect(_score_uploaded)
 	_sign_in_client.is_authenticated()
 
 func sign_in() -> void:
 	if _pgs_ready:
+		_set_notice("Connecting to Google Play Games...")
 		_sign_in_client.sign_in()
 	else:
 		_set_notice("Play Games requires your app ID, credentials and tester configuration. Local progress is saved.")
 
 func _authentication_changed(authenticated: bool) -> void:
+	if not authenticated or not _signed_in:
+		# Reconcile the durable history for each new authenticated session.
+		_uploaded_unlocks.clear()
+		_uploaded_scores.clear()
+		_uploading_unlocks.clear()
+		_uploading_scores.clear()
 	_signed_in = authenticated
 	if authenticated:
-		_flush_pending()
+		_queue_flush()
 		_set_notice("Signed in to Google Play Games.")
 	else:
 		_set_notice("Play Games sign-in was unavailable or cancelled; local progress is safe.")
 
+func _known_progress_key(group: String, key: String) -> bool:
+	return settings.get("play_games", {}).get(group, {}).has(key)
+
 func unlock(key: String) -> void:
-	_pending_unlocks[key] = true
-	_save_pending()
-	_flush_pending()
+	if not _known_progress_key("achievements", key):
+		return
+	if not _pending_unlocks.has(key):
+		_pending_unlocks[key] = true
+		_save_pending()
+	_queue_flush()
 
 func submit(key: String, value: int) -> void:
-	_pending_scores[key] = maxi(value, int(_pending_scores.get(key, value)))
-	_save_pending()
-	_flush_pending()
+	if not _known_progress_key("leaderboards", key) or value < 0:
+		return
+	if not _pending_scores.has(key) or value > int(_pending_scores[key]):
+		_pending_scores[key] = value
+		_save_pending()
+	_queue_flush()
+
+func _queue_flush() -> void:
+	# Coalesce all profile changes in a frame into one native dispatch.
+	if not _flush_scheduled:
+		_flush_scheduled = true
+		_flush_pending.call_deferred()
 
 func _flush_pending() -> void:
+	_flush_scheduled = false
 	if not _pgs_ready or not _signed_in:
 		return
 	var pgs: Dictionary = settings.get("play_games", {})
 	var achievements: Dictionary = pgs.get("achievements", {})
 	var leaderboards: Dictionary = pgs.get("leaderboards", {})
 	for key in _pending_unlocks:
-		var remote_id := str(achievements.get(key, ""))
-		if not remote_id.is_empty():
+		var remote_id := str(achievements.get(key, "")).strip_edges()
+		if not remote_id.is_empty() and not _uploaded_unlocks.has(remote_id) and not _uploading_unlocks.has(remote_id):
+			_uploading_unlocks[remote_id] = true
 			_achievements_client.unlock_achievement(remote_id)
 	for key in _pending_scores:
-		var remote_id := str(leaderboards.get(key, ""))
-		if not remote_id.is_empty():
-			_leaderboards_client.submit_score(remote_id, int(_pending_scores[key]))
-	# Retain best scores and unlocks locally; resubmission is idempotent and survives failed uploads.
+		var remote_id := str(leaderboards.get(key, "")).strip_edges()
+		var value := int(_pending_scores[key])
+		if not remote_id.is_empty() and value > int(_uploaded_scores.get(remote_id, -1)) and not _uploading_scores.has(remote_id):
+			_uploading_scores[remote_id] = {"key": key, "value": value}
+			_leaderboards_client.submit_score(remote_id, _remote_score_value(str(key), value))
+	# Durable history is retained. Only successful callbacks suppress resubmission
+	# in this session; failed uploads retry at the next sync, resume or sign-in.
+
+static func _remote_score_value(key: String, value: int) -> int:
+	# Longest Night is a Play Console Duration board. Its native API expects
+	# milliseconds; gameplay and existing pending saves remain integer seconds.
+	return value * 1000 if key == "best_seconds" else value
+
+func _achievement_uploaded(success: bool, remote_id: String) -> void:
+	if not _signed_in or not _uploading_unlocks.has(remote_id):
+		return
+	_uploading_unlocks.erase(remote_id)
+	if success:
+		_uploaded_unlocks[remote_id] = true
+	else:
+		_set_notice("Achievement upload unavailable; your progress is saved for retry.")
+
+func _score_uploaded(success: bool, remote_id: String) -> void:
+	if not _signed_in or not _uploading_scores.has(remote_id):
+		return
+	var uploaded: Dictionary = _uploading_scores[remote_id]
+	_uploading_scores.erase(remote_id)
+	if success:
+		_uploaded_scores[remote_id] = maxi(int(uploaded.value), int(_uploaded_scores.get(remote_id, -1)))
+		if int(_pending_scores.get(uploaded.key, 0)) > int(uploaded.value):
+			_queue_flush()
+	else:
+		_set_notice("Score upload unavailable; your record is saved for retry.")
 
 func open_achievements() -> void:
 	if _pgs_ready and _signed_in:
+		_queue_flush()
 		_achievements_client.show_achievements()
 	else:
 		_set_notice("Local achievements remain available; online achievements need Play Games sign-in.")
@@ -428,6 +493,7 @@ func open_leaderboards(key: String = "") -> void:
 	if not _pgs_ready or not _signed_in:
 		_set_notice("Local records remain available; online leaderboards need Play Games sign-in.")
 		return
+	_queue_flush()
 	var remote_id := str(settings.get("play_games", {}).get("leaderboards", {}).get(key, ""))
 	if remote_id.is_empty():
 		_leaderboards_client.show_all_leaderboards()
@@ -435,17 +501,25 @@ func open_leaderboards(key: String = "") -> void:
 		_leaderboards_client.show_leaderboard(remote_id)
 
 func _load_pending() -> void:
-	if not FileAccess.file_exists(PENDING_PATH):
+	for path in [PENDING_PATH, PENDING_BACKUP_PATH]:
+		if not FileAccess.file_exists(path):
+			continue
+		var parsed: Variant = PendingStore.decode(FileAccess.get_file_as_string(path))
+		if not parsed is Dictionary or not parsed.get("unlocks", {}) is Dictionary or not parsed.get("scores", {}) is Dictionary:
+			continue
+		for key in parsed.get("unlocks", {}):
+			if key is String and _known_progress_key("achievements", key) and parsed.unlocks[key] is bool and parsed.unlocks[key]:
+				_pending_unlocks[key] = true
+		for key in parsed.get("scores", {}):
+			var value: Variant = parsed.scores[key]
+			if key is String and _known_progress_key("leaderboards", key) and (value is int or value is float):
+				if is_finite(float(value)) and float(value) >= 0.0 and float(value) <= 9007199254740991.0:
+					_pending_scores[key] = maxi(int(value), int(_pending_scores.get(key, 0)))
 		return
-	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(PENDING_PATH))
-	if parsed is Dictionary:
-		_pending_unlocks = parsed.get("unlocks", {})
-		_pending_scores = parsed.get("scores", {})
 
 func _save_pending() -> void:
-	var file := FileAccess.open(PENDING_PATH, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify({"unlocks": _pending_unlocks, "scores": _pending_scores}))
+	if not PendingStore.write(PENDING_PATH, PENDING_BACKUP_PATH, {"schema": 1, "unlocks": _pending_unlocks, "scores": _pending_scores}):
+		_set_notice("Online progress could not be queued on disk. Local gameplay remains available.")
 
 func _exit_tree() -> void:
 	if is_instance_valid(_banner):
